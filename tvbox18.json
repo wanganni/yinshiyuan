@@ -1,10 +1,10 @@
 {
   "sites": [
-
-{"key":"*91麻豆","name":"*91麻豆","type":1,"api":"https://91md.me/api.php/provide/vod/","searchable":0,"quickSearch":0},
+{"key":"*麻豆射区","name":"*麻豆射区","type":1,"api":"http://madou.fit/api.php/provide/vod/","searchable":0,"quickSearch":0},
+{"key":"*91麻豆x","name":"*91麻豆","type":1,"api":"https://91md.me/api.php/provide/vod/","searchable":0,"quickSearch":0},
 {"key":"*91麻豆2","name":"*91麻豆2","type":1,"api":"http://www.9191md.me/api.php/provide/vod/","searchable":0,"quickSearch":0},
-{"key":"*91麻豆3","name":"*91麻豆3","type":1,"api":"http://www.36717.info/api.php/provide/vod/","searchable":0,"quickSearch":0},
-{"key":"*91麻豆4","name":"*91麻豆4","type":1,"api":"http://www.36717.pw/api.php/provide/vod/","searchable":0,"quickSearch":0},
+{"key":"*91麻豆3x","name":"*91麻豆3","type":1,"api":"http://www.36717.info/api.php/provide/vod/","searchable":0,"quickSearch":0},
+{"key":"*91麻豆4x","name":"*91麻豆4","type":1,"api":"http://www.36717.pw/api.php/provide/vod/","searchable":0,"quickSearch":0},
 {"key":"*91麻豆5","name":"*91麻豆5","type":1,"api":"http://www.bt4.cc/api.php/provide/vod/","searchable":0,"quickSearch":0},
 {"api":"csp_Hsck","ext":"https://www.javsee.men/","filterable":0,"key":"csp_Hsck","name":"黄色仓库(爬虫)","quickSearch":1,"searchable":1,"type":3,"jar":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/xxx.jar"},
 {"key":"*黄色资源🔞","name":"*黄色资源🔞","type":1,"api":"http://hszy.vip/api.php/provide/vod","searchable":0,"quickSearch":0},
