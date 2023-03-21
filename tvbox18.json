@@ -2,6 +2,7 @@
   "sites": [
 
 {"key":"*91麻豆","name":"*91麻豆","type":1,"api":"https://91md.me/api.php/provide/vod/","searchable":0,"quickSearch":0},
+{"api":"csp_Hsck","ext":"https://www.javsee.men/","filterable":0,"key":"csp_Hsck","name":"黄色仓库(爬虫)","quickSearch":1,"searchable":1,"type":3,"jar":"https://ghproxy.com/https://raw.githubusercontent.com/xiaomi128/opp/main/xxx.jar"},
 {"key":"*黄色资源🔞","name":"*黄色资源🔞","type":1,"api":"http://hszy.vip/api.php/provide/vod","searchable":0,"quickSearch":0},
 {"key":"*老司机资源🔞","name":"*老司机资源🔞","type":1,"api":"https://www.lsjapi.com/home/cjapi/asd2g8/mc10/vod/json","searchable":0,"quickSearch":0},
 {"key":"*玉兔资源🔞","name":"*玉兔资源🔞","type":1,"api":"https://apiyutu.com/api.php/provide/vod/","searchable":0,"quickSearch":0},
