@@ -48,7 +48,7 @@
 "bfjiequshuzuhou": "</ul>", //播放截取的列表数组的后关键词
 "bflianjieqian": "href=\"", //播放剧集链接前关键词
 "bflianjiehou": "\"",
-"bfbiaotiqian": "\">", //播放剧集标题前关键词
+"bfbiaotiqian": "html\">", //播放剧集标题前关键词
 "bfbiaotihou": "</a>" ,//状播放剧集标题后关键词
 
 "zhuangtaiqian": "时间：</span>", //状态前关键词
