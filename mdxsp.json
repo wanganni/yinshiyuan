@@ -7,7 +7,7 @@
 "fenlei":"原创$/mdtype/yuanchuang-#无码$/mdtype/wuma-#有码$/mdtype/youma-#中字$/mdtype/zhongwenzimu-#中字$/mdtype/guochan-", //网站列表的分类
 "houzhui":".html", //网站翻页链接的后缀
 
-"shifouercijiequ":"1", //截取的列表数组是否需要二次截取，0不需要，1需要
+"shifouercijiequ":"0", //截取的列表数组是否需要二次截取，0不需要，1需要
 "jiequqian":"空", //不需要二次截取就填空
 "jiequhou":"空", //不需要二次截取就填空
 "jiequshuzuqian":"class=\"stui-vodlist__item", //截取的列表数组的前关键词,截取的关键词有 " 的用 \ 进行转义
