@@ -44,15 +44,15 @@
 "bfshifouercijiequ": "0",
 "bfjiequqian": "空",
 "bfjiequhou": "空",
-"bfjiequshuzuqian": "hl-plays-list hl-sort-list clearfix", //播放截取的列表数组的前关键词
+"bfjiequshuzuqian": "hl-col-xs-4 hl-col-sm-2", //播放截取的列表数组的前关键词
 "bfjiequshuzuhou": "</ul>", //播放截取的列表数组的后关键词
 "bflianjieqian": "href=\"", //播放剧集链接前关键词
 "bflianjiehou": "\"",
-"bfbiaotiqian": ">", //播放剧集标题前关键词
-"bfbiaotihou": "</a" ,//状播放剧集标题后关键词
+"bfbiaotiqian": "html\">", //播放剧集标题前关键词
+"bfbiaotihou": "</a></li>" ,//状播放剧集标题后关键词
 
-"zhuangtaiqian": "更新：</span>", //状态前关键词
-"zhuangtaihou": "</p>", //状态后关键词
+"zhuangtaiqian": "更新：</em>", //状态前关键词
+"zhuangtaihou": "</li>", //状态后关键词
 "daoyanqian": "导演：</span>", //导演前关键词
 "daoyanhou": "</p>", //导演态后关键词
 "zhuyanqian": "主演：</span>", //主演前关键词
