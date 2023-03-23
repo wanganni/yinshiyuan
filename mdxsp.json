@@ -10,8 +10,8 @@
 "shifouercijiequ":"0", //截取的列表数组是否需要二次截取，0不需要，1需要
 "jiequqian":"空", //不需要二次截取就填空
 "jiequhou":"空", //不需要二次截取就填空
-"jiequshuzuqian":"class=\"stui-vodlist", //截取的列表数组的前关键词,截取的关键词有 " 的用 \ 进行转义
-"jiequshuzuhou":"</ul>", //截取的列表数组的后关键词,截取的关键词有 " 的用 \ 进行转义
+"jiequshuzuqian":"class=\"stui-vodlist__item", //截取的列表数组的前关键词,截取的关键词有 " 的用 \ 进行转义
+"jiequshuzuhou":"</li>", //截取的列表数组的后关键词,截取的关键词有 " 的用 \ 进行转义
 "tupianqian":"src=\"", //列表中资源的图片前关键词,截取的关键词有 " 的用 \ 进行转义
 "tupianhou":"\"", //列表中资源的图片后关键词,截取的关键词有 " 的用 \ 进行转义
 "biaotiqian":"title=\"", //列表中资源的标题前关键词,截取的关键词有 " 的用 \ 进行转义
