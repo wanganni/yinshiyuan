@@ -46,10 +46,9 @@
 "bfjiequhou": "空",
 "bfjiequshuzuqian": "class=\"stui-content__playlist", //播放截取的列表数组的前关键词
 "bfjiequshuzuhou": "</ul>", //播放截取的列表数组的后关键词
-"bflianjieqian": "href=\"", //播放剧集链接前关键词
-"bflianjiehou": "\"",
-"bfbiaotiqian": "html\">", //播放剧集标题前关键词
-"bfbiaotihou": "</a>" ,//状播放剧集标题后关键词
+
+
+
 
 "zhuangtaiqian": "时间：</span>", //状态前关键词
 "zhuangtaihou": "</p>", //状态后关键词
@@ -58,12 +57,20 @@
 "zhuyanqian": "主演：</span>", //主演前关键词
 "zhuyanhou": "</p>", //主演后关键词
 "juqingqian": "简介：</span>", //剧情前关键词
-"juqinghou": "</div>"//剧情后关键词
+"juqinghou": "</div>",//剧情后关键词
 
 
 
 
-
+"bfyshifouercijiequ": "0",
+  "bfyjiequqian": "空",
+  "bfyjiequhou": "空",
+  "bfyjiequshuzuqian": "<a",//播放源截取数组前
+  "bfyjiequshuzuhou": "/a>",//播放源截取数组后
+  "bfbiaotiqian": "html\">",//播放剧集标题前关键词
+  "bfbiaotihou": "</a>",//状播放剧集标题后关键词
+  "bflianjieqian": "href=\"",//播放剧集链接前关键词
+  "bflianjiehou": "\""//播放集链接后
 
 
 
