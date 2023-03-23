@@ -2,6 +2,7 @@
 "wallpaper": "https://picsum.photos/1080/",
 "spider": "https://raw.githubusercontent.com/wanganni/yinshiyuan/main/XBiubiuLA4.jar",
   "sites": [
+  {"key":"csp_biubiu_mdxsp","name":"🥒mdxsp","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/mdxsp.json"},
  {"key":"csp_biubiu_麻豆村测试11","name":"🥒麻豆村测试11","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/md111.json"}, 
  {"key":"黄色仓库🔞","name":"黄色仓库🔞","type":1,"api":"http://ckj6.cc/api.php/provide/vod","searchable":1,"quickSearch":1},
 {"key":"*麻豆射区🔞","name":"*麻豆射区🔞","type":1,"api":"http://madou.fit/api.php/provide/vod/","searchable":1,"quickSearch":1},
