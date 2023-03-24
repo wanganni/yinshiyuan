@@ -12,9 +12,9 @@
   "fenlei": "电影$/show/Movie/page/#电视剧$/show/Tv/page/#综艺$/show/Variety/page/#动漫$/show/Cartoon/page/",
   "houzhui": ".html",
 
-  "shifouercijiequ": "0",
-  "jiequqian": "空",
-  "jiequhou": "空",
+  "shifouercijiequ": "1",
+  "jiequqian": "class=\"module-play-list-content",
+  "jiequhou": "<script>",
   "jiequshuzuqian": "<a",
   "jiequshuzuhou": "</a>",
   "tupianqian": "data-original=\"",
