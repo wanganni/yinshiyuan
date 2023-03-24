@@ -51,8 +51,8 @@
   "bfshifouercijiequ": "0",
   "bfjiequqian": "空",
   "bfjiequhou": "空",
-  "bfjiequshuzuqian": "class=\"hl-list-wrap",
-  "bfjiequshuzuhou": "</div>",
+  "bfjiequshuzuqian": "hl-plays-list hl-sort-list clearfix",
+  "bfjiequshuzuhou": "</ul>",
 
   "zhuangtaiqian": "更新：</em>",
   "zhuangtaihou": "</a>",
