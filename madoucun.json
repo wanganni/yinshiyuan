@@ -9,13 +9,13 @@
   "shouye": "1",
 
   //"fenlei": "电视剧$/show/2--------#电影$/show/1--------#综艺$/show/3--------#动漫$/show/4--------#动作片$/show/1---动作-----#喜剧片$/show/1---喜剧-----#爱情片$/show/1---爱情-----#科幻片$/show/1---科幻-----#奇幻片$/show/1---奇幻-----#恐怖片$/show/1---恐怖-----#剧情片$/show/1---剧情-----#战争片$/show/1---战争-----#冒险片$/show/1---冒险-----#国产剧$/show/2-中国大陆-------#台剧$/show/2-中国台湾-------#港剧$/show/2-中国香港-------#韩剧$/show/2-韩国-------#日剧$/show/2-日本-------#美剧$/show/2-美国-------#英剧$/show/2-英国-------",
-  "fenlei": "原创$/mdtype/yuanchuang-#无码$/mdtype/wuma-#有码$/mdtype/youma-#中字$/mdtype/zhongwenzimu-#中字$/mdtype/guochan-",
+  "fenlei": "麻豆传媒$/vodshow/6--------#皇家华人$/vodshow/7--------#玩偶姐姐$/vodshow/8--------#蜜桃传媒$/vodshow/9--------#星空传媒$/vodshow/10--------",
   "houzhui": "---.html",
 
   "shifouercijiequ": "0",
   "jiequqian": "空",
   "jiequhou": "空",
-  "jiequshuzuqian": "hl-list-item hl-col-xs-6 hl-col-sm-3 hl-col-md-20w hl-col-lg-3",
+  "jiequshuzuqian": "hl-col-lg-3\"",
   "jiequshuzuhou": "</li>",
   "tupianqian": "data-original=\"",
   "tupianhou": "\"",
