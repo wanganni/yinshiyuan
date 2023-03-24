@@ -44,8 +44,8 @@
 "bfshifouercijiequ": "0",
 "bfjiequqian": "空",
 "bfjiequhou": "空",
-"bfjiequshuzuqian": "class=\"stui-tabs", //播放截取的列表数组的前关键词
-"bfjiequshuzuhou": "</div>", //播放截取的列表数组的后关键词
+"bfjiequshuzuqian": "class=\"stui-content__playlist", //播放截取的列表数组的前关键词
+"bfjiequshuzuhou": "</url>", //播放截取的列表数组的后关键词
 
 
 
@@ -67,8 +67,8 @@
   "bfyjiequhou": "空",
   "bfyjiequshuzuqian": "<a",//播放源截取数组前
   "bfyjiequshuzuhou": "/a>",//播放源截取数组后
-  "bfbiaotiqian": "<li>",//播放剧集标题前关键词
-  "bfbiaotihou": "</li>",//状播放剧集标题后关键词
+  "bfbiaotiqian": ">",//播放剧集标题前关键词
+  "bfbiaotihou": "<",//状播放剧集标题后关键词
   "bflianjieqian": "href=\"",//播放剧集链接前关键词
   "bflianjiehou": "\""//播放集链接后
 
