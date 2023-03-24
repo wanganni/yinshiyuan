@@ -68,7 +68,7 @@
   "bfyjiequhou": "空",
   "bfyjiequshuzuqian": "<a",
   "bfyjiequshuzuhou": "/a>",
-  "bfbiaotiqian": ">",
+  "bfbiaotiqian": "<span>",
   "bfbiaotihou": "<",
   "bflianjieqian": "href=\"",
   "bflianjiehou": "\""
