@@ -3,6 +3,7 @@
 "spider": "https://raw.githubusercontent.com/wanganni/yinshiyuan/main/XBiubiuLA4.jar",
   "sites": [
   {"key":"csp_biubiu_麻豆村🔞","name":"🥒麻豆村🔞","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/madoucun.json"},
+  {"key":"csp_biubiu_肉视频🔞","name":"🥒肉视频🔞","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/rouvide.json"},
   {"key":"csp_biubiu_mdxsp","name":"🥒mdxsp","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/mdxsp.json"},
   
  {"key":"黄色仓库🔞","name":"黄色仓库🔞","type":1,"api":"http://ckj6.cc/api.php/provide/vod","searchable":1,"quickSearch":1},
