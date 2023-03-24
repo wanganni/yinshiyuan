@@ -45,7 +45,7 @@
 "bfjiequqian": "空",
 "bfjiequhou": "空",
 "bfjiequshuzuqian": "class=\"stui-content__playlist", //播放截取的列表数组的前关键词
-"bfjiequshuzuhou": "</url>", //播放截取的列表数组的后关键词
+"bfjiequshuzuhou": "</ul>", //播放截取的列表数组的后关键词
 
 
 
