@@ -13,8 +13,8 @@
   "houzhui": ".html",
 
   "shifouercijiequ": "1",
-  "jiequqian": "class=\"module\">",
-  "jiequhou": "class=\"module-item-content",
+  "jiequqian": "class=\"module-list",
+  "jiequhou": "class=\"module-footer",
   "jiequshuzuqian": "class=\"module-item\">",
   "jiequshuzuhou": "class=\"module-item-text",
   "tupianqian": "data-src=\"",
