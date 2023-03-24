@@ -13,8 +13,8 @@
   "houzhui": ".html",
 
   "shifouercijiequ": "1",
-  "jiequqian": "class=\"module-play-list-content",
-  "jiequhou": "<script>",
+  "jiequqian": "class=\"module-items",
+  "jiequhou": "id=\"page",
   "jiequshuzuqian": "<a",
   "jiequshuzuhou": "</a>",
   "tupianqian": "data-original=\"",
