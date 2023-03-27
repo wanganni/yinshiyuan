@@ -7,9 +7,11 @@
   "User": "空",
   "shouye": "1",
 
-  "fenlei": "电影$/vodshow/1--------#电视剧$/vodshow/2--------#动漫$/vodshow/4--------#综艺$/vodshow/3--------", //网站列表的分类
-  "houzhui": "---.html", //网站翻页链接的后缀
-
+  //"fenlei": "电影$/vodshow/1--------#电视剧$/vodshow/2--------#动漫$/vodshow/4--------#综艺$/vodshow/3--------", //网站列表的分类
+  //"houzhui": "---.html", //网站翻页链接的后缀
+  "fenlei": "电影$/vodshow/1--------#电视剧$/vodshow/2--------#综艺$/vodshow/23--------#动漫$/vodshow/22--------",
+  "houzhui": "---.html",
+  
   "shifouercijiequ": "0", //截取的列表数组是否需要二次截取，0不需要，1需要
   "jiequqian": "空", //不需要二次截取就填空
   "jiequhou": "空", //不需要二次截取就填空
