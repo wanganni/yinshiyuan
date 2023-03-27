@@ -31,7 +31,7 @@
 
   "sousuoqian": "/index.php/ajax/suggest?mid=1&wd=",
   "sousuohou": "&limit=500",
-  "sousuohouzhui": "/detail/",
+  "sousuohouzhui": "/voddetail/",
   "ssmoshi": "0",
   "sousuoshifouercijiequ": "0",
   "jspic": "pic",
@@ -61,8 +61,8 @@
   "daoyanhou": "</div>",
   "zhuyanqian": "主演：</span>",
   "zhuyanhou": "</div>",
-  "juqingqian": "剧情：</span>",
-  "juqinghou": "</span>",
+  "juqingqian": "n-content\"><p>",
+  "juqinghou": "</p>",
 
   "bfyshifouercijiequ": "0",
   "bfyjiequqian": "空",
