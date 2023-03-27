@@ -4,6 +4,7 @@
   "sites": [
   {"key":"csp_biubiu_netflytv","name":"🥒奈飞中文影视","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/netflytv.json"},
   {"key":"csp_biubiu_netflixdog","name":"🥒奈飞狗","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/netflixdog.json"},
+  {"key":"csp_biubiu_ioletv","name":"🥒爱欧乐影视","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/ioletv.json"},
   {"key":"csp_biubiu_dmxq","name":"🥒大米星球","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/dmxq.json"},
   {"key":"csp_biubiu_niketv","name":"🥒NIKETV","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/niketv.json"},
   {"key":"csp_biubiu_麻豆村🔞","name":"🥒麻豆村🔞","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/madoucun.json"},
