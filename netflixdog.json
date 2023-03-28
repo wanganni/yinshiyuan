@@ -29,7 +29,7 @@
   "fubiaotihou": "</span>",
 
 
-  "sousuoqian": "/index.php/vod/search.html?wd=",
+  "sousuoqian": "/index.php/ajax/suggest?mid=1&wd=",
   "sousuohou": "&limit=500",
   "sousuohouzhui": "/index.php/vod/detail/id/",
   "ssmoshi": "0",
