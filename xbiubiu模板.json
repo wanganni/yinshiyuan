@@ -1,0 +1,123 @@
+//N01: 开头部分
+name填网站名字，
+url填网站链接，
+User是播放请求头，个别网站需要添加播放请求头才可以播放，一般用不到，保持空即可。
+
+{"name": "影视工厂",
+"url": "",
+"User": "空",
+"shouye": "1",//首页展示分类的序列号
+//N02: 影视分类和翻页后缀部分
+分类就是网站那个筛选的页面，你想要加哪个分类就加哪个
+后缀就是网站那个后面的翻页格式
+例如下面这种
+/vodshow/2--------2---.html
+分类就是：/vodshow/2--------
+后缀就是: ---.html
+第二个2是翻页的页码，那个不用填，软件自动进行翻页数字增加
+所以在填写分类时，要点到网页列表的第二页，这样才会知道翻页的具体格式，才好进行准确的分类填写。
+
+"fenlei": "电视剧$/vodshow/2--------#电影$/vodshow/1--------#综艺$/vodshow/3--------#动漫$/vodshow/4--------#番剧$/vodshow/26--------",
+"houzhui": "---.html",
+//N03: 影视列表展示部分
+//这个需要查看网页源码，在列表页的网页源码里面寻找字段进行截取。
+//可以借助代码编码工具把源码复制到编辑工具里面进行查看，可以格式化更方便的进行字段选择。
+//是否需要二次截取关键代码，0不需要，1需要，基本不需要动这里。
+"shifouercijiequ": "0",
+"jiequqian": "空",
+"jiequhou": "空",
+
+//截取的列表数组的前后关键字段
+"jiequshuzuqian": "class=\"myui-vodlist__box\"",
+"jiequshuzuhou": "</span>",
+
+//截取的列表数组内的具体单个影片的标题图片和播放链接
+"tupianqian": "original=\"",
+"tupianhou": "\"",
+"biaotiqian": "title=\"",
+"biaotihou": "\"",
+"lianjieqian": "href=\"",
+"lianjiehou": "\"",
+//N04: 搜索部分
+
+//搜索有2种模式
+
+//1、JSON模式搜索，这个模式下只需要改一个字段的地方"sousuohouzhui"这个字段。就是打开网页的播放页面那个链接的中间部分，
+
+//例如这种播放页：/voddetail/53856.html
+
+//sousuohouzhui就是：/voddetail/
+
+//2、常规模式搜索，这个模式就得改很多地方了。
+
+//具体看下面的说明
+
+//JSON搜索模式，只改第一个"sousuohouzhui"字段即可，其他都不用动
+"sousuohouzhui": "/voddetail/",
+"jspic": "pic",
+"jsname": "name",
+"jsid": "id",
+
+//搜索模式，0为json模式，1为常规模式
+"ssmoshi": "0",
+
+//搜索的链接前缀和后缀，常规模式才需要改，JSON模式的话保持默认即可。
+"sousuoqian": "/index.php/ajax/suggest?mid=1&wd=",
+"sousuohou": "&limit=500",
+
+//搜索是否需要二次截取，0不需要，1需要，一般不用动这3个字段
+"sousuoshifouercijiequ": "0",
+"ssjiequqian": "空",
+"ssjiequhou": "空",
+
+//常规搜索影视列表的数组截取，
+"ssjiequshuzuqian": "空",
+"ssjiequshuzuhou": "空",
+
+//常规搜索影视列表的数组的具体单个影片标题，图片和链接
+"sstupianqian": "空",
+"sstupianhou": "空",
+"ssbiaotiqian": "空",
+"ssbiaotihou": "空",
+"sslianjieqian": "空",
+"sslianjiehou": "空",
+//N05: 播放部分
+
+//播放是否需要二次截取，0不需要，1需要，一般不用动这3个字段
+"bfshifouercijiequ": "0",
+"bfjiequqian": "空",
+"bfjiequhou": "空",
+
+//播放线路列表的数组截取
+"bfjiequshuzuqian": "id=\"playlist",
+"bfjiequshuzuhou": "</ul>",
+
+//影片的状态，导演，演员，剧情的截取，
+//支持简单HTML显示，所以这部分的截取相对比较灵活。
+"zhuangtaiqian": "class=\"otherbox\">",
+"zhuangtaihou": "</p>",
+"daoyanqian": "导演：</span>",
+"daoyanhou": "</p>",
+"zhuyanqian": "主演：</span>",
+"zhuyanhou": "</p>",
+"juqingqian": "<span class=\"data\"",
+"juqinghou": "</span>",
+
+//播放线路内的集数截取
+//集数是否需要二次截取，0不需要，1需要，一般不用动这里的字段
+"bfyshifouercijiequ": "0",
+"bfyjiequqian": "空",
+"bfyjiequhou": "空",
+
+//播放集数的数组截取
+"bfyjiequshuzuqian": "<a",
+"bfyjiequshuzuhou": "/a>",
+
+//播放集数的标题和链接截取
+"bfbiaotiqian": ">",
+"bfbiaotihou": "<",
+"bflianjieqian": "href=\"",
+"bflianjiehou": "\""
+//另外要注意，如果截取的关键字段带有"号的，前面要用 \ //进行转义，自定义编写时需要你多少得了解一点HTML知识的，真想玩玩自定义的话，看一看html的相关视频教程，简单了解一下网页源码是什//么，以及格式和查看等等，不用深入了解，能会查看源码找字段就可以了。
+
+//OK，就写这么多吧，懂一点html知识的小伙伴应该可以自己写了。}
