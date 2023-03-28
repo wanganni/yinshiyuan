@@ -1,7 +1,7 @@
 {
 "wallpaper": "https://picsum.photos/1080/",
-//"spider": "https://raw.iqiq.io/wanganni/yinshiyuan/main/221027.jar",
-"spider": "https://raw.githubusercontent.com/wanganni/yinshiyuan/main/XBiubiuLA4.jar",
+//"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/221027.jar",
+"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/XBiubiuLA4.jar",
   "sites": [
   {"key":"csp_biubiu_netflytv","name":"🥒奈飞中文影视(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/netflytv.json"},
   {"key":"csp_biubiu_yanaifeicom","name":"🥒鸭奈飞影视(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/yanaifeicom.json"},
