@@ -57,7 +57,7 @@
 
   "zhuangtaiqian": "class=\"module-info-item-content\">",
   "zhuangtaihou": "</p>",
-  "daoyanqian": "导演：</span>(.*?)target=\"_blank\">",
+  "daoyanqian": "导演：</span>",
   "daoyanhou": "</a>",
   "zhuyanqian": "主演：</span>",
   "zhuyanhou": "</div>",
