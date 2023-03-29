@@ -30,7 +30,7 @@
 
   "shifouercijiequ": "1",
   "jiequqian": "class=\"module-items",
-  "jiequhou": "</div>&&</a>&&</div>",
+  "jiequhou": "</div>\s</a>\s</div>",
   "jiequshuzuqian": "<a",
   "jiequshuzuhou": "</a>",
   "tupianqian": "data-original=\"",
