@@ -31,7 +31,7 @@
 
   "sousuoqian": "/index.php/ajax/suggest?mid=1&wd=",
   "sousuohou": "&limit=500",
-  "sousuohouzhui": "/vod/detail/",
+  "sousuohouzhui": "/movie/",
   "ssmoshi": "0",
   "sousuoshifouercijiequ": "0",
   "jspic": "pic",
@@ -52,7 +52,7 @@
   "bfshifouercijiequ": "0",
   "bfjiequqian": "空",
   "bfjiequhou": "空",
-  "bfjiequshuzuqian": "class=\"paly_list_btn\">",
+  "bfjiequshuzuqian": "class=\"paly_list_btn",
   "bfjiequshuzuhou": "</div>",
 
   "zhuangtaiqian": "上映：<span>",
@@ -69,7 +69,7 @@
   "bfyjiequhou": "空",
   "bfyjiequshuzuqian": "<a",
   "bfyjiequshuzuhou": "/a>",
-  "bfbiaotiqian": ">",
+  "bfbiaotiqian": "html\">",
   "bfbiaotihou": "<",
   "bflianjieqian": "href=\"",
   "bflianjiehou": "\""
