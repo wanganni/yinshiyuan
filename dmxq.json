@@ -10,7 +10,7 @@
 	//{catePg}翻页序列号
 	//{year}日期
   "分类url":"https://dmxq.fun/vodshow/{cateId}-{area}-{by}-{class}-{lang}----{catePg}---{year}.html",
-  "分类": "电影$20#连续剧$21#动漫$22#综艺$23",
+  "分类": "电影$20#连续剧$21#动漫$22#综艺$23#福利$35",
   "线路数组": "class=\"module-tab-item &&</div>",
   "线路标题": "<span>&&</small>",
   //"播放数组":"class=\"scroll-content\"&&</div>",
@@ -606,6 +606,11 @@
   {"n":"更早","v":"更早"}]},
   
   {"key":"by","name":"排序","value":[
+  {"n":"时间","v":"time"},
+  {"n":"人气","v":"hits"},
+  {"n":"评分","v":"score"}]}],
+  
+  "35":[{"key":"by","name":"排序","value":[
   {"n":"时间","v":"time"},
   {"n":"人气","v":"hits"},
   {"n":"评分","v":"score"}]}]
