@@ -3,7 +3,7 @@
 "spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/xbpq.jar",
 //"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/XBiubiuLA4.jar",
   "sites": [
-  {"key":"csp_biubiu_netflytv","name":"🥒奈飞中文影视(XB)","type":3,"api":"csp_XBpq","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/netflytv.json"},
+  {"key":"csp_biubiu_netflytv","name":"🥒奈飞中文影视(XB)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/netflytv.json"},
   {"key":"csp_biubiu_yanaifeicom","name":"🥒鸭奈飞影视(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/yanaifeicom.json"},
   {"key":"csp_biubiu_netflixdog","name":"🥒奈飞狗(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/netflixdog.json"},
   {"key":"csp_biubiu_ioletv","name":"🥒爱欧乐影视(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/ioletv.json"},
