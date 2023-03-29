@@ -20,7 +20,7 @@
 "线路数组":"class=\"module-tab-item &&</div>",
 "线路标题":"<span>&&</small>",
 //"搜索url":"/gaosearch/{wd}-/page/{pg}/",
-"搜索url":"/index.php/ajax/suggest?mid=1&wd=",
+"搜索url":"https://dmxq.fun/index.php/ajax/suggest?mid=1&wd=",
 "搜索模式":"0",
 "搜索副标题":"<div class=\"img-tag\">&&</div>",
 "搜索链接前缀":"https://dmxq.fun",
@@ -42,7 +42,14 @@
 "分类url":"https://dmxq.fun/vodshow/{cateId}-{area}-{by}-{class}-{lang}----{catePg}---{year}.html",
 	
 	
-	
+	// Search Results ===================================================
+  //"searchUrl": "https://dmxq.fun/index.php/ajax/suggest?mid=1&wd={wd}&limit=500",
+  //"scVodNode": "json:list",
+  //"scVodName": "name",
+  //"scVodId": "id",
+  //"scVodIdR": "",
+  //"scVodImg": "pic",
+  //"scVodMark": "",
 	
 	
 	
