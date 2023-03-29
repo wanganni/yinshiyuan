@@ -2,6 +2,18 @@
 //转载请注明出处
 {
     "urls": [
+          {
+            "url": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tvbox.json",
+            "name": "🔔自建影视"
+        },
+         {
+            "url": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tvbox18.json",
+            "name": "🔔自建成人"
+        },
+        {
+            "url": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tvboxzonghe.json",
+            "name": "🔔自建综合"
+        },
         {
             "url": "https://yydsys.top/duo/v.json",
             "name": "🔔切换线路后务必刷新接口"
