@@ -27,7 +27,7 @@
 {"key":"csp_xBPQ_饭团TV","name": "📺饭团TV(XBPQ)","type": 3,"api": "csp_xBPQ","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/tvbox/main/饭团TV.json"},
 {"key":"csp_xBPQ_小小影视","name": "📺小小影视(XBPQ)","type": 3,"api": "csp_xBPQ","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/tvbox/main/小小影视.json"},
 {"key": "椰子采集","name": "📺星辰视频","type": 1,"api": "https://zy.gbxy.net.cn/api.php/provide/vod/?ac=list","searchable": 1,"quickSearch": 1,"filterable": 1,"categories": ["国产剧","日韩剧","港台剧","欧美剧","动作片","科幻片","战争片","奇幻片","喜剧片","爱情片","恐怖片","犯罪片","悬疑片","惊悚片","剧情片","冒险片","记录片","国内综艺","综艺","海外综艺","国产动漫","日韩动漫"]},
-{"key":"csp_xBPQ_好看影视","name": "📺好看影视(XBPQ)","type": 3,"api": "csp_xBPQ","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/tvbox/main/好看影视.json"},
+{"key":"csp_xBPQ_好看影视","name": "📺好看影视(XBPQ)","type": 3,"api": "csp_xBPQ","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/tvbox/main/好看影视.json"},]
 
   "lives": [
     {
