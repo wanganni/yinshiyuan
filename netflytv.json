@@ -21,7 +21,7 @@
 //"搜索url":"/index.php/ajax/suggest?mid=1&wd=",
 "搜索模式":"1",
 "搜索标题":"class=\"module-item-note\">&&</div>",
-"搜索副标题":"集数：</span>&&</div>",
+"搜索副标题":"class=\"module-item-note\">&&</div>",
 "搜索链接前缀":"https://www.netfly.tv",
 "搜索链接后缀":"---.html",
 "搜索后缀":"/vod/detail/",
