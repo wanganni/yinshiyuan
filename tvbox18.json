@@ -3,13 +3,11 @@
 "spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/xbpq.jar",
 //"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/XBiubiuLA4.jar",
   "sites": [
-  
-//cr成人
-{"key":"csp_biubiu_麻豆村🔞","name":"🔞麻豆村(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/madoucun.json"},
-  {"key":"csp_biubiu_mdspmaomimao","name":"🔞麻豆视频mm(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/mdspmaomimao.json"},
-  {"key":"csp_biubiu_肉视频🔞","name":"🔞肉视频x(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/rouvide.json"},
-{"key":"csp_xBPQ_精东影业","name":"🔞精东影业(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/jdyyxxx.json"},
-{"key":"csp_xBPQ_精东影视","name":"🔞精东影视(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/jdyy1xxx.json"},
+{"key":"csp_biubiu_麻豆村🔞","name":"🔞麻豆村(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/madoucun.json"},
+  {"key":"csp_biubiu_mdspmaomimao","name":"🔞麻豆视频mm(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/mdspmaomimao.json"},
+  {"key":"csp_biubiu_肉视频🔞","name":"🔞肉视频x(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/rouvide.json"},
+{"key":"csp_xBPQ_精东影业","name":"🔞精东影业(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/jdyyxxx.json"},
+{"key":"csp_xBPQ_精东影视","name":"🔞精东影视(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/jdyy1xxx.json"},
 {
     "key": "csp_xBPQ_麻豆映画",
     "name":"🔞麻豆映画(XBPQ)",
@@ -19,9 +17,9 @@
     "quickSearch": 1,
     "filterable": 1,
    "playerType":2,
- "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/yinghua.json"},
-{"key":"csp_xBPQ_麻豆映画2","name":"🔞麻豆映画2(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/mdyhxxx.json"},
-{"key":"csp_xBPQ_搞aa","name":"🔞GAOAA(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/gaoaaxxx.json"},
+ "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/yinghua.json"},
+{"key":"csp_xBPQ_麻豆映画2","name":"🔞麻豆映画2(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/mdyhxxx.json"},
+{"key":"csp_xBPQ_搞aa","name":"🔞GAOAA(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/gaoaaxxx.json"},
 {
     "key": "csp_xBPQ_右手",
     "name":"🔞右手影院(XBPQ)",
@@ -30,7 +28,7 @@
     "searchable": 1,
     "quickSearch": 1,
     "filterable": 1,
-    "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/yousxxx.json"},
+    "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/yousxxx.json"},
 	{
     "key": "csp_xBPQ_床吧搜索",
     "name":"🔞床吧搜索(XBPQ)",
@@ -40,7 +38,7 @@
     "quickSearch": 1,
     "filterable": 1,
     "playerType":2,
-    "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/cbssxxx.json"},
+    "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/cbssxxx.json"},
 	{
     "key": "csp_xBPQ_麻豆女优",
     "name":"🔞麻豆女优(XBPQ)",
@@ -50,7 +48,7 @@
     "quickSearch": 1,
     "filterable": 1,
    "playerType":2,
- "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/madou1.json"},
+ "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/madou1.json"},
  {
     "key": "csp_xBPQ_天天综合",
     "name":"🔞天天综合(XBPQ)",
@@ -60,7 +58,7 @@
     "quickSearch": 1,
     "filterable": 1,
     "playerType":2,
-"ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/ttzh.json"},
+"ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/ttzh.json"},
 {
     "key": "csp_xBPQ_bannan",
     "name":"🔞bannan(XBPQ)",
@@ -70,7 +68,7 @@
     "quickSearch": 1,
     "filterable": 1,
   "playerType":2,
-  "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/bananxxx.json"},
+  "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/bananxxx.json"},
   {
     "key": "csp_xBPQ_香蕉",
     "name":"🔞香蕉资源(XBPQ)",
@@ -79,9 +77,9 @@
     "searchable": 1,
     "quickSearch": 1,
     "filterable": 1,
-    "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/xiangj.json"},
+    "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/xiangj.json"},
 	
-  {"key":"csp_biubiu_mdxsp","name":"🥒mdxsp(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/mdxsp.json"},
+  {"key":"csp_biubiu_mdxsp","name":"🥒mdxsp(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/mdxsp.json"},
   {"key":"热狗🔞","name":"🔞热狗","type":1,"api":"https://regou.la/api.php/provide/vod","searchable":1,"quickSearch":1},
  {"key":"黄色仓库🔞","name":"🔞黄色仓库","type":1,"api":"http://ckj6.cc/api.php/provide/vod","searchable":1,"quickSearch":1},
 {"key":"*麻豆射区🔞","name":"🔞麻豆射区","type":1,"api":"http://madou.fit/api.php/provide/vod/","searchable":1,"quickSearch":1},
