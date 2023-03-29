@@ -3,7 +3,7 @@
 "spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/xbpq.jar",
 //"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/XBiubiuLA4.jar",
   "sites": [
-  {"key":"csp_biubiu_dmxq","name":"📺大米星球(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/dmxq.json"},
+  {"key":"csp_biubiu_dmxqxbpq","name":"📺大米星球(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/dmxq.json"},
   {"key":"csp_biubiu_dmxqxb","name":"📺大米星球(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/dmxqxb.json"},
   {"key":"csp_biubiu_厂长资源","name":"📺厂长资源(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/厂长资源.json"},
   {"key":"csp_biubiu_netflytv","name":"📺奈飞中文影视(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/netflytv.json"},
