@@ -22,7 +22,7 @@
   "url": "https://www.netfly.tv",//主页地址
   "tihuan": "cnzz.com",//替换掉的网址
   "User": "空",//请求头
-  "shouye": "1",//首页显示序列
+  "shouye": "/label/new.html",//首页显示序列
 
   //"fenlei": "电视剧$/show/2-#电影$/show/1-#综艺$/show/3-#动漫$/show/4-#动作片$/show/1---动作-----#喜剧片$/show/1---喜剧-----#爱情片$/show/1---爱情-----#科幻片$/show/1---科幻-----#奇幻片$/show/1---奇幻-----#恐怖片$/show/1---恐怖-----#剧情片$/show/1---剧情-----#战争片$/show/1---战争-----#冒险片$/show/1---冒险-----#国产剧$/show/2-中国大陆-------#台剧$/show/2-中国台湾-------#港剧$/show/2-中国香港-------#韩剧$/show/2-韩国-------#日剧$/show/2-日本-------#美剧$/show/2-美国-------#英剧$/show/2-英国-------",
   //"fenlei": "电影$/vod/show/1--------#电视剧$/vod/show/2--------#综艺$/vod/show/3--------#动漫$/vod/show/4--------#其他$/vod/show/5--------",
@@ -30,7 +30,7 @@
 
   "shifouercijiequ": "1",
   "jiequqian": "class=\"module-items",
-  "jiequhou": "</div>\s</a>\s</div>",
+  "jiequhou": "id=\"",
   "jiequshuzuqian": "<a",
   "jiequshuzuhou": "</a>",
   "tupianqian": "data-original=\"",
