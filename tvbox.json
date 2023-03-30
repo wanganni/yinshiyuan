@@ -13,6 +13,34 @@
   
   {"key":"csp_biubiu_niketv","name":"📺NIKETV(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XB/niketv.json"},
   
+  
+  {"key":"csp_biubiu_不卡","name":"📺不卡(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XB/不卡.json"},
+  {"key":"csp_biubiu_真不卡","name":"📺真不卡(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XB/真不卡.json"},
+  {"key":"csp_biubiu_真不卡2","name":"📺真不卡2(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XB/真不卡2.json"},
+  {"key":"csp_biubiu_酷云","name":"📺酷云(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XB/酷云.json"},
+  {"key":"csp_biubiu_酷云2","name":"📺酷云2(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XB/酷云2.json"},
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   {"key":"csp_xBPQ_奈落影院","name": "📺奈落影院(XBPQ)","type": 3,"api": "csp_xBPQ","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/tvbox/main/奈落影院.json"},
   {"key":"csp_xBPQ_F7好看剧","name":"📺F7好看剧(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/tvbox/main/F7好看剧.json"},
 {"key":"csp_xBPQ_锐行影院","name":"📺锐行影院(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/tvbox/main/锐行影院.json"},
