@@ -1,7 +1,7 @@
 {
 "wallpaper": "https://picsum.photos/1080/",
-"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/xbpq.jar",
-//"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/XBiubiuLA4.jar",
+"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/jar/xbpq.jar",
+//"spider": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/jar/XBiubiuLA4.jar",
   "sites": [
   {"key":"csp_biubiu_dmxqxbpq","name":"📺大米星球(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/xbpq/dmxq.json"},
   {"key":"csp_biubiu_dmxqxb","name":"📺大米星球(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/xb/dmxqxb.json"},
