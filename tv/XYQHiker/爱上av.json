@@ -24,7 +24,7 @@
 "分类片单是否Jsoup写法": "1",
 "分类片单标题": ".title&&Text",
 "分类片单链接": "a&&href",
-"分类片单图片": ".img&&data-original",
+"分类片单图片": "img&&data-original",
 "分类片单副标题": ".added&&Text",
 "分类片单链接加前缀": "https://iook1.cc",
 "分类片单链接加后缀": "",
