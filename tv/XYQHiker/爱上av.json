@@ -31,7 +31,7 @@
 "分类片单链接加前缀": "https://iook1.cc",
 "分类片单链接加后缀": "",
 "搜索请求头参数": "User-Agent$手机",
-"搜索链接": "https://iook1.cc/vodsearch/{wd}----------{catePg}---.html",
+"搜索链接": "https://iook1.cc/vodsearch/-------------.html?wd={wd}",
 "POST请求数据": "",
 "搜索截取模式": "1",
 "搜索列表数组规则": "#list_videos_videos_list_search_result_items&&.item",
