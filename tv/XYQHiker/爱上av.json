@@ -16,9 +16,11 @@
 "首页片单链接加前缀": "https://iook1.cc",
 "首页片单链接加后缀": "",
 "分类起始页码": "1",
-"分类链接": "https://iook1.cc/vodtype/{cateId}-{catePg}/",
-"分类名称": "精品推荐&日韩精品&国产视频&激情动漫&伦理&欧美视频",
-"分类名称替换词": "1&2&20&4&27&25",
+"分类链接": "https://iook1.cc/{cateId}{catePg}.html",
+//https://iook1.cc/vodtype/1-2.html
+//https://iook1.cc/label/new/page/1.html
+"分类名称": "最新&精品推荐&日韩精品&国产视频&激情动漫&伦理&欧美视频",
+"分类名称替换词": "label/new/page/&vodtype/1-&vodtype/2-&vodtype/20-&vodtype/4-&vodtype/27-&vodtype/25-",
 "分类截取模式": "1",
 "分类列表数组规则": "#list_videos_common_videos_list_items&&.item",
 "分类片单是否Jsoup写法": "1",
