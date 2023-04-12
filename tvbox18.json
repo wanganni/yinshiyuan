@@ -85,6 +85,7 @@
     "ext":"https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/xiangj.json"},
 	
   {"key":"csp_biubiu_mdxsp","name":"🥒mdxsp(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/mdxsp.json"},
+  {"key":"csp_XYQHiker_麻豆小视频","name": "🔞麻豆小视频(XYQHiker)","type": 3,"api": "csp_XYQHiker","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XYQHiker/mdxsp-xyqh.json"},
   {"key":"热狗🔞","name":"🔞热狗","type":1,"api":"https://regou.la/api.php/provide/vod","searchable":1,"quickSearch":1},
  {"key":"黄色仓库🔞","name":"🔞黄色仓库","type":1,"api":"http://ckj6.cc/api.php/provide/vod","searchable":1,"quickSearch":1},
 {"key":"*麻豆射区🔞","name":"🔞麻豆射区","type":1,"api":"http://madou.fit/api.php/provide/vod/","searchable":1,"quickSearch":1},
