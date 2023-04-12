@@ -47,7 +47,12 @@
 "直接播放直链视频请求头": "",
 
 "筛选数据":{
-"自拍流出":[
+"t/國產AV":[
+  {"key":"by","name":"排序","value":[
+  {"n":"时间","v":"createdAt"},
+  {"n":"观看","v":"viewCount"},
+  {"n":"点赞","v":"likeCount"}]}],
+"t/自拍流出":[
   {"key":"by","name":"排序","value":[
   {"n":"时间","v":"createdAt"},
   {"n":"观看","v":"viewCount"},
