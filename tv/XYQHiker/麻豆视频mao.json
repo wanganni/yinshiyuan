@@ -32,7 +32,7 @@
 	"分类链接": "https://www.51222.cc/index.php/vod/show/by/{by}/id/{cateId}/page/{catePg}.html",
     "分类名称": "传媒学院&国产视频&日本视频&欧美视频&动漫视频&",
     "分类名称替换词": "1&5&2&3&4&",
-    "筛选数据":{},
+    //"筛选数据":{},
     "分类截取模式": "1",
     "分类列表数组规则": ".stui-vodlist&&.stui-vodlist__item",
     "分类片单是否Jsoup写法":"1",
