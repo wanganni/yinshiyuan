@@ -5,6 +5,7 @@
   "sites": [
 {"key":"csp_biubiu_麻豆村🔞","name":"🔞麻豆村(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/madoucun.json"},
   {"key":"csp_biubiu_mdspmaomimao","name":"🔞麻豆视频mm(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/mdspmaomimao.json"},
+  {"key":"csp_XYQHiker_麻豆视频mm","name": "🔞麻豆视频mm(XYQHiker)","type": 3,"api": "csp_XYQHiker","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XYQHiker/麻豆视频mao.json"},
   {"key":"csp_XYQHiker_肉视频🔞","name":"🔞肉视频x(XYQHiker)","type":3,"api":"csp_XYQHiker","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/rouvide.json"},
 {"key":"csp_xBPQ_精东影业","name":"🔞精东影业(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/jdyyxxx.json"},
 {"key":"csp_xBPQ_精东影视","name":"🔞精东影视(XBPQ)","type":3,"api":"csp_xBPQ","searchable":1,"quickSearch":1,"filterable":0,"playerType":2,"ext": "https://gh-proxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/jdyy1xxx.json"},
@@ -87,7 +88,7 @@
   {"key":"csp_biubiu_mdxsp","name":"🥒mdxsp(XB)","type":3,"api":"csp_XBiubiu","searchable":1,"quickSearch":1,"filterable":0,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/18/mdxsp.json"},
   {"key":"csp_XYQHiker_麻豆小视频","name": "🔞麻豆小视频(XYQHiker)","type": 3,"api": "csp_XYQHiker","searchable": 1,"quickSearch": 0,"filterable": 0,"ext": "https://ghproxy.com/https://raw.githubusercontent.com/wanganni/yinshiyuan/main/tv/XYQHiker/mdxsp-xyqh.json"},
   {"key":"热狗🔞","name":"🔞热狗","type":1,"api":"https://regou.la/api.php/provide/vod","searchable":1,"quickSearch":1},
- {"key":"黄色仓库🔞","name":"🔞黄色仓库","type":1,"api":"http://ckm9.cc/api.php/provide/vod","searchable":1,"quickSearch":1},
+ {"key":"黄色仓库🔞","name":"🔞黄色仓库","type":1,"api":"http://ckx4.cc/api.php/provide/vod","searchable":1,"quickSearch":1},
 {"key":"*麻豆射区🔞","name":"🔞麻豆射区","type":1,"api":"http://madou.fit/api.php/provide/vod/","searchable":1,"quickSearch":1},
 {"key":"*老司机🔞","name":"🔞老司机","type":1,"api":"https://www.lsj.im/api.php/provide/vod","searchable":1,"quickSearch":1},
 {"key":"*麻豆射区🔞","name":"🔞麻豆射区","type":1,"api":"http://madou.fit/api.php/provide/vod/","searchable":1,"quickSearch":1},
