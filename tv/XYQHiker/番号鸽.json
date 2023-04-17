@@ -35,7 +35,7 @@
 "搜索截取模式": "1",
 "搜索列表数组规则": ".col-md-9&&.col-xs-6",
 "搜索片单是否Jsoup写法": "1",
-"搜索片单图片": "a&&img&&src||a&&img&&data-original",
+"搜索片单图片": "a&&img&&src",
 "搜索片单标题": "img&&alt",
 "搜索片单链接": "a&&href",
 "搜索片单副标题": ".duration&&Text",
