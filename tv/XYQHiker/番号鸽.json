@@ -11,7 +11,7 @@
 "首页片单是否Jsoup写法": "1",
 "首页片单标题": "img&&alt",
 "首页片单链接": "a&&href",
-"首页片单图片": "a&&img&&src||a&&img&&data-original",
+"首页片单图片": "a&&img&&src+a&&img&&data-original",
 "首页片单副标题": ".duration&&Text",
 "首页片单链接加前缀": "https://www.funhowdove5.space",
 "首页片单链接加后缀": "",
