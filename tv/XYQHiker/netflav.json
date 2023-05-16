@@ -1,0 +1,91 @@
+{
+"规则名": "netflav-XYQHiker",
+"规则作者": "飞鱼",
+"请求头参数": "PC_UA",
+"网页编码格式": "UTF-8",
+"图片是否需要代理": "0",
+"是否开启获取首页数据": "1",
+"首页推荐链接": "https://www.netflav.com",
+"首页列表数组规则": ".grid_root",
+"首页片单列表数组规则": ".grid_cell",
+"首页片单是否Jsoup写法": "1",
+"首页片单标题": ".grid_title&&Text",
+"首页片单链接": "a&&href",
+"首页片单图片": "img&&src",
+"首页片单副标题": ".grid_date&&Text",
+"首页片单链接加前缀": "https://www.netflav.com",
+"首页片单链接加后缀": "",
+"分类起始页码": "1",
+//"分类链接": "https://hscangku.com/vodtype/{cateId}-{catePg}/",
+"分类链接": "https://www.netflav.com/{cateId}?page={catePg}",
+"分类名称": "全部影片&片商分类&",
+"分类名称替换词": "trending&browse/fc2ppv&",
+"分类截取模式": "1",
+"分类列表数组规则": ".grid_root&&.grid_cell",
+"分类片单是否Jsoup写法": "1",
+"分类片单标题": ".grid_title&&Text",
+"分类片单链接": "a&&href",
+"分类片单图片": "img&&src",
+"分类片单副标题": ".grid_date&&Text",
+"分类片单链接加前缀": "https://www.netflav.com",
+"分类片单链接加后缀": "",
+"搜索请求头参数": "User-Agent$PC_UA",
+"搜索链接": "https://www.netflav.com/search?type=title&keyword={wd}",
+"POST请求数据": "",
+"搜索截取模式": "1",
+"搜索列表数组规则": ".grid_root&&.grid_cell",
+"搜索片单是否Jsoup写法": "1",
+"搜索片单图片": "img&&src",
+"搜索片单标题": ".grid_title&&Text",
+"搜索片单链接": "a&&href",
+"搜索片单副标题": ".grid_date&&Text",
+"搜索片单链接加前缀": "https://www.netflav.com",
+"搜索片单链接加后缀": "",
+"链接是否直接播放": "1",
+"直接播放链接加前缀": "",
+"直接播放链接加后缀": "",
+"直接播放直链视频请求头": "",
+
+
+
+"分析MacPlayer": "0",
+"是否开启手动嗅探": "1",
+"手动嗅探视频链接关键词": ".m3u8",
+"手动嗅探视频链接过滤词": "baidu.com",
+
+
+"筛选数据":{
+"trending":[
+{
+"key":"cateId",
+"name":"分类",
+"value":[
+{"n":"最受欢迎","v":"trending"},
+{"n":"偶像艺人","v":"all?genre=偶像藝人"},
+{"n":"有码","v":"censored"},
+{"n":"无码","v":"uncensored"},
+{"n":"中文字幕","v":"chinese-sub"}
+]
+}
+],
+
+"browse/fc2ppv":[
+{
+"key":"cateId",
+"name":"分类",
+"value":[
+{"v":"browse/fc2ppv","n":"FC2PPV"},
+{"v":"browse/amateur_jav","n":"素人"},
+{"v":"browse/un_leak","n":"UN-Leak"},
+{"v":"browse/1pondo","n":"一本道"},
+{"v":"browse/10musume","n":"10musume"},
+{"v":"browse/pacopacomama","n":"パコパコママ 無修正"},
+{"v":"browse/caribbeancompr","n":"Caribbeancompr"},
+{"v":"browse/heyzo","n":"HEYZO"}
+]
+}
+]
+
+}
+
+}
