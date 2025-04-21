@@ -7,7 +7,7 @@
     "图片是否需要代理":"0",
     "是否开启获取首页数据":"1",
 	 //首页推荐数据获取链接
-    "首页推荐链接": "https://www.51222.cc",
+    "首页推荐链接": "http://www.xkcm.xyz",
     //首页推荐列表数组截取。
     "首页列表数组规则": ".stui-vodlist",
     //首页推荐片单列表数组定位。
@@ -24,12 +24,12 @@
     //首页推荐片单副标题
     "首页片单副标题":".pic-text&&Text",
     //首页推荐片单链接补前缀  
-    "首页片单链接加前缀": "https://www.51222.cc",
+    "首页片单链接加前缀": "http://www.xkcm.xyz",
     //首页推荐片单链接补后缀
     "首页片单链接加后缀": "",
     "分类起始页码": "1",
     //"分类链接": "https://www.l0l.tv/index.php/vod/show/id/{cateId}/page/{catePg}.html",
-	"分类链接": "https://www.51222.cc/index.php/vod/show/by/{by}/id/{cateId}/page/{catePg}.html",
+	"分类链接": "http://www.xkcm.xyz/index.php/vod/show/by/{by}/id/{cateId}/page/{catePg}.html",
     "分类名称": "传媒学院&国产视频&日本视频&欧美视频&动漫视频&",
     "分类名称替换词": "1&5&2&3&4&",
     //"筛选数据":{},
@@ -40,10 +40,10 @@
     "分类片单链接": "a&&href",
     "分类片单图片": "a&&data-original",
     "分类片单副标题":".pic-text&&Text",
-    "分类片单链接加前缀": "https://www.51222.cc",
+    "分类片单链接加前缀": "http://www.xkcm.xyz",
     "分类片单链接加后缀": "",
     "搜索请求头参数":"User-Agent$PC_UA",
-    "搜索链接": "https://www.51222.cc/index.php/ajax/suggest?mid=1&wd={wd}",
+    "搜索链接": "http://www.xkcm.xyz/index.php/ajax/suggest?mid=1&wd={wd}",
     "POST请求数据":"0",
     "搜索截取模式": "0",
     "搜索列表数组规则": "list",
@@ -52,7 +52,7 @@
     "搜索片单标题": "name",
     "搜索片单链接": "id",
     "搜索片单副标题":"",
-    "搜索片单链接加前缀": "https://www.51222.cc/index.php/vod/detail/id/",
+    "搜索片单链接加前缀": "http://www.xkcm.xyz/index.php/vod/detail/id/",
     "搜索片单链接加后缀": ".html",
     "详情是否Jsoup写法":"0",
     "类型详情": ".text-muted&&a&&Text",
@@ -68,7 +68,7 @@
     "选集标题": "a&&Text",
     "选集链接": "a&&href",
     "是否反转选集序列": "0",
-    "选集链接加前缀": "https://www.51222.cc",
+    "选集链接加前缀": "http://www.xkcm.xyz",
     "选集链接加后缀": "",
     "分析MacPlayer":"1",
     "是否开启手动嗅探":"1",
