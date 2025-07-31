@@ -1,14 +1,14 @@
 {
 //
-//回家地址 → https://missav789.com/数字改
-//https://missav789.com/
+//回家地址 → https://missav.live/数字改
+//https://missav.live/
 "规则名": "missAV.com-XYQHiker",
 "规则作者": "飞鱼",
 "请求头参数": "手机",
 "网页编码格式": "UTF-8",
 "图片是否需要代理": "0",
 "是否开启获取首页数据": "1",
-"首页推荐链接": "https://missav789.com/dm428/cn/new",
+"首页推荐链接": "https://missav.live/dm428/cn/new",
 "首页列表数组规则": ".gap-5",
 "首页片单列表数组规则": ".thumbnail",
 "首页片单是否Jsoup写法": "1",
@@ -20,7 +20,7 @@
 "首页片单链接加后缀": "",
 "分类起始页码": "1",
 //"分类链接": "https://hscangku.com/vodshow/{cateId}-{catePg}/",
-"分类链接": "https://missav789.com/{cateId}?sort={by}&page={catePg}",
+"分类链接": "https://missav.live/{cateId}?sort={by}&page={catePg}",
 "分类名称": "中文字幕&日本AV&素人&无码影片&国产AV",
 "分类名称替换词": "dm264/cn/chinese-subtitle&dm428/cn/new&dm23/cn/siro&dm548/cn/uncensored-leak&dm30/cn/madou",
 "分类截取模式": "1",
@@ -34,7 +34,7 @@
 "分类片单链接加前缀": "",
 "分类片单链接加后缀": "",
 "搜索请求头参数": "User-Agent$PC_UA",
-"搜索链接": "https://missav789.com/cn/search/{wd}",
+"搜索链接": "https://missav.live/cn/search/{wd}",
 "POST请求数据": "",
 "搜索截取模式": "1",
 "搜索列表数组规则": ".gap-5&&.thumbnail",

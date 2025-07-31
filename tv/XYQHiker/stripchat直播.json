@@ -21,11 +21,13 @@
 "首页片单链接加前缀": "",
 "首页片单链接加后缀": "",
 "分类起始页码": "1",
-//"分类链接": "https://hscangku.com/vodshow/{cateId}-{catePg}/",
 //https://go.stripchatgirls.com
 //https://go.mnaspm.com
 //go.superchat.shop
-"分类链接": "https://go.superchat.shop/api/models?tag={cateId}&forceClient=1&stripcashR=0&limit=200&usePreroll&webp=1&type=popular&timezone=Asia/Shanghai",
+//go.rmhfrtnd.com
+//https://go.xliirdr.com
+//https://go.stripchat.review
+"分类链接": "https://go.xliirdr.com/api/models?tag={cateId}&forceClient=1&stripcashR=0&limit=200&usePreroll&webp=1&type=popular&timezone=Asia/Shanghai",
 "分类名称": "女主播&情侣&男主播&推荐&免费性爱&群交直播&女同&VR&变性人&新主播",
 "分类名称替换词": "girls/chinese&couples/chinese&men/popular&girls/recommended&girls/popular&couples/group-sex&couples/lesbians&girls/vr&trans/popular&girls/new",
 "分类截取模式": "0",
@@ -36,7 +38,7 @@
 "分类片单图片": "snapshotUrl",
 "分类片单副标题": "id+'https://edge-hls.doppiocdn.net/hls/'+id+'/master/'+id+'_480p.m3u8'",
 
-"分类片单链接加前缀": "https://zh.superchat.shop/",
+"分类片单链接加前缀": "https://zh.stripchat.global/",
 "分类片单链接加后缀": "",
 "搜索请求头参数": "User-Agent$PC_UA",
 "搜索链接": "https://zh.stripchat.com/index.php/ajax/suggest?mid=1&wd={wd}",
@@ -48,7 +50,7 @@
 "搜索片单标题": "name",
 "搜索片单链接": "id",
 "搜索片单副标题": "",
-"搜索片单链接加前缀": "https://zh.stripchat.com/vodplay/",
+"搜索片单链接加前缀": "https://zh.stripchat.global/vodplay/",
 "搜索片单链接加后缀": "-1-1.html",
 "链接是否直接播放": "1",
 "直接播放链接加前缀": "",

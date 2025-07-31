@@ -1,5 +1,5 @@
 {
-   //永久地址https://rjav.tv
+   //永久地址https://thisav.biz
     "规则名": "rjav-XYQHiker",
     "规则作者": "飞鱼",
     "请求头参数":"手机",
@@ -7,7 +7,7 @@
     "图片是否需要代理":"0",
     "是否开启获取首页数据":"1",
 	 //首页推荐数据获取链接
-    "首页推荐链接": "https://rjav.tv/zh/",
+    "首页推荐链接": "https://thisav.biz/zh/",
     //首页推荐列表数组截取。
     "首页列表数组规则": ".tab-bd",
     //首页推荐片单列表数组定位。
@@ -24,12 +24,12 @@
     //首页推荐片单副标题
     "首页片单副标题":"' ⏱️'+.ico-right&&Text",
     //首页推荐片单链接补前缀  
-    "首页片单链接加前缀": "https://rjav.tv",
+    "首页片单链接加前缀": "https://thisav.biz",
     //首页推荐片单链接补后缀
     "首页片单链接加后缀": "",
     "分类起始页码": "1",
     //"分类链接": "https://www.l0l.tv/index.php/vod/show/id/{cateId}/page/{catePg}.html",
-	"分类链接": "https://rjav.tv/zh/videotype/{cateId}-{catePg}.html",
+	"分类链接": "https://thisav.biz/zh/videotype/{cateId}-{catePg}.html",
     "分类名称": "FC2-PPV&日本無碼&馬賽克破壞&國產&日本有碼&MGS動画&中文字幕&動畫&歐美成人&Korean BJ Dance&寫真",
     "分类名称替换词": "FC2-PPV&JAV_Uncensored&Mosaic_Removed&Asian_Amateur&JAV_Censored&MGS&JAV+CHN.SUBs&Anime&Western_Porn&Korean_BJ_Dance&Adult_IDOL",
     //"筛选数据":{},
@@ -40,11 +40,11 @@
     "分类片单链接": "a&&href",//替换规则
     "分类片单图片": "img&&src",
     "分类片单副标题":"' ⏱️'+.ico-right&&Text",
-    "分类片单链接加前缀": "https://rjav.tv",
+    "分类片单链接加前缀": "https://thisav.biz",
     "分类片单链接加后缀": "",
     "搜索请求头参数":"User-Agent$MOBILE_UA",
     
-    "搜索链接": "https://rjav.tv/zh/vod/search.html?wd={wd}",
+    "搜索链接": "https://thisav.biz/zh/vod/search.html?wd={wd}",
     "POST请求数据":"0",
     "搜索截取模式": "1",
     "搜索列表数组规则": ".row-space7&&li",
@@ -53,7 +53,7 @@
     "搜索片单标题": "a&&title",
     "搜索片单链接": "a&&href",
     "搜索片单副标题":"' ⏱️'+.ico-right&&Text",
-    "搜索片单链接加前缀": "https://rjav.tv",
+    "搜索片单链接加前缀": "https://thisav.biz",
     "搜索片单链接加后缀": "",
        //--------
          "链接是否直接播放": "1",

@@ -13,14 +13,14 @@
   "分类": "女主播&情侣&男主播&推荐&免费性爱&群交直播&女同&VR&变性人&新主播",
   "分类值": "girls/chinese&couples/chinese&men/popular&girls/recommended&girls/popular&couples/group-sex&couples/lesbians&girls/vr&trans/popular&girls/new",
   
-  "分类url": "https://go.superchat.shop/api/models?tag={cateId}&forceClient=1&stripcashR=0&limit=200&usePreroll&webp=1&type=popular&timezone=Asia/Shanghai",
+  "分类url": "https://go.stripchat.review/api/models?tag={cateId}&forceClient=1&stripcashR=0&limit=200&usePreroll&webp=1&type=popular&timezone=Asia/Shanghai",
   
   "二次截取": "",
   "数组": "models",
   "图片": "snapshotUrl",
   "标题": "username",
   "副标题": "",
-  "链接前缀": "https://zh.superchat.shop/",
+  "链接前缀": "https://zh.stripchat.com/",
   "链接后缀": "",
   "链接": "username",
   

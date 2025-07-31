@@ -10,7 +10,7 @@
     "图片是否需要代理":"0",
     "是否开启获取首页数据": "1",
 	 //首页推荐数据获取链接
-    "首页推荐链接": "https://www.grofos.xyz:6699",
+    "首页推荐链接": "https://www.reoxooe.com:2096",
     //首页推荐列表数组截取。
     "首页列表数组规则": ".recommended",
     //首页推荐片单列表数组定位。
@@ -27,12 +27,12 @@
     //首页推荐片单副标题
     "首页片单副标题":".right-list&&Text||p&&Text+.views&&Text",
     //首页推荐片单链接补前缀  
-    "首页片单链接加前缀": "https://www.grofos.xyz:6699",
+    "首页片单链接加前缀": "https://www.reoxooe.com:2096",
     //首页推荐片单链接补后缀
     "首页片单链接加后缀": "",
     "分类起始页码": "1",
     //"分类链接": "https://www.l0l.tv/index.php/vod/show/id/{cateId}/page/{catePg}.html",
-	"分类链接": "https://www.grofos.xyz:6699/category/2.html?category_id={cateId}&page={catePg}",
+	"分类链接": "https://www.reoxooe.com:2096/category/2.html?category_id={cateId}&page={catePg}",
     "分类名称": "国产&原创&传媒&日韩&欧美&动漫&AI换脸&主播&AV解说&同性",
     "分类名称替换词": "1&40&2&3&4&5&6&7&8&10",
     //"筛选数据":{},
@@ -43,10 +43,10 @@
     "分类片单链接": "a&&href",
     "分类片单图片": "img&&data-src",
     "分类片单副标题":".pre-time&&Text+'👁️'+.pre-eye&&Text",
-    "分类片单链接加前缀":"https://www.grofos.xyz:6699",
+    "分类片单链接加前缀":"https://www.reoxooe.com:2096",
     "分类片单链接加后缀": "",
     "搜索请求头参数":"User-Agent$PC_UA",
-    "搜索链接": "https://www.grofos.xyz:6699/search/1.html?keyword={wd}",
+    "搜索链接": "https://www.reoxooe.com:2096/search/1.html?keyword={wd}",
     "POST请求数据":"0",
     "搜索截取模式": "1",
     "搜索列表数组规则": ".recommended&&.col-md-2",

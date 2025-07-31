@@ -26,6 +26,8 @@
    // body&&.stui-vodlist:has(h4)表示body&&.stui-vodlist包含h4标签的列表:contains包含文字，:not不包含，:matches匹配，[替换:11111=>222]
     "首页片单列表数组规则": "li",
     //首页推荐片单信息jsoup与正则截取写法切换，只作用于html网页，1为jsoup写法(默认)，0为正则截取写法
+    
+    //定位元素    div[vclass^=list-grid]&&[vclass^=v-item]
     "首页片单是否Jsoup写法":"1",
     //下面这六个首页数据如果不填将调用分类那截取的配置（片单写法需一致且取值也得一致）。
     //首页片单标题
