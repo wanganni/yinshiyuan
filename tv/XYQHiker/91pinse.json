@@ -3,7 +3,7 @@
 //回家地址: 5xx66.com 5x1188.com 5x588.com 5x566.com 5x1888.com
 
 //永久地址https://5xsq.com
-"规则名": "91porna-XYQHiker",
+"规则名": "91pinse-XYQHiker",
 "规则作者": "飞鱼",
 "请求头参数": "手机",
 "网页编码格式": "UTF-8",
@@ -25,7 +25,7 @@
 "分类名称": "最新视频&热门视频&热门榜单",
 "分类名称替换词": "v/&v/hot/&rank/current-hot",
 "分类截取模式": "1",
-"分类列表数组规则": ".grid.grid-cols-1&&.rounded-lg",
+"分类列表数组规则": ".grid.grid-cols-2&&[class=group]",
 "分类片单是否Jsoup写法": "1",
 "分类片单标题": "img&&alt",
 "分类片单链接": "a&&href",
@@ -38,7 +38,7 @@
 "搜索链接": "https://91pinse.com/v/search?keyword={wd}",
 "POST请求数据": "",
 "搜索截取模式": "1",
-"搜索列表数组规则": ".grid.grid-cols-1&&.rounded-lg",
+"搜索列表数组规则": ".grid.grid-cols-2&&[class=group]",
 "搜索片单是否Jsoup写法": "1",
 "搜索片单图片": "img&&src",
 "搜索片单标题": "img&&alt",

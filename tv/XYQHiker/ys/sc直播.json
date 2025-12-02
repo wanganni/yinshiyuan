@@ -19,7 +19,7 @@
   "数组": "models",
   "图片": "snapshotUrl",
   "标题": "username",
-  "副标题": "",
+  "副标题": "stream['url']",
   "链接前缀": "https://zh.stripchat.com/",
   "链接后缀": "",
   "链接": "username",

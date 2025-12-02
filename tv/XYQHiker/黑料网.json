@@ -1,5 +1,6 @@
 {
 //https://heliao66.com/
+//https://hlw.gg/
 //免翻墙】地址：heiliaotv@gmail.com
     "规则名": "黑料网-XYQHiker",
     "规则作者": "飞鱼",
@@ -8,7 +9,7 @@
     "图片是否需要代理":"0",
     "是否开启获取首页数据": "0",
 	 //首页推荐数据获取链接
-    "首页推荐链接": "https://d83r360r8y.cc/api/video/getList?channel=hlwcmys&id=0&page=1&size=10&type=last&only_topic=0",
+    "首页推荐链接": "dqeukqixa1.cc/api/video/getList?channel=hlwcmys&id=0&page=1&size=10&type=last&only_topic=0",
     //首页推荐列表数组截取。
     "首页列表数组规则": "",
     //首页推荐片单列表数组定位。
@@ -30,7 +31,7 @@
     "首页片单链接加后缀": "",
     "分类起始页码": "1",
     //"分类链接": "https://www.l0l.tv/index.php/vod/show/id/{cateId}/page/{catePg}.html",
-	"分类链接": "https://d83r360r8y.cc/api/video/getList?channel=hlwcmys&id={cateId}&page={catePg}&size=20&type=label&only_topic=0",
+	"分类链接": "dqeukqixa1.cc/api/video/getList?channel=hlwcmys&id={cateId}&page={catePg}&size=20&type=label&only_topic=0",
     "分类名称": "今日黑料&热门大瓜&历史黑料&擦边短剧&网红乱象&反差女友&校园春宫&官员干部&中外奇闻&社会新闻&明星丑闻",
     "分类名称替换词": "269&267&266&351&264&262&341&343&345&347&348",
     //"筛选数据":{},
@@ -44,7 +45,7 @@
     "分类片单链接加前缀":"",
     "分类片单链接加后缀": "",
     "搜索请求头参数":"User-Agent$手机",
-    "搜索链接": "https://d83r360r8y.cc/api/video/search?channel=hlwcmys&keyword={wd}&page=1&size=20",
+    "搜索链接": "dqeukqixa1.cc/api/video/search?channel=hlwcmys&keyword={wd}&page=1&size=20",
     "POST请求数据":"0",
     "搜索截取模式": "0",
     "搜索列表数组规则": "data.data",

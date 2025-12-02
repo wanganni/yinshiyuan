@@ -36,7 +36,7 @@
     "分类名称替换词": "latest-updates&hot&categories/bdsm/&tags/black-pantyhose/&tags/suntan/&tags/facial/&tags/outdoor/&tags/black/&tags/club-hostess-and-sex-worker/&tags/magic-mirror/&tags/debut-retires/",
     //"筛选数据":{},
     "分类截取模式": "1",
-    "分类列表数组规则": ".pb-e-lg-40&&.col-6",
+    "分类列表数组规则": "*[class^=pb-3 pb-e-lg-40]&&[class^=col-6 col-sm-4 col-lg-3]",
     "分类片单是否Jsoup写法":"1",
     "分类片单标题": ".detail&&a&&Text",
     "分类片单链接": "a&&href",//替换规则

@@ -1,0 +1,80 @@
+{
+"规则名": "强国-XYQHiker",
+"规则作者": "飞鱼",
+"请求头参数": "电脑",
+"网页编码格式": "UTF-8",
+"图片是否需要代理": "0",
+"是否开启获取首页数据": "0",
+"首页推荐链接": "https://chineseav.xyz/?filter=latest",
+"首页列表数组规则": ".videos-list",
+"首页片单列表数组规则": "article",
+"首页片单是否Jsoup写法": "1",
+"首页片单标题": "a&&title",
+"首页片单链接": "a&&href",
+"首页片单图片": "img&&data-src",
+"首页片单副标题": "'⏱️'+.video-overlay&&Text+'👍'+.video-rating&&Text",
+"首页片单链接加前缀": "",
+"首页片单链接加后缀": "",
+"分类起始页码": "1",
+"分类链接": "https://chineseav.xyz/{cateId}page/{catePg}/?filter=latest",
+"分类名称": "最新&最热&麻豆传媒&91制片厂&hong-kong-doll&pussy-hunter&sa国际传媒&swag-live&亞裔素人網紅&國產av&大象传媒&天美传媒&微密圈传媒&星空传媒&星空无限传媒&杏吧原创&果冻传媒&皇家华人&精东传媒&色控工作室&蜜桃传媒&香蕉视频",
+"分类名称替换词": "&&category/麻豆传媒/&category/91制片厂/&category/hong-kong-doll/&category/pussy-hunter/&category/sa国际传媒/&category/swag-live/&category/亞裔素人網紅/&category/國產av/&category/大象传媒/&category/天美传媒/&category/微密圈传媒/&category/星空传媒/&category/星空无限传媒/&category/杏吧原创/&category/果冻传媒/&category/皇家华人/&category/精东传媒/&category/色控工作室/&category/蜜桃传媒/&category/香蕉视频/",
+"分类截取模式": "1",
+"分类列表数组规则": ".videos-list&&article",
+"分类片单是否Jsoup写法": "1",
+"分类片单标题": "a&&title",
+"分类片单链接": "a&&href",
+"分类片单图片": "img&&data-src||src",
+"分类片单副标题": "'📆'+.data&&span&&Text+'👍'+.metadata&&span,1&&Text",
+"分类片单链接加前缀": "",
+"分类片单链接加后缀": "",
+"搜索请求头参数": "User-Agent$手机",
+"搜索链接": "https://krx18.com/?s={wd}",
+"POST请求数据": "",
+"搜索截取模式": "1",
+"搜索列表数组规则": ".module&&article",
+"搜索片单是否Jsoup写法": "1",
+"搜索片单图片": "img&&src",
+"搜索片单标题": ".title&&Text",
+"搜索片单链接": "a&&href",
+"搜索片单副标题": "'🗓️'+.year&&Text+'👍'+.rating&&Text",
+"搜索片单链接加前缀": "",
+"搜索片单链接加后缀": "",
+"链接是否直接播放": "1",
+"直接播放链接加前缀": "",
+"直接播放链接加后缀": "",
+"直接播放直链视频请求头": "",
+
+
+
+"分析MacPlayer": "0",
+"是否开启手动嗅探": "1",
+"手动嗅探视频链接关键词": "playlist.m3u8#m3u8#.m3u8",
+"手动嗅探视频链接过滤词": "baidu.com#playhubconnect.com#afcdn.net#.mp4",
+
+
+"筛选数据":{
+"asian/":[
+  {"key":"cateId","name":"分类","value":[
+{"n":"全部","v":""},
+{"n":"亚洲","v":"asian/"},
+{"n":"91制片厂","v":"7/"},
+{"n":"天美传媒","v":"8/"},
+{"n":"蜜桃影像","v":"9/"},
+{"n":"星空传媒","v":"10/"},
+{"n":"皇家华人","v":"11/"},
+{"n":"精东影业","v":"12/"},
+{"n":"乐播传媒","v":"13/"},
+{"n":"成人头条","v":"14/"},
+{"n":"兔子先生","v":"15/"},
+{"n":"杏吧原创","v":"16/"}
+]
+},
+
+  {"key":"by","name":"排序","value":[
+{"n":"更新时间","v":"recent/"},
+{"n":"播放次数","v":"popular/"},
+{"n":"点赞","v":"rated/"},
+{"n":"视频时间","v":"popular/"}]}]}
+
+}
