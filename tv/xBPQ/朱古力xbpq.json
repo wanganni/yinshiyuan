@@ -1,0 +1,123 @@
+{
+//https://go.stripchatgirls.com
+//https://go.mnaspm.com
+//go.superchat.shop
+//go.rmhfrtnd.com
+//https://go.xliirdr.com
+//https://go.stripchat.review
+//https://go.mavrtracktor.com/
+    "作者": "飞鱼",
+    "站名": "朱古力pigav",
+    "发布页": "",
+    "主页url": "",
+    "首页": "",
+    "分类url": "https://pigav.ws/api/v1/videos?start={catePg}&count=5&sort=-publishedAt&skipCount=true&categoryOneOf={cateId}&nsfw=both&nsfwFlagsExcluded=0&nsfwFlagsIncluded=0",
+    "二次截取": "",
+    "数组": "j:data",
+    "标题": "j:name",
+    "图片": "j:thumbnailPath",
+    "图片代理aes": "",
+    "副标题": "j:broadcastGender[替换:female>>♀️女性#group>>群体#male>>♂️男性#tranny>>变性人]",
+    "链接": "j:shortUUID",
+    "链接前缀": "https://pigav.ws/w/",
+    "直接播放":"1",
+    "搜索模式": "1",
+    "搜索url": "",
+    "过滤词": "",
+    "免嗅": "1",
+    "嗅探词": "m3u8",
+    "详情页加工": "",
+    "线路二次截取": "",
+    "线路标题": "",
+    "播放二次截取": "",
+    "播放数组": "",
+    "播放标题": "",
+    "播放列表": "",
+    "播放链接": "",
+   
+    //"跳转播放链接": "\"videolist\"*\"&&,+/+\"playurl\"*\"&&\"",
+    "超时": "220",
+    "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Cookie$c-#Referer$https://pigav.ws/",
+    "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Cookie$c-#Referer$https://pigav.ws/",
+    "二级目录": "",
+    "二级ID": "",
+    //"特殊分类链接": "更多分类$https://www.av.com/tags/{cateId}/page/{catePg}/",
+    //"类型": "",
+  
+    //"类型值":"*", 
+    //"分类url": "https://av.com/json/category/ctg_{cateId}_page_{catePg}.json?times={时间秒戳};;cm0cF",
+    "分类": "日韩&亚洲",
+    "分类值":"20&21",
+    "起始页": "0",
+    "页码倍率":"5",
+    "筛选":{
+"girls/chinese":[
+  {"key":"cateId",
+  "name":"女主播",
+  "value":[
+{"v":"girls/chinese","n":"🇨🇳中国女孩"},
+{"v":"girls/japanese","n":"🇯🇵日本女孩"},
+{"v":"girls/korean","n":"🇰🇷韩国女孩"},
+{"v":"girls/vietnamese","n":"🇻🇳越南女孩"},
+{"v":"girls/ukrainian","n":"🇺🇦乌克兰女孩"},
+{"v":"girls/russian","n":"🇷🇺俄罗斯女孩"},
+{"v":"girls/american","n":"🇺🇸美国女孩"},
+{"v":"girls/colombian","n":"🇨🇴哥伦比亚女孩"},
+{"v":"girls/german","n":"🇩🇪德国女孩"},
+{"v":"girls/french","n":"🇫🇷法国女孩"},
+{"v":"girls/uk-models","n":"🇬🇧英国女孩"},
+{"v":"girls/canadian","n":"🇨🇦加拿大女孩"},
+{"v":"girls/mexican","n":"🇲🇽墨西哥女孩"},
+{"v":"girls/indian","n":"🇮🇳印度女孩"},
+{"v":"girls/venezuelan","n":"🇻🇪委内瑞拉女孩"},
+{"v":"girls/romanian","n":"🇷🇴罗马尼亚女孩"},
+{"v":"girls/african","n":"🌍非洲女孩"},
+{"v":"girls/spanish-speaking","n":"🇪🇸西班牙女孩"},
+{"v":"girls/arab","n":"🇸🇦🇦🇪阿拉伯女孩"},
+{"v":"girls/kenyan","n":"🇰🇪肯尼亚女孩"},
+{"v":"girls/south-african","n":"🇿🇦南非女孩"},
+{"v":"girls/brazilian","n":"🇧🇷巴西女孩"},
+{"v":"girls/thai","n":"🇹🇭泰国女孩"},
+{"v":"girls/italian","n":"🇮🇹意大利女孩"},
+{"v":"girls/teens","n":"少女18+"},
+{"v":"girls/young","n":"鲜嫩青年22+"},
+{"v":"girls/milfs","n":"熟女"},
+{"v":"girls/mature","n":"成熟"},
+{"v":"girls/grannies","n":"老奶奶"},
+
+{"v":"girls/white","n":"白人"},
+{"v":"girls/asian","n":"亚洲人"},
+{"v":"girls/latin","n":"拉丁人"},
+{"v":"girls/arab","n":"阿拉伯人"},
+{"v":"girls/ebony","n":"黑珍珠"},
+{"v":"girls/indian","n":"印度人"},
+
+{"v":"girls/new","n":"最新女主播"},
+{"v":"girls","n":"全部女主播"}
+]}
+],
+"couples/chinese":[
+  {"key":"cateId",
+  "name":"情侣",
+  "value":[
+{"v":"couples/chinese","n":"中国情侣"},
+{"v":"couples/popular","n":"热门情侣"},
+{"v":"couples/new","n":"最新情侣"},
+{"v":"couples","n":"全部情侣"}]}
+],
+"men/popular":[
+{"key":"cateId",
+  "name":"男主播",
+  "value":[
+  {"v":"men/popular","n":"最受欢迎"},
+  {"v":"men/gay-couples","n":"男同伴侣"},
+  {"v":"men/gays","n":"男同聊天"},
+  {"v":"men/straight","n":"直男"},
+  {"v":"men","n":"全部男主播"}
+]}
+]
+
+
+}
+
+}

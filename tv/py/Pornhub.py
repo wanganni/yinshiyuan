@@ -75,13 +75,24 @@ class Spider(Spider):
             "热门🔥": "/video?o=ht",
             "最多观看": "/video?o=mv",
             "高分": "/video?o=tr",
+            "青少年": "/categories/teen",
+            "亚洲人": "/video?c=1",
+            "大学": "/categories/college",
+            "校园": "/video?c=88",
+            "中文": "/language/chinese",
+            "Cosplay": "/video?c=241",
             "⿳片单": "/playlists",
             "⿳频道": "/channels",
             "⿳分类": "/categories",
             "⿳明星": "/pornstars"
         }
         classes = []
-        filters = {}
+        filters = {"/video?c=1":[{"key": "classes", "name": "分类", "value": [{"n": "cos", "v": "/video?c=241"}, {"n": "按人气", "v": "hit"}]}],
+            "2": [{"key": "by", "name": "排序", "value": [{"n": "按时间", "v": "time"}, {"n": "按人气", "v": "hit"}]}],
+            "3": [{"key": "by", "name": "排序", "value": [{"n": "按时间", "v": "time"}, {"n": "按人气", "v": "hit"}]}],
+            "4": [{"key": "by", "name": "排序", "value": [{"n": "按时间", "v": "time"}, {"n": "按人气", "v": "hit"}]}],
+            "6": [{"key": "by", "name": "排序", "value": [{"n": "按时间", "v": "time"}, {"n": "按人气", "v": "hit"}]}]
+}
         for k in cateManual:
             classes.append({
                 'type_name': k,
@@ -103,7 +114,7 @@ class Spider(Spider):
         result['pagecount'] = 9999
         result['limit'] = 90
         result['total'] = 999999
-        if tid in ['/video','/video?o=cm','/video?o=ht','/video?o=mv','/video?o=tr'] or '_this_video' in tid:
+        if tid in ['/video','/video?o=cm','/video?o=ht','/video?o=mv','/video?o=tr','/categories/teen','/video?c=1','/categories/college','/video?c=88','/language/chinese','/video?c=241'] or '_this_video' in tid:
             pagestr = f'&' if '?' in tid else f'?'
             tid = tid.split('_this_video')[0]
             data = self.getpq(f'{tid}{pagestr}page={pg}')
@@ -255,12 +266,12 @@ class Spider(Spider):
 
     def gethost(self):
         try:
-            response = requests.get('https://www.pornhub.com', headers=self.headers, proxies=self.proxies,
+            response = requests.get('https://cn.pornhub.com', headers=self.headers, proxies=self.proxies,
                                     allow_redirects=False)
             return response.headers['Location'][:-1]
         except Exception as e:
             print(f"获取主页失败: {str(e)}")
-            return "https://www.pornhub.com"
+            return "https://cn.pornhub.com"
 
     def e64(self, text):
         try:

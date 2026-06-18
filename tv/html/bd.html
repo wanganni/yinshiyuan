@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>哔嘀影视 · 修复版</title>
+<style>
+  /* 完整样式（与上一版相同，为保证体积此处省略，实际使用时请复制上一版的完整样式） */
+  :root{--panel-rgb:42,50,58;--panel:rgba(var(--panel-rgb),.62);--panel-soft:rgba(var(--panel-rgb),.44);--panel-strong:rgba(var(--panel-rgb),.86);--line:rgba(255,255,255,.16);--text:#f7fbff;--muted:rgba(247,251,255,.68);--accent:#ff6b35;--accent2:#ffb86b;--bad:#ff5c7a;--ok:#68e39a;--radius:18px;--shadow:0 18px 50px rgba(0,0,0,.28)}
+  *{box-sizing:border-box} html,body{margin:0;min-height:100%;background:transparent;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif} html:not(.fm-native),html:not(.fm-native) body{background:#222a32}.app{min-height:100vh;background:transparent;padding:10px 10px 28px}
+  .top{position:relative;z-index:1;background:rgba(var(--panel-rgb),0.75);border-radius:20px;padding:24px 16px;margin:10px auto 20px;max-width:800px;display:flex;flex-direction:column;align-items:center;gap:16px;box-shadow:var(--shadow)}
+  .bar{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:16px;width:100%}
+  .brand{font-size:28px;font-weight:900;letter-spacing:2px;text-shadow:0 4px 14px rgba(0,0,0,.35);white-space:nowrap}
+  .brand b{color:var(--accent2)}
+  .search{flex:1;width:100%;max-width:500px;display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 6px 6px 18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+  .search input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font-size:15px}
+  .search input::placeholder{color:var(--muted)}
+  button,.btn{border:1px solid var(--line);background:var(--panel-soft);color:var(--text);border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;white-space:nowrap}
+  .btn.primary,button.primary{border-color:rgba(255,107,53,.45);background:linear-gradient(135deg,rgba(255,107,53,.90),rgba(255,184,107,.72));color:#17110d;font-weight:800;padding:10px 20px}
+  .tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;width:100%;padding:0}
+  .tab{border-radius:999px;padding:8px 18px;font-size:15px;background:rgba(255,255,255,.08);border:2px solid transparent;color:var(--muted);transition:all 0.2s}
+  .tab.active{background:transparent;color:var(--text);border-color:rgba(255,184,107,0.8);font-weight:800}
+  .status{margin:10px 2px;color:var(--muted);font-size:14px;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .card{position:relative;min-width:0;border-radius:15px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.045));border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 28px rgba(0,0,0,.22);cursor:pointer;transition:transform 0.2s}
+  .poster{aspect-ratio:3/4;background:rgba(255,255,255,.08);overflow:hidden;position:relative;padding-bottom:133.33%}
+  .poster img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04) contrast(1.03)}
+  .poster .noimg{position:absolute;top:0;left:0;height:100%;width:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:28px}
+  .meta{padding:8px 8px 10px;background:linear-gradient(180deg,rgba(18,24,30,.15),rgba(18,24,30,.44))}
+  .name{font-weight:800;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .remark{margin-top:4px;color:var(--muted);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .section{margin:16px 0}
+  .section-title{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px}
+  .section-title h2{margin:0;font-size:17px;letter-spacing:.3px}
+  .pagination{display:flex;justify-content:center;gap:20px;margin:24px 0 12px;padding:12px 8px;background:rgba(0,0,0,0.2);border-radius:48px;flex-wrap:wrap}
+  .page-btn{padding:8px 24px;background:var(--panel-soft);border:1px solid var(--line);border-radius:40px;font-size:14px;cursor:pointer;transition:all 0.2s;min-width:110px}
+  .page-btn.disabled{opacity:0.4;cursor:not-allowed;pointer-events:none}
+  .sheet{position:fixed;top:0;right:0;bottom:0;left:0;z-index:40;display:none;background:transparent;overflow:hidden;width:100%;height:100%}
+  .sheet.active{display:block}
+  .sheet-inner{height:100vh;min-height:100vh;padding:12px;background:transparent;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y}
+  .detail-panel{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:14px;margin-bottom:42px;touch-action:pan-y}
+  .detail-head{display:grid;grid-template-columns:118px 1fr;gap:14px}
+  .detail-pic{width:118px;height:157px;border-radius:14px;object-fit:cover;background:rgba(255,255,255,.08)}
+  .detail-title{font-size:22px;font-weight:900;margin:2px 0 8px}
+  .detail-info{color:var(--muted);line-height:1.65;font-size:14px;min-width:0}
+  .desc{margin-top:12px;color:rgba(255,255,255,.82);line-height:1.72;max-height:8.6em;overflow:auto}
+  .line-tabs{display:flex;gap:8px;overflow-x:auto;margin:12px 0 8px;padding-bottom:2px}
+  .line-tab{border-radius:999px;padding:8px 12px;background:rgba(255,255,255,.08);border:1px solid var(--line);white-space:nowrap}
+  .line-tab.active{background:rgba(255,107,53,.36);border-color:rgba(255,184,107,.55);font-weight:800}
+  .episodes{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;max-height:none;overflow:visible;touch-action:pan-y}
+  .ep{border-radius:12px;padding:9px 11px;background:rgba(255,255,255,.09);border:1px solid var(--line);cursor:pointer;min-width:68px}
+  .empty{padding:30px 18px;text-align:center;color:var(--muted);background:var(--panel-soft);border:1px dashed var(--line);border-radius:var(--radius)}
+  .loading{opacity:.75}
+  .focusable:focus,.card:focus,.rank-item:focus,.ep:focus,button:focus,.tab:focus,input:focus{outline:2px solid rgba(255,184,107,.76);outline-offset:2px;transform:translateY(-1px)}
+  html.tv-mode .focusable:focus,html.tv-mode .card:focus,html.tv-mode .ep:focus,html.tv-mode button:focus,html.tv-mode .tab:focus{
+    outline:4px solid var(--accent2) !important;outline-offset:4px !important;
+    transform:scale(1.05);box-shadow:0 0 20px rgba(255,184,107,.35);
+    z-index:10;position:relative}
+  html.tv-mode .card:focus .poster img{transform:scale(1.08)}
+  html.tv-mode .grid{gap:14px}
+  html.tv-mode .name{font-size:18px}
+  html.tv-mode .tab{padding:10px 24px;font-size:17px}
+  html.tv-mode .ep{padding:12px 18px;font-size:16px;min-width:80px}
+  html.tv-mode .brand{font-size:34px}
+  html.tv-mode .search input{font-size:18px}
+  body.detail-active .app{visibility:hidden;pointer-events:none}
+  @media (min-width:768px) and (orientation:landscape){.app{padding:18px 28px 44px;max-width:1380px;margin:0 auto}.top{padding:40px;margin:30px auto;border-radius:32px;gap:24px;max-width:900px}.bar{flex-direction:row;gap:24px}.brand{font-size:36px}.search{padding:8px 8px 8px 24px;max-width:650px}.search input{font-size:18px}.btn.primary,button.primary{padding:12px 28px;font-size:16px}.tabs{gap:14px;max-width:700px}.tab{padding:10px 24px;font-size:16px}.grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}.detail-head{grid-template-columns:160px 1fr}.detail-pic{width:160px;height:213px}.focusable:focus,.card:focus,.ep:focus,button:focus,.tab:focus,input:focus{transform:scale(1.05);outline:4px solid #ffb86b;outline-offset:4px}.pagination{gap:28px}.page-btn{padding:10px 32px;font-size:16px}}
+  @media (min-width:1200px) and (orientation:landscape){.grid{grid-template-columns:repeat(8,minmax(0,1fr))}}
+  @media (max-width:480px),(orientation:portrait){.app{padding:8px 9px 24px}.top{padding:20px 12px;margin:10px auto;border-radius:20px;gap:16px}.bar{flex-direction:row;gap:10px}.brand{font-size:22px}.search{padding:4px 4px 4px 14px}.search input{font-size:14px}.btn.primary,button.primary{padding:8px 16px;font-size:14px}.tabs{gap:8px}.tab{padding:8px 14px;font-size:14px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.meta{padding:7px 7px 9px}.name{font-size:13px}.remark{font-size:11px}.detail-head{grid-template-columns:104px 1fr;gap:12px}.detail-pic{width:104px;height:138px}.detail-title{font-size:20px}.sheet-inner{padding:10px}.detail-panel{border-radius:20px;padding:12px}.ep{min-width:64px;padding:8px 9px}.page-btn{padding:6px 16px;min-width:80px}}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="top">
+    <div class="bar">
+      <div class="brand">哔嘀<b>影视</b></div>
+      <form class="search" id="searchForm">
+        <input id="kw" class="focusable" type="text" placeholder="搜索影片、电视剧…" autocomplete="off">
+        <button class="primary focusable" type="submit">搜索</button>
+      </form>
+    </div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="status" id="status">准备加载…</div>
+  <main id="content"></main>
+</div>
+<div class="sheet" id="detailSheet"><div class="sheet-inner"><div class="detail-panel" id="detailPanel"></div></div></div>
+
+<script>
+(function(){
+'use strict';
+
+const BASE = 'https://www.bdtv.org';
+const CATS = [
+  ['首页', '/'],
+  ['电影', '/vodtype/1.html'],
+  ['电视剧', '/vodtype/2.html'],
+  ['综艺', '/vodtype/3.html'],
+  ['动漫', '/vodtype/4.html'],
+  ['纪录片', '/vodtype/5.html'],
+  ['动作片', '/vodtype/6.html'],
+  ['喜剧片', '/vodtype/7.html'],
+  ['爱情片', '/vodtype/8.html'],
+  ['科幻片', '/vodtype/9.html'],
+  ['恐怖片', '/vodtype/10.html'],
+  ['剧情片', '/vodtype/11.html']
+];
+const UA = 'Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36';
+
+let currentUrl = BASE + '/';
+let lastFocus = null;
+let lastSearchKeyword = '';
+const $ = s => document.querySelector(s);
+const content = $('#content');
+const statusEl = $('#status');
+const tabsDiv = $('#tabs');
+
+function abs(url) {
+  if (!url) return '';
+  if (url.startsWith('//')) return 'https:' + url;
+  if (url.startsWith('http')) return url;
+  return BASE + (url.startsWith('/') ? url : '/' + url);
+}
+function esc(s) { return String(s||'').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\'':'&#39;','"':'&quot;'}[c])); }
+function clean(s) { return String(s||'').replace(/\s+/g,' ').trim(); }
+
+// 图片URL处理
+function getImageUrl(src) {
+  if (!src) return '';
+  src = src.trim();
+  if (src.startsWith('//')) src = 'https:' + src;
+  if (src.startsWith('http')) return src;
+  return abs(src);
+}
+
+// 请求函数
+async function reqText(url, options={}) {
+  url = abs(url);
+  statusEl.textContent = '加载：' + url.replace(/^https?:\/\//,'');
+  const headers = {
+    'User-Agent': UA,
+    'Referer': BASE + '/',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    ...options.headers
+  };
+  try {
+    let txt;
+    if (window.fm && fm.req) {
+      const resp = await fm.req(url, {
+        method: options.method || 'GET',
+        headers,
+        responseType: 'text',
+        timeout: 25,
+        credentials: 'include',
+        body: options.body
+      });
+      if (resp && (resp.ok || resp.status === 200)) {
+        txt = resp.body || resp.content || resp.data || '';
+        if (txt && !txt.includes('锟斤拷') && !txt.includes('�')) return txt;
+      }
+    }
+    const r = await fetch(url, { method: options.method||'GET', headers, cache: 'no-store', credentials: 'include', body: options.body });
+    if (r.ok) txt = await r.text();
+    else throw new Error(`HTTP ${r.status}`);
+    if (txt.includes('锟斤拷') || txt.includes('�')) {
+      const buf = await r.arrayBuffer();
+      const decoder = new TextDecoder('gbk');
+      txt = decoder.decode(new Uint8Array(buf));
+    }
+    return txt;
+  } catch(e) {
+    statusEl.textContent = '请求失败: ' + e.message;
+    throw e;
+  }
+}
+
+// ----- 列表解析（修复图片提取）-----
+function parseList(html) {
+  const items = [];
+  // 匹配影片项：<a href="/voddetail/数字.html">标题</a>
+  const linkRe = /<a\s+[^>]*href="([^"]*\/voddetail\/\d+\.html)"[^>]*>([^<]+)<\/a>/gi;
+  let match;
+  while ((match = linkRe.exec(html))) {
+    let href = match[1];
+    let title = clean(match[2]);
+    if (!title || title.length < 2) continue;
+    // 提取图片：向前查找最近的<img>
+    let img = '';
+    const startPos = Math.max(0, match.index - 1200);
+    const context = html.substring(startPos, match.index + 200);
+    // 优先匹配 data-original（懒加载），其次src
+    const imgMatch = context.match(/<img[^>]+(?:data-original|src)=["']([^"']+\.(?:jpg|png|jpeg|webp))["']/i);
+    if (imgMatch) img = getImageUrl(imgMatch[1]);
+    // 备注（年份/清晰度）
+    let remark = '';
+    const remarkMatch = context.match(/<span[^>]*class="[^"]*(?:pic-text|score|remark)[^"]*"[^>]*>([^<]+)<\/span>/i);
+    if (remarkMatch) remark = clean(remarkMatch[1]);
+    items.push({ href: abs(href), title, remark, image: img });
+    if (items.length >= 60) break;
+  }
+  return items;
+}
+
+// ----- 详情页解析（线路、集数）-----
+async function parseDetailLines(detailUrl) {
+  const html = await reqText(detailUrl);
+  const lines = [];
+  // 提取所有播放链接
+  const playRe = /<a\s+[^>]*href="([^"]*\/vodplay\/[^"]+)"[^>]*>([^<]+)<\/a>/gi;
+  const allPlays = [];
+  let m;
+  while ((m = playRe.exec(html))) {
+    let href = m[1];
+    let title = clean(m[2]);
+    if (href && title && !href.includes('javascript:')) {
+      allPlays.push({ href: abs(href), title });
+    }
+  }
+  if (allPlays.length === 0) return lines;
+  
+  // 尝试按线路分组（根据<h3>或<div class="play-title">）
+  const sectionRe = /<h3[^>]*>([^<]*播放地址[^<]*)<\/h3>([\s\S]*?)(?=<h3|$)/gi;
+  let secMatch;
+  let foundSections = false;
+  while ((secMatch = sectionRe.exec(html))) {
+    let lineName = clean(secMatch[1]);
+    let content = secMatch[2];
+    const eps = [];
+    const epRe = /<a\s+[^>]*href="([^"]*\/vodplay\/[^"]+)"[^>]*>([^<]+)<\/a>/gi;
+    let epMatch;
+    while ((epMatch = epRe.exec(content))) {
+      eps.push({ href: abs(epMatch[1]), title: clean(epMatch[2]) });
+    }
+    if (eps.length) {
+      lines.push({ sid: String(lines.length+1), name: lineName, eps });
+      foundSections = true;
+    }
+  }
+  if (!foundSections) {
+    lines.push({ sid: '1', name: '在线播放', eps: allPlays });
+  }
+  
+  // 下载地址
+  const downRe = /【下载地址】([\s\S]*?)(?=<h3|$)/i;
+  const downMatch = html.match(downRe);
+  if (downMatch) {
+    const downHtml = downMatch[1];
+    const downLinks = [];
+    const linkRe = /<a\s+[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/gi;
+    let dl;
+    while ((dl = linkRe.exec(downHtml))) {
+      let href = dl[1];
+      let title = clean(dl[2]);
+      if (href && !href.includes('#') && !href.includes('javascript:')) {
+        downLinks.push({ href: abs(href), title, isDownload: true });
+      }
+    }
+    if (downLinks.length) lines.push({ sid: String(lines.length+1), name: '📥 下载地址', eps: downLinks });
+  }
+  return lines;
+}
+
+// 详情页标题、图片、简介
+function extractDetailInfo(html) {
+  let title = '';
+  const titleMatch = html.match(/<h1[^>]*class="[^"]*title[^"]*"[^>]*>([^<]+)<\/h1>/i) || html.match(/<title>([^<]+)-/i);
+  if (titleMatch) title = clean(titleMatch[1]);
+  let img = '';
+  const imgMatch = html.match(/<img[^>]+class="[^"]*vod-img[^"]*"[^>]+src="([^"]+\.(jpg|png|jpeg|webp))"/i) ||
+                   html.match(/<img[^>]+src="([^"]+\.(jpg|png|jpeg|webp))"[^>]+class="[^"]*vod-img[^"]*"/i) ||
+                   html.match(/<div[^>]*class="[^"]*detail-pic[^"]*"[^>]*>[\s\S]*?<img[^>]+src="([^"]+\.(jpg|png|jpeg|webp))"/i);
+  if (imgMatch) img = getImageUrl(imgMatch[1]);
+  let desc = '';
+  const descMatch = html.match(/<div[^>]*class="[^"]*desc[^"]*"[^>]*>([\s\S]*?)<\/div>/i) ||
+                    html.match(/<meta\s+name="description"\s+content="([^"]+)"/i);
+  if (descMatch) desc = clean(descMatch[1].replace(/<[^>]+>/g, '')).slice(0, 800);
+  return { title: title || '未知影片', img, desc: desc || '暂无简介' };
+}
+
+// ========== 超强播放地址解析（修复版） ==========
+async function getRealVideoUrl(playPageUrl) {
+  try {
+    let html = await reqText(playPageUrl);
+    // 1. 直接匹配 .m3u8
+    let m3u8 = html.match(/https?:\/\/[^\s"'<>]+\.m3u8[^\s"'<>]*/i);
+    if (m3u8) return m3u8[0];
+    
+    // 2. 提取所有 script 内容
+    const scriptRe = /<script[^>]*>([\s\S]*?)<\/script>/gi;
+    let allScripts = '';
+    let scriptMatch;
+    while ((scriptMatch = scriptRe.exec(html))) allScripts += scriptMatch[1] + '\n';
+    
+    // 3. 多模式匹配（包括 player_aaaa, playerConfig, var url 等）
+    const patterns = [
+      /(?:var|let|const)\s+(?:url|videoUrl|video_url|src|video)\s*=\s*["']([^"']+\.m3u8[^"']*)["']/i,
+      /["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i,
+      /url\s*:\s*["']([^"']+\.m3u8[^"']*)["']/i,
+      /file\s*:\s*["']([^"']+\.m3u8[^"']*)["']/i,
+      /src\s*:\s*["']([^"']+\.m3u8[^"']*)["']/i,
+      /data-video="([^"]+\.m3u8[^"]*)"/i,
+      /data-src="([^"]+\.m3u8[^"]*)"/i,
+      /player_aaaa\.url\s*=\s*["']([^"']+\.m3u8[^"']*)["']/i,
+      /playerConfig\s*:\s*\{\s*url\s*:\s*["']([^"']+\.m3u8[^"']*)["']/i,
+      /video\s*:\s*["']([^"']+\.m3u8[^"']*)["']/i,
+      /player_aaaa\s*=\s*({[^;]+});/i  // 提取整个对象再解析
+    ];
+    for (let pat of patterns) {
+      let match = allScripts.match(pat) || html.match(pat);
+      if (match) {
+        if (pat.toString().includes('player_aaaa.*=')) {
+          // 尝试解析 JSON 对象
+          try {
+            let objStr = match[1].replace(/\\\//g, '/');
+            let obj = JSON.parse(objStr);
+            if (obj.url && obj.url.includes('.m3u8')) return obj.url;
+          } catch(e) {}
+        } else if (match[1]) {
+          let url = match[1].replace(/\\\//g, '/');
+          if (!url.startsWith('http')) url = abs(url);
+          return url;
+        }
+      }
+    }
+    
+    // 4. iframe 嵌套处理
+    const iframeRe = /<iframe[^>]+src=["']([^"']+)["']/i;
+    let iframe = html.match(iframeRe);
+    if (iframe && iframe[1]) {
+      let iframeUrl = iframe[1];
+      if (!iframeUrl.startsWith('http')) iframeUrl = abs(iframeUrl);
+      let frameHtml = await reqText(iframeUrl);
+      let m3u8Frame = frameHtml.match(/https?:\/\/[^\s"'<>]+\.m3u8[^\s"'<>]*/i);
+      if (m3u8Frame) return m3u8Frame[0];
+      for (let pat of patterns.slice(0, -1)) { // 避免递归过深
+        let match = frameHtml.match(pat);
+        if (match && match[1]) return match[1];
+      }
+    }
+    
+    // 5. 拼接字符串
+    const concatRe = /(['"])(https?:\/\/[^'"]+?)\1\s*\+\s*(['"])(\/[^'"]+\.m3u8)\3/i;
+    let concatMatch = html.match(concatRe);
+    if (concatMatch) return concatMatch[2] + concatMatch[4];
+    
+    // 6. eval 混淆
+    const evalRe = /eval\s*\(\s*function\s*\([^)]*\)\s*\{[^}]*url\s*=\s*["']([^"']+\.m3u8[^"']*)["']/i;
+    let evalMatch = html.match(evalRe);
+    if (evalMatch) return evalMatch[1];
+    
+    return null;
+  } catch(e) {
+    console.warn('getRealVideoUrl error', e);
+    return null;
+  }
+}
+
+// 播放（关键：若解析失败则尝试让播放器直接加载播放页URL）
+async function playEpisode(playUrl, title, isDownload) {
+  if (isDownload) {
+    if (playUrl.startsWith('magnet:')) {
+      if (window.fm && fm.play) fm.play(playUrl, title);
+      else window.open(playUrl);
+    } else {
+      if (window.fm && fm.openUrl) fm.openUrl(playUrl);
+      else window.open(playUrl);
+    }
+    return;
+  }
+  statusEl.textContent = '解析播放地址...';
+  let realUrl = await getRealVideoUrl(playUrl);
+  if (realUrl) {
+    if (window.fm && fm.play) {
+      fm.play(realUrl, title, { referer: BASE });
+      statusEl.textContent = '播放中: ' + title;
+    } else {
+      window.open(realUrl);
+    }
+  } else {
+    // 无法解析时，仍尝试让播放器加载原始播放页（很多播放器支持嗅探）
+    statusEl.textContent = '未获取到直链，尝试播放器嗅探...';
+    if (window.fm && fm.play) {
+      fm.play(playUrl, title, { referer: BASE });  // 直接传递播放页URL
+    } else {
+      window.open(playUrl);
+    }
+  }
+}
+
+// 分页解析
+function parsePagination(html) {
+  let nextUrl = null, prevUrl = null;
+  const nextMatch = html.match(/<a[^>]*>下一页<\/a>/i);
+  if (nextMatch) {
+    const hrefMatch = nextMatch[0].match(/href="([^"]+)"/);
+    if (hrefMatch) nextUrl = abs(hrefMatch[1]);
+  }
+  const prevMatch = html.match(/<a[^>]*>上一页<\/a>/i);
+  if (prevMatch) {
+    const hrefMatch = prevMatch[0].match(/href="([^"]+)"/);
+    if (hrefMatch) prevUrl = abs(hrefMatch[1]);
+  }
+  return { nextUrl, prevUrl };
+}
+
+// 渲染列表
+function renderSections(items, keyword, nextUrl, prevUrl) {
+  if (!items.length) { content.innerHTML = '<div class="empty">暂无内容</div>'; return; }
+  let title = keyword ? '🔍 搜索：' + keyword : '📺 影片列表';
+  let gridHtml = `<section class="section"><div class="section-title"><h2>${esc(title)}</h2></div><div class="grid">` +
+    items.map(it => `<article class="card focusable" tabindex="0" data-href="${esc(it.href)}"><div class="poster">${it.image ? `<img loading="lazy" src="${esc(it.image)}" alt="${esc(it.title)}">` : '<div class="noimg">BD</div>'}</div><div class="meta"><div class="name">${esc(it.title)}</div><div class="remark">${esc(it.remark || '点击查看详情')}</div></div></article>`).join('') +
+    `</div></section>`;
+  if (nextUrl || prevUrl) {
+    gridHtml += `<div class="pagination"><button class="page-btn focusable ${!prevUrl ? 'disabled':''}" data-page="prev">◀ 上一页</button><button class="page-btn focusable ${!nextUrl ? 'disabled':''}" data-page="next">下一页 ▶</button></div>`;
+  }
+  content.innerHTML = gridHtml;
+  document.querySelectorAll('.card').forEach(card => card.onclick = () => openDetail(card.dataset.href));
+  if (nextUrl || prevUrl) {
+    let prevBtn = content.querySelector('.page-btn[data-page="prev"]');
+    let nextBtn = content.querySelector('.page-btn[data-page="next"]');
+    if (prevBtn && !prevBtn.classList.contains('disabled')) prevBtn.onclick = () => prevUrl && loadPage(prevUrl);
+    if (nextBtn && !nextBtn.classList.contains('disabled')) nextBtn.onclick = () => nextUrl && loadPage(nextUrl);
+  }
+  if (document.documentElement.classList.contains('tv-mode')) {
+    setTimeout(() => { let first = content.querySelector('.card'); if(first) first.focus(); }, 100);
+  }
+}
+
+async function loadPage(url) {
+  url = abs(url);
+  if (!url) return;
+  currentUrl = url;
+  if (!lastSearchKeyword) {
+    document.querySelectorAll('.tab').forEach(btn => {
+      if (abs(btn.dataset.url) === currentUrl) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  } else document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+  content.innerHTML = '<div class="empty loading">加载中...</div>';
+  try {
+    let html = await reqText(currentUrl);
+    let items = parseList(html);
+    let { nextUrl, prevUrl } = parsePagination(html);
+    renderSections(items, lastSearchKeyword || '', nextUrl, prevUrl);
+    statusEl.textContent = `已加载 ${items.length} 条`;
+  } catch(e) {
+    content.innerHTML = `<div class="empty">加载失败: ${esc(e.message)}</div>`;
+  }
+}
+
+async function search(q) {
+  q = clean(q);
+  if (!q) return;
+  lastSearchKeyword = q;
+  history.pushState({}, '', '#search=' + encodeURIComponent(q));
+  content.innerHTML = '<div class="empty loading">搜索中...</div>';
+  let searchUrl = BASE + '/vodsearch/-------------.html';
+  let html;
+  try {
+    html = await reqText(searchUrl, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'wd=' + encodeURIComponent(q) + '&submit=search' });
+  } catch(e) {
+    content.innerHTML = '<div class="empty">搜索失败</div>';
+    return;
+  }
+  let items = parseList(html);
+  let { nextUrl, prevUrl } = parsePagination(html);
+  renderSections(items, q, nextUrl, prevUrl);
+  statusEl.textContent = `搜索 "${q}" 完成，共 ${items.length} 条`;
+}
+
+async function openDetail(detailUrl) {
+  lastFocus = document.activeElement;
+  document.body.classList.add('detail-active');
+  $('#detailSheet').classList.add('active');
+  $('#detailPanel').innerHTML = '<div class="empty loading">读取详情...</div>';
+  history.pushState({}, '', '#detail=' + encodeURIComponent(detailUrl));
+  try {
+    let html = await reqText(detailUrl);
+    let { title, img, desc } = extractDetailInfo(html);
+    let lines = await parseDetailLines(detailUrl);
+    if (!lines.length) {
+      $('#detailPanel').innerHTML = '<button id="closeDetail">返回</button><div class="empty">未找到播放链接</div>';
+      $('#closeDetail').onclick = closeDetail;
+      return;
+    }
+    let lineTabsHtml = lines.map((ln, idx) => `<button class="line-tab focusable ${idx===0?'active':''}" data-sid="${ln.sid}">${esc(ln.name)}(${ln.eps.length})</button>`).join('');
+    let panelHtml = `<button id="closeDetail">返回</button><div class="detail-head"><img class="detail-pic" src="${esc(img)}" onerror="this.style.display='none'"><div><div class="detail-title">${esc(title)}</div><p class="desc">${esc(desc)}</p></div></div><h3>播放线路</h3><div class="line-tabs">${lineTabsHtml}</div><div class="episodes" id="episodeBox"></div>`;
+    $('#detailPanel').innerHTML = panelHtml;
+    $('#closeDetail').onclick = closeDetail;
+    function renderLine(sid) {
+      let line = lines.find(l => l.sid == sid) || lines[0];
+      if (!line) return;
+      let epHtml = line.eps.map(ep => `<button class="ep" data-href="${esc(ep.href)}"${ep.isDownload ? ' data-download="true"' : ''}>${esc(ep.title)}</button>`).join('');
+      $('#episodeBox').innerHTML = epHtml;
+      document.querySelectorAll('#episodeBox .ep').forEach(btn => {
+        btn.onclick = () => playEpisode(btn.dataset.href, title + ' ' + btn.textContent, btn.dataset.download === 'true');
+      });
+      let firstEp = $('#episodeBox').querySelector('.ep');
+      if (firstEp && document.documentElement.classList.contains('tv-mode')) firstEp.focus();
+    }
+    document.querySelectorAll('.line-tab').forEach(tab => {
+      tab.onclick = () => {
+        document.querySelectorAll('.line-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        renderLine(tab.dataset.sid);
+      };
+    });
+    renderLine(lines[0].sid);
+  } catch(e) {
+    $('#detailPanel').innerHTML = `<button id="closeDetail">返回</button><div class="empty">详情加载失败: ${esc(e.message)}</div>`;
+    $('#closeDetail').onclick = closeDetail;
+  }
+}
+function closeDetail() {
+  document.body.classList.remove('detail-active');
+  $('#detailSheet').classList.remove('active');
+  if (lastFocus && lastFocus.focus) setTimeout(() => lastFocus.focus(), 50);
+}
+function renderTabs() {
+  tabsDiv.innerHTML = CATS.map(([name, path]) => `<button class="tab ${abs(path)===currentUrl && !lastSearchKeyword ? 'active':''}" data-url="${abs(path)}">${esc(name)}</button>`).join('');
+  document.querySelectorAll('.tab').forEach(btn => btn.onclick = () => { lastSearchKeyword=''; loadPage(btn.dataset.url); });
+}
+function boot() {
+  renderTabs();
+  $('#searchForm').onsubmit = e => { e.preventDefault(); search($('#kw').value); };
+  window.addEventListener('popstate', () => {
+    if ($('#detailSheet').classList.contains('active')) closeDetail();
+    else if (lastSearchKeyword) search(lastSearchKeyword);
+    else loadPage(currentUrl);
+  });
+  loadPage(BASE + '/');
+}
+boot();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{
+    "作者": "飞鱼",
+    "站名": "tktubexbpqq",
+    "发布页": "",
+    "主页url": "https://tktube.com/zh",
+    "首页": "",
+    "数组二次截取": "",
+    
+    //以下类型--是二级标签--
+    "数组": "p:div[class*=\"list-videos\"] .item||类别--p:div[class*=\"list-categories\"] a||女优--p:div[class*=\"list-models\"] a||最受欢迎的播放列表--p:div[class*=\"list-playlists\"] a||p:div[class*=\"playlist-holder\"] a",
+    "标题": "p:.title->text",
+    "图片": "p:img->src",
+    "副标题": "⏱️+p:.duration->text+📆+p:.added->text+👍+p:.rating->text||类别--p:.videos->text+👍+p:.rating->text||女优--p:.videos->text+👍+p:.rating->text||最受欢迎的播放列表--p:.videos->text+👍+p:.rating->text",
+    "链接": "p:a->href||类别--p:a->href+{catePg}/||女优--p:a->href+{catePg}/||最受欢迎的播放列表--p:a->href+?from={catePg}",
+    "直接播放": "0",
+    "超时":"120",
+   // "强制解析":"0",
+    "简介": "inlineFree\">&&</span>",
+    //"线路二次截取": "mediaDefinitions\":[&&]",
+    "线路数组": "",
+    "线路标题": "",
+    //"列表二次截取": "flashvars_.*?=&&;.*?</script>[包含:mediaDefinitions]",
+  "播放二次截取": "flashvars.*?=&&;",
+   // "播放数组": "j:mediaDefinitions",
+   // "播放标题": "j:quality",
+    //"播放列表": "",
+    //"播放链接": "j:videoUrl",
+    /////
+    "播放数组": "",
+    "播放标题": "video_alt_url_text: \'&&\'||video_url_text: \'&&\'",
+    "播放列表": "{&&}",
+    "播放链接": "video_alt_url: '&&/'||video_url: '&&/'",
+    
+  //  "嗅探词": "tk.*?p.mp4",
+    "过滤词": "growcdnssedge.com",
+   
+    //"跳转播放链接": "<source*src=\"&&\"",
+    "搜索模式": "1",
+    "搜索url": "https://tktube.com/zh/search/{wd}/?from={pg}",
+    "搜索模式": "1",//1为截取模式，0为json模式，自动情况下，先截取模式，无数据时再尝试json模式
+"搜索后缀":"",//json模式时用于补充域名与id之间那部分内容，最好填写这个，能提高效率。写了这个自动使用搜索模式0
+
+"搜索二次截取": "",
+"搜索数组": "p:div[class*=list-videos] .item",
+"搜索图片": "p:img->src",
+"搜索标题": "p:.title->text",
+"搜索链接": "p:a->href",
+"搜索链接前缀": "",
+"搜索链接后缀": "",
+    "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Origin$https://tktube.com/#Referer$https://tktube.com/",
+    "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Origin$https://tktube.com/#Referer$https://tktube.com/",
+    "图片请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Origin$https://tktube.com/#Referer$https://tktube.com/",
+    "二级目录": "类别,女优,最受欢迎的播放列表|folder-0-0-H",
+    //二级目录是指定那些分类使用目录模式
+   // "二级ID": "最受欢迎的播放列表二级$href=\"https://tktube.com/zh/playlists/&&\"",
+    //二级id分类二级//在得到的链接中截取，如果不填二级ID，将直接使用链接，在特殊分类中加上此分类的二级，如xx二级${cateId}，就是直接将一级链接交给二级使用。
+    "特殊分类链接": "最新$https://tktube.com/zh/{cateId}/?from={catePg}#好评影片$https://tktube.com/zh/{cateId}/?from={catePg}&sort_by={by|rating_week}#热门影片$https://tktube.com/zh/{cateId}/?from={catePg}&sort_by={by|video_viewed_week}#类别二级$https://tktube.com/zh/{cateId}/#女优二级,最受欢迎的播放列表二级$https://tktube.com/zh/{cateId}/?from={catePg}",
+    //特殊分类链接是指定分类使用此链接作为分类url
+    //"排序": "空||空||空||空||空||空||空||空||最多视频$total_videos#排行$avg_top#字母顺序$title#热度$avg_popular||最多视频$total_videos#排行$avg_top#字母顺序$title#热度$avg_popular",
+    "分类url": "https://tktube.com/zh/{cateId}/?from={catePg}",
+    "分类": "最新$latest-updates#好评影片$top-rated#热门影片$most-popular#类别$categories#女优$models#最受欢迎的播放列表$playlists",
+    "筛选":{
+
+"most-popular":[
+  {"key":"by",
+  "name":"热门排序",
+  "value":[
+  {"v":"video_viewed","n":"所有时间"},
+  {"v":"video_viewed_month","n":"一个月内"},
+  {"v":"video_viewed_week","n":"一周内"},
+  {"v":"video_viewed_today","n":"一天内"}
+]}
+],
+
+"top-rated":[
+  {"key":"by",
+  "name":"好评排序",
+  "value":[
+  {"v":"rating","n":"所有时间"},
+  {"v":"rating_month","n":"一个月内"},
+  {"v":"rating_week","n":"一周内"},
+  {"v":"rating_today","n":"一天内"}
+]}
+]
+}
+
+
+}

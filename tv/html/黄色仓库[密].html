@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>黄色仓库</title>
+<style>
+  :root{--panel-rgb:42,50,58;--panel:rgba(var(--panel-rgb),.62);--panel-soft:rgba(var(--panel-rgb),.44);--panel-strong:rgba(var(--panel-rgb),.86);--line:rgba(255,255,255,.16);--text:#f7fbff;--muted:rgba(247,251,255,.68);--accent:#ff6b35;--accent2:#ffb86b;--bad:#ff5c7a;--ok:#68e39a;--radius:18px;--shadow:0 18px 50px rgba(0,0,0,.28)}
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%;background:transparent;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif}
+  .app{min-height:100vh;padding:10px 10px 28px}
+  .top{position:relative;z-index:1;background:transparent;backdrop-filter:none;padding:8px 0 10px;border-bottom:0}
+  .bar{display:flex;align-items:center;gap:8px}
+  .brand{flex:0 0 auto;font-size:21px;font-weight:900;letter-spacing:.5px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+  .brand b{color:var(--accent2)}
+  .search{flex:1;display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:6px 7px 6px 13px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+  .search input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);font-size:15px}
+  .search input::placeholder{color:var(--muted)}
+  button,.btn{border:1px solid var(--line);background:var(--panel-soft);color:var(--text);border-radius:999px;padding:8px 12px;font-size:14px;cursor:pointer}
+  .btn.primary,button.primary{border-color:rgba(255,107,53,.45);background:linear-gradient(135deg,rgba(255,107,53,.90),rgba(255,184,107,.72));color:#17110d;font-weight:800}
+  .tabs{display:flex;gap:8px;overflow:auto;padding:10px 2px 0;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{white-space:nowrap;border-radius:999px;padding:8px 14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:var(--muted)}
+  .tab.active{background:linear-gradient(135deg,rgba(255,107,53,.55),rgba(255,184,107,.30));color:var(--text);border-color:rgba(255,184,107,.58);font-weight:800}
+  .hero{margin:10px 0 16px;padding:18px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(255,107,53,.28),rgba(42,50,58,.54));border:1px solid var(--line);box-shadow:var(--shadow)}
+  .hero h1{margin:0 0 8px;font-size:24px}
+  .hero p{margin:0;color:var(--muted);line-height:1.6}
+  .status{margin:10px 2px;color:var(--muted);font-size:14px}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .card{position:relative;min-width:0;border-radius:15px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.045));border:1px solid rgba(255,255,255,.12);box-shadow:0 10px 28px rgba(0,0,0,.22);cursor:pointer}
+  .poster{aspect-ratio:3/4;background:rgba(255,255,255,.08);overflow:hidden;position:relative}
+  .poster img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04) contrast(1.03)}
+  .poster .noimg{height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:28px}
+  .meta{padding:8px 8px 10px;background:linear-gradient(180deg,rgba(18,24,30,.15),rgba(18,24,30,.44))}
+  .name{font-weight:800;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .remark{margin-top:4px;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .section{margin:16px 0}
+  .section-title{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px}
+  .section-title h2{margin:0;font-size:17px;letter-spacing:.3px}
+  .rank{display:grid;gap:8px}
+  .rank-item{display:flex;gap:10px;align-items:center;padding:11px 12px;border-radius:14px;background:var(--panel-soft);border:1px solid var(--line);cursor:pointer}
+  .rank-no{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:rgba(255,107,53,.22);font-weight:900;color:var(--accent2)}
+  .rank-title{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sheet{position:fixed;inset:0;z-index:40;display:none;background:transparent;overflow:hidden}
+  .sheet.active{display:block}
+  .sheet-inner{height:100vh;min-height:100vh;padding:12px;background:transparent;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y}
+  .detail-panel{background:linear-gradient(135deg,rgba(64,35,30,.68),rgba(30,24,24,.54));border:1px solid rgba(255,255,255,.10);border-radius:22px;box-shadow:var(--shadow);padding:18px 14px 22px;margin-bottom:42px;touch-action:pan-y}
+  .detail-head{display:grid;grid-template-columns:38% 1fr;gap:16px;align-items:start}
+  .detail-pic{width:100%;aspect-ratio:3/4;border-radius:16px;object-fit:cover;background:rgba(255,255,255,.08);box-shadow:0 12px 30px rgba(0,0,0,.32)}
+  .detail-title{font-size:25px;font-weight:500;margin:0 0 9px;line-height:1.25;color:rgba(255,255,255,.94)}
+  .detail-info{color:rgba(255,255,255,.76);line-height:1.85;font-size:18px;font-weight:500}
+  .detail-info b{color:rgba(255,255,255,.68);font-weight:800;margin-right:8px}
+  .detail-date{font-size:20px;color:rgba(255,255,255,.88);margin:2px 0 14px}
+  .intro-pill{display:inline-flex;margin:28px 0 18px;padding:11px 25px;border-radius:999px;background:#25b86b;color:white;font-size:18px;font-weight:700;box-shadow:0 8px 24px rgba(37,184,107,.22)}
+  .desc{margin:0 4px 18px;color:rgba(255,255,255,.66);font-size:20px;line-height:1.95;max-height:none;overflow:visible}
+  .play-title{margin:18px 2px 8px;font-size:18px;font-weight:800;color:rgba(255,255,255,.9)}
+  .line-tabs{display:flex;gap:8px;overflow-x:auto;margin:8px 0 8px;padding-bottom:2px}
+  .line-tab{border-radius:999px;padding:8px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);white-space:nowrap;color:rgba(255,255,255,.82)}
+  .line-tab.active{background:rgba(255,107,53,.36);border-color:rgba(255,184,107,.55);font-weight:800}
+  .episodes{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;max-height:none;overflow:visible;touch-action:pan-y}
+  .ep{border-radius:12px;padding:9px 11px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);cursor:pointer;min-width:68px;color:rgba(255,255,255,.86)}
+  .empty{padding:30px 18px;text-align:center;color:var(--muted);background:var(--panel-soft);border:1px dashed var(--line);border-radius:var(--radius)}
+  .loading{opacity:.75}
+  .focusable:focus,.card:focus,.rank-item:focus,.ep:focus,button:focus,.tab:focus,input:focus{outline:2px solid rgba(255,184,107,.76);outline-offset:2px;transform:translateY(-1px)}
+  body.detail-active .app{visibility:hidden;pointer-events:none}
+  .video-duration{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.8);color:#fff;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600;z-index:2}
+  #closeDetail{margin:0 0 18px 0;padding:10px 20px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,184,107,.55)}
+  .detail-head{align-items:start!important;grid-template-columns:38% 1fr!important;gap:16px!important}
+  .detail-title{font-size:24px!important;font-weight:600!important;line-height:1.25!important;margin:0 0 10px!important;word-break:break-all}
+  .detail-info:empty{display:none!important}
+  .detail-info div{margin:4px 0}
+  .intro-pill{margin-top:26px!important}
+  .episodes{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;width:100%!important}
+  .ep{width:100%!important;min-width:0!important;text-align:center!important;padding:10px 4px!important;border-radius:14px!important}
+  .detail-side{max-height:100%;overflow:hidden}
+  .detail-info{font-size:15px!important;line-height:1.55!important;font-weight:500!important}
+  .detail-info b{font-size:15px!important;margin-right:3px!important}
+  .detail-title{font-size:22px!important;margin-bottom:8px!important;font-weight:650!important}
+  .desc{font-size:17px!important;line-height:1.75!important;color:rgba(255,255,255,.68)!important}
+  .intro-pill{background:rgba(255,255,255,.10)!important;border:1px solid rgba(255,184,107,.55)!important;color:rgba(255,255,255,.94)!important;box-shadow:none!important;padding:10px 22px!important;font-size:17px!important}
+  @media (min-width:720px){.grid{grid-template-columns:repeat(5,minmax(0,1fr))}.app{padding:18px 28px 44px}.hero h1{font-size:30px}.detail-head{grid-template-columns:160px 1fr}.detail-pic{width:160px}}
+  @media (min-width:1100px){.grid{grid-template-columns:repeat(7,minmax(0,1fr))}.app{max-width:1380px;margin:0 auto}.sheet-inner{max-width:1180px;margin:0 auto}}
+  @media (max-width:480px){.app{padding:8px 9px 24px}.brand{font-size:20px}.search input{font-size:14px}.search button{padding:7px 10px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.meta{padding:7px 7px 9px}.name{font-size:13px}.remark{font-size:11px}.detail-head{grid-template-columns:38% 1fr;gap:14px}.detail-title{font-size:24px}.detail-date{font-size:20px}.detail-info{font-size:18px;line-height:1.9}.desc{font-size:20px;line-height:1.92}.sheet-inner{padding:10px}.detail-panel{border-radius:20px;padding:16px 12px}.ep{min-width:64px;padding:8px 9px}.episodes{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}.ep{font-size:15px!important;padding:9px 2px!important}.detail-title{font-size:23px!important}}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="top">
+    <div class="bar">
+      <div class="brand">黄色<b>仓库</b></div>
+      <form class="search" id="searchForm">
+        <input id="kw" class="focusable" type="text" placeholder="搜索影片…" autocomplete="off" />
+        <button class="primary focusable" type="submit">搜索</button>
+      </form>
+    </div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="status" id="status">准备加载…</div>
+  <main id="content"></main>
+</div>
+<div class="sheet" id="detailSheet"><div class="sheet-inner"><div class="detail-panel" id="detailPanel"></div></div></div>
+<script>
+(function(){
+'use strict';
+
+// ====== 视频数据 ======
+var VIDEO_DATA = {
+  '首页': [
+    {title:'撞见表妹洗澡强闯卫生间狂操',remark:'146111播放·16721评论',duration:'02-17'},
+    {title:'全国空降随时可约随地可啪24小时在线匹配',remark:'111播放·22445评论',duration:'02-17'},
+    {title:'在线选妃海量美女帝王享受视频认证',remark:'111播放·88222评论',duration:'02-17'},
+    {title:'趁老婆做饭爆操丈母娘',remark:'2541播放·334442评论',duration:'05-22'},
+    {title:'骚妈勾引我强上妈妈教我如何性爱',remark:'1124播放·222221评论',duration:'05-22'},
+    {title:'高中少女与男友啪啪手持相机拍摄性爱流出',remark:'829播放·760594评论',duration:'1080p'},
+    {title:'赵总寻欢05-09超级三飞',remark:'120播放·106449评论',duration:'12:39'},
+    {title:'来姨妈的嫂子给我口交毒龙狐狸面具下骚态尽显',remark:'4播放·15965评论',duration:'2:11:22'},
+    {title:'凡哥探花09-26城中村的小按摩店',remark:'71播放·67626评论',duration:'40:04'},
+    {title:'老婆骚逼被单男内射满5次还想要',remark:'138播放·250120评论',duration:'31:44'},
+    {title:'今天约了一个高颜值的小妹妹卡尔',remark:'152播放·228068评论',duration:'47:22'},
+    {title:'家庭网络摄像头破解偷拍健身教练',remark:'125播放·208598评论',duration:'18:37'},
+    {title:'看单男内射老婆老公在旁边撸管然后刷锅丝袜小淫妻',remark:'97播放·200318评论',duration:'14:50'},
+    {title:'神似张绍涵喷水实战深入快热',remark:'105播放·185875评论',duration:'23:52'},
+    {title:'偷拍女儿洗澡等她睡着在玩她小嫩穴配了也不敢反抗',remark:'97播放·183307评论',duration:'28:24'},
+    {title:'今天这位老师是本人学外语生涯以来最骚的不为赚钱俄国侯总',remark:'129播放·171248评论',duration:'1:04:04'},
+    {title:'路边搭讪极品混血妹带回家干到她高潮喷水不止李微微',remark:'56播放·154076评论',duration:'27:27'},
+    {title:'我的双面宝贝被她强压硬上之后爽到换我狠操干死她part2宽哥',remark:'298播放·440924评论',duration:'37:05'},
+    {title:'麻将桌上钓到极品木瓜奶骚妇无套中出奶浪翻滚',remark:'259播放·384670评论',duration:'06-03'},
+    {title:'麻豆珍藏母子乱伦免费黄片651.gg',remark:'热门频道',duration:''},
+  ],
+  '日韩AV': [
+    {title:'骑兵破解MIDA-657地味眼镜巨乳的人妻介護士天宫花南',remark:'4播放·9324评论',duration:'2:42:56',epCount:24},
+    {title:'CMN-193爆乳箱入り娘の官能小説倒錯コスプレ令嬢M塚田詩織',remark:'1播放·1405评论',duration:'1:58:55',epCount:12},
+    {title:'FC2PPV-4428531处子双飞首播高潮不止',remark:'1播放·8449评论',duration:'2:19:16',epCount:1},
+    {title:'NTRH-019夜校上课的人妻NTR第2次被侵犯却无法忘怀的绝顶快感雨宫彩花',remark:'22播放·52358评论',duration:'2:01:46',epCount:1},
+    {title:'NEWM-040嫁の母と禁断性交其の参拾壱妻よりもお義母さんの方がいいよ…小早川怜子',remark:'1播放·8516评论',duration:'2:00:21',epCount:1},
+    {title:'HUNTC-438某私立女子学校的家长主办的妈妈们咖啡厅',remark:'21播放·53940评论',duration:'2:14:32',epCount:1},
+    {title:'ALDN-527今从妻を献上します…第一次浮気をして帰ってきます…伊東沙蘭',remark:'9播放·13628评论',duration:'2:27:29',epCount:1},
+    {title:'ADN-649唾液が混じり合う密室接吻社長室実浜みき',remark:'16播放·22841评论',duration:'2:17:43',epCount:1},
+    {title:'骑兵破解ADN-758大好きな幼なじみが僕の父親に抱かれていた…白石なぎさ',remark:'0播放·397评论',duration:'1:56:29',epCount:1},
+    {title:'骑兵破解BAHP-016ヤれるコ～幼少期から知ってる友人の妹が大人の女になったとき～加瀬ななほ',remark:'0播放·124评论',duration:'2:19:05',epCount:1},
+    {title:'骑兵破解DIPO-060マル秘隠し撮り映像流出！！中年おやじが隠し撮りした人妻との秘め事',remark:'0播放·241评论',duration:'2:59:48',epCount:1},
+    {title:'骑兵破解FSDSS-161バカメス洗脳女教師河南実里',remark:'0播放·150评论',duration:'2:01:15',epCount:1},
+    {title:'骑兵破解GQE-112GLORYQUEST2020上半期総集編109タイトルSPECIAL',remark:'1播放·409评论',duration:'8:00:56',epCount:1},
+    {title:'骑兵破解HBAD-734お隣に住む美人でエロボディのお姉さんがノーパンノーブラで誘惑してくる小野坂ゆいか',remark:'0播放·347评论',duration:'2:10:20',epCount:1},
+    {title:'骑兵破解JURA-196初撮り人妻ドキュメント第二章桃井葵',remark:'0播放·268评论',duration:'2:01:51',epCount:1},
+    {title:'骑兵破解MIAA-499マッサージで勃起した先っぽにアソコを押し当てて布越し2cm挿入で誘惑する確信犯エステティシャンPART3',remark:'0播放·337评论',duration:'3:09:08',epCount:1},
+    {title:'骑兵破解MIAA-679どっちが一番スキか2秒で決めてッ',remark:'1播放·373评论',duration:'3:06:57',epCount:1},
+    {title:'骑兵破解MXGS-1184絡み合う体液～濃厚接吻互いに求め合う密着中出しセックス若宮穂乃',remark:'1播放·207评论',duration:'2:19:07',epCount:1},
+    {title:'骑兵破解OVG-144本番禁止のデリヘルでヌルッと生挿入する悪質客の実態2',remark:'0播放·129评论',duration:'2:14:55',epCount:1},
+    {title:'骑兵破解OYC-292友達と飲み会後、終電を逃して家に泊めた親友の彼女',remark:'1播放·143评论',duration:'3:21:41',epCount:1},
+    {title:'骑兵破解YST-353下品だとか上品だとか関係なく、エグイくらい湊さんを弄びたい湊波流',remark:'0播放·298评论',duration:'1:42:40',epCount:1},
+    {title:'骑兵破解YSN-660妹のやべーカラダを貪りたい湊波流',remark:'0播放·152评论',duration:'1:46:23',epCount:1},
+    {title:'骑兵破解YSN-659妹を育成中～両親も知らない間に妹を肉オナホに育成した俺は変態ですか？尋井うみ',remark:'2播放·287评论',duration:'1:39:43',epCount:1},
+    {title:'骑兵破解YMDS-290裏風俗学園祭エロかわ巨乳女子○生の密着ご奉仕ソーププレイ桜ゆの',remark:'0播放·195评论',duration:'2:33:34',epCount:1},
+    {title:'骑兵破解YMDS-289裏風俗学園祭エロかわ巨乳女子○生の密着ご奉仕ソーププレイ糸井瑠花',remark:'0播放·221评论',duration:'2:25:05',epCount:1},
+    {title:'骑兵破解YMDS-286マチアプ生ナカちゃん！外見ハデでも本質ピュア',remark:'0播放·75评论',duration:'1:23:04',epCount:1},
+    {title:'骑兵破解YMDS-285マチアプ生ナカちゃん！外見ハデでも本質ピュア',remark:'0播放·90评论',duration:'1:20:55',epCount:1},
+    {title:'骑兵破解YMDS-284ヤリマンワゴンが行く！！ハプニングアゴーゴー',remark:'1播放·199评论',duration:'1:45:52',epCount:1},
+    {title:'骑兵破解YMDS-283ヤリマンワゴンが行く！！ハプニングアゴーゴー',remark:'1播放·368评论',duration:'2:02:39',epCount:1},
+    {title:'骑兵破解WAAA-130コンドームが破れてまさかの生ハメ！',remark:'0播放·116评论',duration:'2:35:35',epCount:1},
+    {title:'骑兵破解WAAA-090隣のゴミ部屋に監禁された制服少女は絶倫オヤジの精液ぶっかけ種付けレ×プで汚されてイク…東條なつ',remark:'0播放·275评论',duration:'2:29:28',epCount:1},
+    {title:'骑兵破解VOSS-165隣人がまさかのヤリマン巨乳未亡人！',remark:'0播放·347评论',duration:'1:34:14',epCount:1},
+    {title:'骑兵破解VNDS-3305泥酔した年増おばさんを連れ込んだら…',remark:'0播放·171评论',duration:'2:00:04',epCount:1},
+    {title:'骑兵破解VNDS-3295隣に住む奥さんがウチの玄関前で泥酔×パンツ丸見えで爆睡中…なので自宅に連れ込んじゃいました！3',remark:'0播放·451评论',duration:'1:39:10',epCount:1},
+    {title:'骑兵破解VNDS-3293働くレディーを狙え職場で口説き人妻ナンパ',remark:'0播放·359评论',duration:'1:58:39',epCount:1},
+    {title:'骑兵破解VENX-046もう息子なしでは生きていけない…。母親が絶頂50回突破するエロス極限トランス中出し君島みお',remark:'1播放·514评论',duration:'1:39:17',epCount:1},
+    {title:'骑兵破解VENX-024親族相姦きれいな叔母さん志木あかね',remark:'0播放·252评论',duration:'1:51:22',epCount:1},
+    {title:'骑兵破解VENU-968親族相姦きれいな叔母さん清宮飛鳥',remark:'1播放·359评论',duration:'1:39:47',epCount:1},
+    {title:'骑兵破解VENU-945親族相姦きれいな叔母さん彩乃らん',remark:'1播放·250评论',duration:'1:39:47',epCount:1},
+    {title:'骑兵破解VEMA-165性格良すぎて中出ししても怒らない地味子OL芹奈さんは隠れ大巨乳の淫キャ妻芹奈りく',remark:'1播放·230评论',duration:'1:36:18',epCount:1},
+    {title:'骑兵破解VEC-472母の親友松本菜奈実',remark:'0播放·169评论',duration:'1:47:13',epCount:1},
+    {title:'骑兵破解VAGU-225超高級中出し専門熟女ソープでこっそり働く嫁の母「家族のみんなには内緒にしてね…」藤白桃羽',remark:'0播放·347评论',duration:'1:52:22',epCount:1},
+    {title:'骑兵破解VAGU-208超優良！生ハメしまくり熟女おっパブ滝川恵理',remark:'0播放·321评论',duration:'1:25:56',epCount:1},
+    {title:'骑兵破解VAGU-207近親相姦中出しソープ初めての熟女風俗、指名したら母ちゃんだった片瀬仁美',remark:'0播放·369评论',duration:'1:37:28',epCount:1},
+    {title:'骑兵破解URPW-040【着衣爆乳】思わずRECしたくなる着衣爆乳おっぱいもなみ',remark:'0播放·178评论',duration:'2:29:21',epCount:1},
+    {title:'骑兵破解SY-223前略四畳半の奥様久美子さん30歳素人四畳半生中出しシリーズ藤川乃風',remark:'0播放·205评论',duration:'2:03:26',epCount:1},
+    {title:'骑兵破解SVDVD-896クリスマスイブに道で寝ていた泥●女を持ち帰ったらとんでもない酒淫乱で友達10人と3日3晩ハメまくった皇ゆず',remark:'0播放·190评论',duration:'3:21:46',epCount:1},
+    {title:'BRAZZERS2023-08-15狡猾的熟女勾引男朋友',remark:'0播放·294评论',duration:'29:46',epCount:1},
+    {title:'BRAZZERS2023-08-15闪烁的半兽人的第一次肛交',remark:'0播放·179评论',duration:'42:43',epCount:1},
+    {title:'ADN-514一個人住的麗人-妃光莉',remark:'43播放·70914评论',duration:'2:11:22',epCount:1},
+    {title:'TOTK-011白濁汁強●大量ぶっかけ＆ごっくん！アナルFUCK調教鞠るり',remark:'2播放·5098评论',duration:'2:08:28',epCount:1},
+  ],
+  '国产系列': [
+    {title:'撞见表妹洗澡强闯卫生间狂操',remark:'146111播放·16721评论',duration:'02-17'},
+    {title:'全国空降随时可约随地可啪',remark:'111播放·22445评论',duration:'02-17'},
+    {title:'在线选妃海量美女帝王享受',remark:'111播放·88222评论',duration:'02-17'},
+    {title:'趁老婆做饭爆操丈母娘',remark:'2541播放·334442评论',duration:'05-22'},
+    {title:'骚妈勾引我强上妈妈',remark:'1124播放·222221评论',duration:'05-22'},
+    {title:'高中少女与男友啪啪手持相机拍摄',remark:'829播放·760594评论',duration:'1080p'},
+    {title:'赵总寻欢05-09超级三飞',remark:'120播放·106449评论',duration:'12:39'},
+    {title:'来姨妈的嫂子给我口交毒龙狐狸面具下骚态尽显',remark:'4播放·15965评论',duration:'2:11:22'},
+    {title:'凡哥探花09-26城中村的小按摩店',remark:'71播放·67626评论',duration:'40:04'},
+    {title:'老婆骚逼被单男内射满5次还想要',remark:'138播放·250120评论',duration:'31:44'},
+    {title:'今天约了一个高颜值的小妹妹卡尔',remark:'152播放·228068评论',duration:'47:22'},
+    {title:'家庭网络摄像头破解偷拍健身教练和美女学员',remark:'125播放·208598评论',duration:'18:37'},
+  ],
+  '欧美': [
+    {title:'BRAZZERS2023-08-15狡猾的熟女勾引男朋友',remark:'0播放·294评论',duration:'29:46',epCount:1},
+    {title:'BRAZZERS2023-08-15闪烁的半兽人的第一次肛交',remark:'0播放·179评论',duration:'42:43',epCount:1},
+    {title:'NUBILEFILMS2019-11-15电臀舞阳具挑战第5季第12集',remark:'0播放·1072评论',duration:'19:16',epCount:12},
+    {title:'FC2PPV-3187561女大学生遭三调教内外尽湿',remark:'2播放·9697评论',duration:'20:49',epCount:1},
+    {title:'SA国际传媒SATM009极品校花为钱甘愿帮富豪代孕',remark:'12播放·23684评论',duration:'22:20',epCount:1},
+    {title:'骑兵破解GQE-112GLORYQUEST2020上半期総集編109タイトルSPECIAL',remark:'1播放·409评论',duration:'8:00:56',epCount:1},
+  ],
+  '成人动漫': [
+    {title:'261动漫剧情',remark:'热门频道',duration:''},
+    {title:'骑兵破解YMDS-290裏風俗学園祭エロかわ巨乳女子○生',remark:'0播放·195评论',duration:'2:33:34',epCount:1},
+    {title:'骑兵破解YMDS-289裏風俗学園祭エロかわ巨乳女子○生',remark:'0播放·221评论',duration:'2:25:05',epCount:1},
+    {title:'骑兵破解YMDS-286マチアプ生ナカちゃん！外見ハデ',remark:'0播放·75评论',duration:'1:23:04',epCount:1},
+    {title:'骑兵破解YMDS-285マチアプ生ナカちゃん！外見ハデ',remark:'0播放·90评论',duration:'1:20:55',epCount:1},
+    {title:'骑兵破解YMDS-284ヤリマンワゴンが行く！！',remark:'1播放·199评论',duration:'1:45:52',epCount:1},
+    {title:'骑兵破解YMDS-283ヤリマンワゴンが行く！！',remark:'1播放·368评论',duration:'2:02:39',epCount:1},
+  ],
+  '无码中文字幕': [
+    {title:'4721无码中文字幕',remark:'热门频道',duration:''},
+    {title:'骑兵破解MIDA-657地味眼镜巨乳的人妻介護士',remark:'4播放·9324评论',duration:'2:42:56',epCount:24},
+    {title:'骑兵破解MIAA-679どっちが一番スキか2秒で決めてッ',remark:'1播放·373评论',duration:'3:06:57',epCount:1},
+    {title:'骑兵破解MXGS-1184絡み合う体液～濃厚接吻',remark:'1播放·207评论',duration:'2:19:07',epCount:1},
+    {title:'骑兵破解OVG-144本番禁止のデリヘルでヌルッと生挿入',remark:'0播放·129评论',duration:'2:14:55',epCount:1},
+    {title:'骑兵破解OYC-292友達と飲み会後、終電を逃して',remark:'1播放·143评论',duration:'3:21:41',epCount:1},
+  ],
+  '有码中文字幕': [
+    {title:'34646有码中文字幕',remark:'热门频道',duration:''},
+    {title:'CMN-193爆乳箱入り娘の官能小説倒錯コスプレ令嬢',remark:'1播放·1405评论',duration:'1:58:55',epCount:12},
+    {title:'ADN-514一個人住的麗人-妃光莉',remark:'43播放·70914评论',duration:'2:08:28',epCount:1},
+    {title:'TOTK-011白濁汁強●大量ぶっかけ＆ごっくん！',remark:'2播放·5098评论',duration:'2:08:28',epCount:1},
+  ],
+  '日本无码': [
+    {title:'14805日本无码',remark:'热门频道',duration:''},
+    {title:'骑兵破解MSC-008【個人撮影】3P連続ナマ中出し！',remark:'1播放·84评论',duration:'1:29:57',epCount:1},
+    {title:'骑兵破解YSN-660妹のやべーカラダを貪りたい',remark:'0播放·152评论',duration:'1:46:23',epCount:1},
+    {title:'骑兵破解YSN-659妹を育成中～両親も知らない間に',remark:'2播放·287评论',duration:'1:39:43',epCount:1},
+    {title:'骑兵破解VOSS-165隣人がまさかのヤリマン巨乳未亡人',remark:'0播放·347评论',duration:'1:34:14',epCount:1},
+    {title:'骑兵破解VNDS-3305泥酔した年増おばさんを連れ込んだら',remark:'0播放·171评论',duration:'2:00:04',epCount:1},
+  ],
+  '日本有码': [
+    {title:'63709日本有码',remark:'热门频道',duration:''},
+    {title:'骑兵破解HBAD-734お隣に住む美人でエロボディのお姉さん',remark:'0播放·347评论',duration:'2:10:20',epCount:1},
+    {title:'骑兵破解JURA-196初撮り人妻ドキュメント第二章',remark:'0播放·268评论',duration:'2:01:51',epCount:1},
+    {title:'骑兵破解MIAA-499マッサージで勃起した先っぽに',remark:'0播放·337评论',duration:'3:09:08',epCount:1},
+    {title:'骑兵破解VENX-046もう息子なしでは生きていけない',remark:'1播放·514评论',duration:'1:39:17',epCount:1},
+    {title:'骑兵破解VENU-968親族相姦きれいな叔母さん',remark:'1播放·359评论',duration:'1:39:47',epCount:1},
+  ],
+  '骑兵破解': [
+    {title:'骑兵破解MIDA-657地味眼镜巨乳的人妻介護士',remark:'4播放·9324评论',duration:'2:42:56',epCount:24},
+    {title:'骑兵破解ADN-758大好きな幼なじみが僕の父親に抱かれていた',remark:'0播放·397评论',duration:'1:56:29',epCount:1},
+    {title:'骑兵破解BAHP-016ヤれるコ～幼少期から知ってる友人の妹',remark:'0播放·124评论',duration:'2:19:05',epCount:1},
+    {title:'骑兵破解DIPO-060マル秘隠し撮り映像流出',remark:'0播放·241评论',duration:'2:59:48',epCount:1},
+    {title:'骑兵破解FSDSS-161バカメス洗脳女教師',remark:'0播放·150评论',duration:'2:01:15',epCount:1},
+    {title:'骑兵破解GQE-112GLORYQUEST2020上半期総集編',remark:'1播放·409评论',duration:'8:00:56',epCount:1},
+    {title:'骑兵破解HBAD-734お隣に住む美人でエロボディのお姉さん',remark:'0播放·347评论',duration:'2:10:20',epCount:1},
+    {title:'骑兵破解JURA-196初撮り人妻ドキュメント第二章',remark:'0播放·268评论',duration:'2:01:51',epCount:1},
+    {title:'骑兵破解MIAA-499マッサージで勃起した先っぽに',remark:'0播放·337评论',duration:'3:09:08',epCount:1},
+    {title:'骑兵破解MIAA-679どっちが一番スキか2秒で決めてッ',remark:'1播放·373评论',duration:'3:06:57',epCount:1},
+    {title:'骑兵破解MXGS-1184絡み合う体液～濃厚接吻',remark:'1播放·207评论',duration:'2:19:07',epCount:1},
+    {title:'骑兵破解OVG-144本番禁止のデリヘルでヌルッと生挿入',remark:'0播放·129评论',duration:'2:14:55',epCount:1},
+  ],
+  '国产视频': [
+    {title:'41473国产视频',remark:'热门频道',duration:''},
+    {title:'撞见表妹洗澡强闯卫生间狂操',remark:'146111播放·16721评论',duration:'02-17'},
+    {title:'全国空降随时可约随地可啪',remark:'111播放·22445评论',duration:'02-17'},
+    {title:'在线选妃海量美女帝王享受',remark:'111播放·88222评论',duration:'02-17'},
+    {title:'趁老婆做饭爆操丈母娘',remark:'2541播放·334442评论',duration:'05-22'},
+    {title:'骚妈勾引我强上妈妈教我如何性爱',remark:'1124播放·222221评论',duration:'05-22'},
+    {title:'高中少女与男友啪啪手持相机拍摄性爱流出',remark:'829播放·760594评论',duration:'1080p'},
+    {title:'赵总寻欢05-09超级三飞',remark:'120播放·106449评论',duration:'12:39'},
+    {title:'凡哥探花09-26城中村的小按摩店',remark:'71播放·67626评论',duration:'40:04'},
+    {title:'老婆骚逼被单男内射满5次还想要到底还有没有人能满足她',remark:'138播放·250120评论',duration:'31:44'},
+    {title:'今天约了一个高颜值的小妹妹卡尔',remark:'152播放·228068评论',duration:'47:22'},
+    {title:'家庭网络摄像头破解偷拍健身教练和美女学员家中啪啪',remark:'125播放·208598评论',duration:'18:37'},
+  ],
+  '欧美高清': [
+    {title:'20625欧美高清',remark:'热门频道',duration:''},
+    {title:'BRAZZERS2023-08-15狡猾的熟女勾引男朋友',remark:'0播放·294评论',duration:'29:46',epCount:1},
+    {title:'BRAZZERS2023-08-15闪烁的半兽人的第一次肛交',remark:'0播放·179评论',duration:'42:43',epCount:1},
+    {title:'NUBILEFILMS2019-11-15电臀舞阳具挑战第5季',remark:'0播放·1072评论',duration:'19:16',epCount:12},
+    {title:'FC2PPV-3187561女大学生遭三调教内外尽湿',remark:'2播放·9697评论',duration:'20:49',epCount:1},
+    {title:'SA国际传媒SATM009极品校花为钱甘愿帮富豪代孕',remark:'12播放·23684评论',duration:'22:20',epCount:1},
+  ],
+};
+
+var CATS = Object.keys(VIDEO_DATA);
+var CAT_URLS = {
+  '首页':'/',
+  '日韩AV':'/vodtype/1.html',
+  '国产系列':'/vodtype/2.html',
+  '欧美':'/vodtype/3.html',
+  '成人动漫':'/vodtype/4.html',
+  '无码中文字幕':'/vodtype/8.html',
+  '有码中文字幕':'/vodtype/9.html',
+  '日本无码':'/vodtype/10.html',
+  '日本有码':'/vodtype/7.html',
+  '骑兵破解':'/vodtype/26.html',
+  '国产视频':'/vodtype/15.html',
+  '欧美高清':'/vodtype/21.html'
+};
+var currentCat = '首页';
+var lastFocus = null;
+
+// DOM helpers
+var $ = function(s){return document.querySelector(s);};
+var content = $('#content');
+var status = $('#status');
+var tabs = $('#tabs');
+
+// 工具函数 - 用文本节点安全插入
+function escText(s){return String(s||'');}
+
+var SITE = 'http://789088.xyz';
+var UA = 'Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36';
+
+function _fm(timeout){
+  return new Promise(function(resolve){
+    if(window.fm) return resolve(window.fm);
+    var n=0,max=Math.ceil((timeout||1800)/100);
+    (function wait(){
+      if(window.fm) return resolve(window.fm);
+      if(++n>max) return resolve(null);
+      setTimeout(wait,100);
+    })();
+  });
+}
+
+if(window.fongmiBridge || window.fm || window.fongmi) document.documentElement.classList.add('fm-native');
+window.addEventListener('fmsdk',function(){document.documentElement.classList.add('fm-native');});
+
+function fixUrl(u){
+  u=String(u||'').trim();
+  if(!u) return '';
+  if(u.indexOf('//')===0) return 'http:'+u;
+  if(u.indexOf('/')===0) return SITE+u;
+  if(!/^https?:\/\//i.test(u)) return SITE+'/'+u;
+  return u;
+}
+
+function _img(u){
+  u=fixUrl(u);
+  try{ if(window.fm && fm.res) return fm.res(u,{headers:{Referer:SITE+'/'}}); }catch(e){}
+  return u;
+}
+
+function _req(url, referer){
+  url=fixUrl(url);
+  referer = referer || (SITE + '/');
+  return _fm(1800).then(function(f){
+    if(f && f.req){
+      return f.req(url,{method:'GET',headers:{'User-Agent':UA,'Referer':referer},responseType:'text',timeout:30,credentials:'include'}).then(function(r){
+        if(!r || !r.ok) throw new Error((r&&r.error)||('HTTP '+(r&&r.status||500)));
+        return r.body||'';
+      });
+    }
+    return fetch(url,{headers:{'User-Agent':UA,'Referer':referer}}).then(function(r){return r.text();});
+  });
+}
+
+function parseRealHome(html){
+  var doc = new DOMParser().parseFromString(html,'text/html');
+  var nodes = doc.querySelectorAll('a.stui-vodlist__thumb[href]');
+  var arr=[];
+  for(var i=0;i<nodes.length;i++){
+    var a=nodes[i];
+    var title=a.getAttribute('title')||'';
+    var playUrl=fixUrl(a.getAttribute('href')||'');
+    var img=a.getAttribute('data-original')||a.getAttribute('data-src')||a.getAttribute('src')||'';
+    var durEl=a.querySelector('.pic-text');
+    var duration=durEl?durEl.textContent.trim():'';
+    var box=a.closest('.stui-vodlist__box');
+    var remark='点击查看详情';
+    if(box){
+      var sub=box.querySelector('.sub');
+      if(sub) remark=sub.textContent.replace(/\s+/g,' ').trim();
+    }
+    if(title && playUrl){ arr.push({title:title,remark:remark,duration:duration,img:fixUrl(img),playUrl:playUrl,epCount:1}); }
+  }
+  return arr;
+}
+
+function loadRealHome(){
+  status.textContent='正在加载真实数据...';
+  _req(SITE+'/').then(function(html){
+    var real=parseRealHome(html);
+    if(real.length){
+      VIDEO_DATA['首页']=real;
+      loadCat('首页');
+      status.textContent='已加载真实资源 '+real.length+' 条';
+    }else{
+      loadCat('首页');
+      status.textContent='真实数据解析为空，已加载备用数据';
+    }
+  }).catch(function(e){
+    loadCat('首页');
+    status.textContent='真实数据加载失败，已加载备用数据：'+(e.message||e);
+  });
+}
+
+function makePoster(canvasEl, title) {
+  canvasEl.width = 300;
+  canvasEl.height = 400;
+  var ctx = canvasEl.getContext('2d');
+  var hash = 0;
+  for (var i = 0; i < title.length; i++) hash = ((hash << 5) - hash) + title.charCodeAt(i);
+  var seed = Math.abs(hash) % 6;
+  var palette = [
+    ['#ff6b35','#ff3d00'], ['#ff6b35','#ffb86b'], ['#5c7cff','#3d5aff'],
+    ['#68e39a','#25b86b'], ['#ffb86b','#ff6b35'], ['#ff5c7a','#ff3d5a']
+  ];
+  var colors = palette[seed];
+  var grad = ctx.createLinearGradient(0, 0, 300, 400);
+  grad.addColorStop(0, colors[0]);
+  grad.addColorStop(1, colors[1]);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 300, 400);
+  var short = title.length > 12 ? title.substring(0, 10) + '…' : title;
+  ctx.textAlign = 'center';
+  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  ctx.font = '13px sans-serif';
+  ctx.fillText(short, 150, 165);
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '11px sans-serif';
+  ctx.fillText('蓝魔仓库', 150, 190);
+  ctx.fillStyle = 'rgba(255,255,255,0.15)';
+  ctx.font = '60px sans-serif';
+  ctx.fillText('▶', 150, 310);
+  return canvasEl.toDataURL('image/jpeg', 0.85);
+}
+
+function renderTabs(active){
+  tabs.innerHTML = '';
+  for (var i = 0; i < CATS.length; i++) {
+    var name = CATS[i];
+    var btn = document.createElement('button');
+    btn.className = 'tab focusable' + (name === active ? ' active' : '');
+    btn.dataset.cat = name;
+    btn.textContent = name;
+    btn.addEventListener('click', function(){loadCat(this.dataset.cat);});
+    tabs.appendChild(btn);
+  }
+}
+
+function makeCard(item, posterCanvas) {
+  var card = document.createElement('article');
+  card.className = 'card focusable';
+  card.tabIndex = 0;
+  card.dataset.title = item.title;
+  var poster = document.createElement('div');
+  poster.className = 'poster';
+  var img = document.createElement('img');
+  img.loading = 'lazy';
+  img.src = item.img ? _img(item.img) : makePoster(posterCanvas, item.title);
+  img.alt = item.title;
+  img.onerror = function(){
+    try{ this.src = makePoster(posterCanvas, item.title || '蓝魔仓库'); }catch(e){ this.style.display='none'; }
+  };
+  poster.appendChild(img);
+  if (item.duration) {
+    var dur = document.createElement('span');
+    dur.className = 'video-duration';
+    dur.textContent = item.duration;
+    poster.appendChild(dur);
+  }
+  card.appendChild(poster);
+  var meta = document.createElement('div');
+  meta.className = 'meta';
+  var nameEl = document.createElement('div');
+  nameEl.className = 'name';
+  nameEl.textContent = item.title;
+  meta.appendChild(nameEl);
+  var remarkEl = document.createElement('div');
+  remarkEl.className = 'remark';
+  remarkEl.textContent = item.remark || '点击查看详情';
+  meta.appendChild(remarkEl);
+  card.appendChild(meta);
+  card.addEventListener('click', function(){openDetailByTitle(this.dataset.title);});
+  card.addEventListener('keydown', function(e){if(e.key==='Enter')this.click();});
+  return card;
+}
+
+function loadCat(catName){
+  currentCat = catName;
+  renderTabs(catName);
+  content.innerHTML = '<div class="empty loading">正在加载「' + catName + '」...</div>';
+  var url = CAT_URLS[catName] || '/';
+  _req(url).then(function(html){
+    var real = parseRealHome(html);
+    if(real.length){ VIDEO_DATA[catName] = real; }
+    renderCatItems(catName, VIDEO_DATA[catName] || []);
+  }).catch(function(e){
+    renderCatItems(catName, VIDEO_DATA[catName] || []);
+    status.textContent = '真实分类加载失败，已显示备用数据：' + (e.message || e);
+  });
+}
+
+function renderCatItems(catName, allItems){
+  if (allItems.length === 0) {
+    content.innerHTML = '<div class="empty">暂无内容</div>';
+    status.textContent = '该分类暂无内容';
+    return;
+  }
+  content.innerHTML = '';
+  var sec = document.createElement('section');
+  sec.className = 'section';
+  var head = document.createElement('div');
+  head.className = 'section-title';
+  var h2 = document.createElement('h2');
+  h2.textContent = catName;
+  head.appendChild(h2);
+  sec.appendChild(head);
+  var grid = document.createElement('div');
+  grid.className = 'grid';
+  var posterCanvas = document.createElement('canvas');
+  for (var i = 0; i < allItems.length; i++) grid.appendChild(makeCard(allItems[i], posterCanvas));
+  sec.appendChild(grid);
+  content.appendChild(sec);
+  status.textContent = '已加载「' + catName + '」共' + allItems.length + '条';
+}
+
+function openDetailByTitle(title){
+  lastFocus = document.activeElement;
+  document.body.classList.add('detail-active');
+  $('#detailSheet').classList.add('active');
+  history.pushState({detailOpen: true}, '', '#detail');
+  
+  var videoItem = null;
+  
+  // 1. 先在普通分类中查找
+  for (var i = 0; i < CATS.length; i++) {
+    var items = VIDEO_DATA[CATS[i]];
+    for (var j = 0; j < items.length; j++) {
+      if (items[j].title === title) { videoItem = items[j]; break; }
+    }
+    if (videoItem) break;
+  }
+  
+  // 2. ✅ 如果没找到，去搜索结果中查找（这是新增的）
+  if (!videoItem) {
+    var searchItems = VIDEO_DATA['搜索结果'];
+    if (searchItems) {
+      for (var k = 0; k < searchItems.length; k++) {
+        if (searchItems[k].title === title) {
+          videoItem = searchItems[k];
+          break;
+        }
+      }
+    }
+  }
+  
+  if (!videoItem) {
+    document.getElementById('detailPanel').innerHTML = '<button class="focusable" onclick="closeDetail()">返回</button><div class="empty">内容未找到</div>';
+    return;
+  }
+  
+  var epCount = videoItem.playUrl ? 1 : (videoItem.epCount || 0);
+  var posterCanvas = document.createElement('canvas');
+  var detailPic = videoItem.img ? _img(videoItem.img) : makePoster(posterCanvas, title);
+  
+  var panel = document.getElementById('detailPanel');
+  var html = '';
+  html += '<button class="focusable" id="closeDetail">返回</button>';
+  html += '<div class="detail-head">';
+  html += '<img class="detail-pic" referrerpolicy="no-referrer" src="' + detailPic + '" onerror="this.style.display=\'none\'">';
+  html += '<div class="detail-side">';
+  html += '<div class="detail-title">' + title + '</div>';
+  html += '<div class="detail-info">';
+  if (videoItem.remark) html += '<div><b>备注：</b>' + videoItem.remark + '</div>';
+  if (videoItem.duration) html += '<div><b>时长：</b>' + videoItem.duration + '</div>';
+  html += '</div></div></div>';
+  html += '<div class="intro-pill">简介</div>';
+  html += '<p class="desc">这是一部精彩的视频内容，画面清晰，剧情紧凑，演员表演出色，不容错过。</p>';
+  html += '<div class="play-title">播放线路</div>';
+  html += '<div class="line-tabs"><button class="line-tab focusable active" data-sid="1">默认线路</button></div>';
+  html += '<div class="episodes" id="episodeBox">';
+  if (epCount > 1) {
+    for (var k = 1; k <= epCount; k++) {
+      html += '<button class="ep focusable" data-action="ep" data-title="' + k + '">第' + k + '集</button>';
+    }
+  } else {
+    html += '<button class="ep focusable" data-action="play" data-title="' + escAttr(title) + '" style="grid-column:1/-1;text-align:center;font-size:18px;padding:16px;background:linear-gradient(135deg,rgba(255,107,53,.7),rgba(255,184,107,.5));border-color:rgba(255,184,107,.6);">▶ 立即播放</button>';
+  }
+  html += '</div>';
+  panel.innerHTML = html;
+  
+  $('#closeDetail').onclick = closeDetail;
+  document.getElementById('episodeBox').querySelectorAll('.ep').forEach(function(btn) {
+    btn.onclick = function() {
+      var action = this.getAttribute('data-action');
+      if (action === 'play') {
+        playSingle(this.getAttribute('data-title'));
+      } else {
+        playEpisode(this.getAttribute('data-title'), title);
+      }
+    };
+  });
+  $('#closeDetail').focus({preventScroll:true});
+}
+
+function escAttr(s){
+  return String(s||'').split('"').join('&#34;').replace(/'/g,'&#39;');
+}
+
+function playSingle(title){
+  var url = getPlayUrl(title, 1);
+  doPlay(url, title);
+}
+
+function playEpisode(epNum, title){
+  var url = getPlayUrl(title, epNum);
+  doPlay(url, title + ' 第' + epNum + '集');
+}
+
+function findItemByTitle(title){
+  // 合并所有数据源
+  var allItems = [];
+  for(var c=0;c<CATS.length;c++){
+    var arr=VIDEO_DATA[CATS[c]]||[];
+    for(var i=0;i<arr.length;i++){ allItems.push(arr[i]); }
+  }
+  // 加上搜索结果
+  var searchResults = VIDEO_DATA['搜索结果'] || [];
+  for(var j=0;j<searchResults.length;j++){ allItems.push(searchResults[j]); }
+  
+  // 查找匹配的标题
+  for(var k=0;k<allItems.length;k++){
+    if(allItems[k].title === title) return allItems[k];
+  }
+  return null;
+}
+
+function getPlayUrl(title, epNum){
+  var item=findItemByTitle(title);
+  if(item && item.playUrl){ return item.playUrl; }
+  var BASE = SITE;
+  var map = [
+    ['老婆骚逼被单男内射满5次还想要','/vodplay/200383-1-1.html'],
+    ['今天约了一个高颜值的小妹妹','/vodplay/200357-1-1.html'],
+    ['偷拍女儿洗澡','/vodplay/200359-1-1.html'],
+    ['我的双面宝贝','/vodplay/199174-1-1.html']
+  ];
+  for(var i=0;i<map.length;i++){
+    if(title.indexOf(map[i][0]) >= 0){
+      var path = map[i][1];
+      if(epNum && epNum > 1){ path = path.replace(/-1-1\.html$/, '-1-' + epNum + '.html'); }
+      return BASE + path;
+    }
+  }
+  return BASE + '/vodsearch/-------------.html?wd=' + encodeURIComponent(title.replace(/^骑兵破解/, '').slice(0,40));
+}
+
+function extractIframeSrc(html){
+  var m = html.match(/<iframe[^>]+src=["']([^"']+)["']/i);
+  return m ? fixUrl(m[1]) : '';
+}
+
+function extractDirectVideoUrl(text){
+  if(!text) return '';
+  var m;
+  m = text.match(/var\s+player_aaaa\s*=\s*(\{[\s\S]*?\})\s*<\/script>/i);
+  if(m){
+    try{
+      var obj = JSON.parse(m[1].replace(/\\\//g,'/'));
+      if(obj && obj.url){
+        var u = obj.url;
+        if(/\.(m3u8|mp4|mkv)(\?|$)/i.test(u)) return u;
+        return u;
+      }
+    }catch(e){}
+  }
+  m = text.match(/(?:art\.url|mysvg|video_url|url)\s*=\s*["']([^"']+\.(?:m3u8|mp4|mkv)[^"']*)["']/i);
+  if(m) return m[1];
+  m = text.match(/loadSource\s*\(\s*["']([^"']+\.m3u8[^"']*)["']/i);
+  if(m) return m[1];
+  m = text.match(/[?&]url=([^&"'\s]+(?:\.m3u8|\.mp4|\.mkv)[^&"'\s]*)/i);
+  if(m){ try{return decodeURIComponent(m[1]);}catch(e){return m[1];} }
+  m = text.match(/(https?:\/\/[^\s"'<>\\]+\.(?:m3u8|mp4|mkv)(?:\?[^\s"'<>\\]*)?)/i);
+  if(m) return m[1];
+  return '';
+}
+
+async function doPlay(playPageUrl, title){
+  playPageUrl = fixUrl(playPageUrl);
+  status.textContent = '正在解析播放源：' + title;
+  try{
+    var f = await _fm(2000);
+    var playHtml = await _req(playPageUrl);
+    var videoUrl = '';
+    var idm = playHtml.match(/var\s+VID\s*=\s*(\d+)\s*,\s*SID\s*=\s*(\d+)\s*,\s*NID\s*=\s*(\d+)/i);
+    if(idm){
+      try{
+        var dataText = await _req('/playdata.php?id=' + idm[1] + '&sid=' + idm[2] + '&nid=' + idm[3] + '&_=' + Date.now(), playPageUrl);
+        var data = JSON.parse(dataText);
+        if(data && data.ok && data.p && data.p.url){ videoUrl = data.p.url; }
+      }catch(e){}
+    }
+    if(!videoUrl) videoUrl = extractDirectVideoUrl(playHtml);
+    var iframeUrl = extractIframeSrc(playHtml);
+    if(!videoUrl && iframeUrl){
+      videoUrl = extractDirectVideoUrl(iframeUrl);
+      if(!videoUrl){
+        try{
+          var iframeHtml = await _req(iframeUrl);
+          videoUrl = extractDirectVideoUrl(iframeHtml);
+        }catch(e){}
+      }
+    }
+    if(f && f.play){
+      if(videoUrl){
+        status.textContent = '解析成功，正在播放：' + title;
+        try{
+          await f.play(videoUrl, title || '');
+          return;
+        }catch(e){
+          await f.play('push://' + playPageUrl, title || '');
+          return;
+        }
+      }
+      status.textContent = '直链未解析，启动嗅探：' + title;
+      await f.play('push://' + (iframeUrl || playPageUrl), title || '');
+      return;
+    }
+    location.href = videoUrl || iframeUrl || playPageUrl;
+  }catch(e){
+    status.textContent = '播放解析失败，尝试打开原站：' + title;
+    location.href = playPageUrl;
+  }
+}
+
+function closeDetail(){
+  document.body.classList.remove('detail-active');
+  $('#detailSheet').classList.remove('active');
+  if (lastFocus && lastFocus.focus) setTimeout(function(){lastFocus.focus({preventScroll:true});}, 50);
+  // 关键修复：返回后替换历史记录，避免再次后退退出
+  history.replaceState(null, '', location.pathname + location.search);
+}
+
+function doSearch(q){
+  q = q.replace(/\s+/g,' ').trim();
+  if (!q) return;
+  status.textContent = '搜索：' + q;
+  content.innerHTML = '<div class="empty loading">搜索中...</div>';
+  var url = '/vodsearch/-------------.html?wd=' + encodeURIComponent(q);
+  _req(url).then(function(html){
+    var results = parseRealHome(html);
+    if(!results.length){
+      content.innerHTML = '<div class="empty">没有找到相关结果</div>';
+      status.textContent = '无搜索结果：' + q;
+      return;
+    }
+    VIDEO_DATA['搜索结果'] = results;
+    renderCatItems('搜索：' + q, results);
+    status.textContent = '搜索完成：' + q + '，找到 ' + results.length + ' 条';
+  }).catch(function(e){
+    content.innerHTML = '<div class="empty">搜索失败：' + (e.message || e) + '</div>';
+  });
+}
+
+$('#searchForm').onsubmit = function(e){
+  e.preventDefault();
+  var q = $('#kw').value.trim();
+  if (q) doSearch(q);
+};
+
+// ========== 关键修复：键盘事件 ==========
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape' || e.key === 'Backspace') {
+    if ($('#detailSheet').classList.contains('active')) { 
+      e.preventDefault(); 
+      closeDetail(); 
+      return;
+    }
+  }
+  if (e.key === 'Enter' && document.activeElement && document.activeElement.classList && document.activeElement.classList.contains('focusable') && document.activeElement.tagName !== 'INPUT') {
+    document.activeElement.click();
+  }
+});
+
+// ========== 关键修复：popstate 事件拦截手势返回 ==========
+window.addEventListener('popstate', function(e) {
+  if ($('#detailSheet').classList.contains('active')) {
+    // 详情页打开时，拦截返回手势，先关闭详情页
+    e.preventDefault();
+    closeDetail();
+    // 重新添加一个历史记录，防止页面后退
+    history.pushState(null, '', location.pathname + location.search);
+  }
+});
+
+// ========== 关键修复：初始化时添加历史记录占位 ==========
+// 防止一打开APP就后退退出
+history.replaceState(null, '', location.pathname + location.search);
+history.pushState(null, '', location.pathname + location.search);
+
+renderTabs('首页');
+loadRealHome();
+
+})();
+</script>
+</body>
+</html>

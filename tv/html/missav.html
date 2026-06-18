@@ -1,0 +1,1333 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="theme-color" content="#101419">
+        <title>MISSAV</title>
+        <script>
+    window.WEBHOME_PAGE_OPENED_AT = Date.now();
+    if (window.fongmiBridge || window.fm || window.fongmi) document.documentElement.classList.add("fm-native");
+  </script>
+        <style>
+    :root {
+      color-scheme: dark;
+      --panel-rgb: 76, 88, 98;
+      --panel: rgba(var(--panel-rgb), .58);
+      --panel-soft: rgba(var(--panel-rgb), .44);
+      --panel-strong: rgba(var(--panel-rgb), .82);
+      --control: rgba(34, 43, 51, .42);
+      --control-active: rgba(48, 61, 70, .58);
+      --text: #f4f7fb;
+      --muted: rgba(226, 234, 242, .72);
+      --line: rgba(255, 255, 255, .2);
+      --line-strong: rgba(255, 255, 255, .34);
+      --focus-line: rgba(168, 218, 255, .72);
+      --focus-line-soft: rgba(168, 218, 255, .42);
+      --focus-glow: rgba(96, 165, 250, .24);
+      --danger: #f09d9d;
+      --radius: 8px;
+      --fm-web-height: 100dvh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: var(--fm-web-height);
+      background: transparent;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    html:not(.fm-native),
+    html:not(.fm-native) body {
+      background-color: #303840;
+      background-image:
+        linear-gradient(45deg, rgba(255, 255, 255, .07) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, .07) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, .07) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, .07) 75%);
+      background-position: 0 0, 0 16px, 16px -16px, -16px 0;
+      background-size: 32px 32px;
+    }
+
+    body {
+      letter-spacing: 0;
+      overscroll-behavior-x: none;
+    }
+
+    body.detail-active .app {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    button, input {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: inherit;
+      touch-action: manipulation;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      background: rgba(0, 0, 0, .12);
+    }
+
+    .app {
+      min-height: var(--fm-web-height);
+      padding: max(12px, env(safe-area-inset-top)) 12px calc(18px + env(safe-area-inset-bottom));
+      background: transparent;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: center;
+      min-height: 42px;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.15;
+      font-weight: 880;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .icon {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-btn,
+    .btn,
+    .chip,
+    .field {
+      border-radius: var(--radius);
+      background: var(--control);
+      border: 1px solid var(--line);
+      color: var(--text);
+      backdrop-filter: blur(12px) saturate(1.05);
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      transition: background .16s ease, border-color .16s ease, transform .16s ease;
+    }
+
+    .icon-btn.is-active {
+      background: var(--control-active);
+      border-color: var(--line-strong);
+    }
+
+    .btn {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 0 14px;
+      font-size: 14px;
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--control-active);
+      border-color: var(--line-strong);
+    }
+
+    .search {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      min-width: 0;
+      margin: 0;
+      position: relative;
+      z-index: 20;
+    }
+
+    .search.hidden { display: none; }
+
+    .field {
+      width: 100%;
+      min-width: 0;
+      min-height: 42px;
+      padding: 0 12px;
+      outline: none;
+      font-size: 14px;
+      background: var(--control);
+    }
+
+    .search .icon-btn {
+      width: 42px;
+      height: 42px;
+      background: var(--control-active);
+      border-color: var(--line-strong);
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 0 5px;
+      scrollbar-width: none;
+    }
+
+    .chips::-webkit-scrollbar { display: none; }
+
+    .chip {
+      flex: 0 0 auto;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+      white-space: nowrap;
+    }
+
+    .chip.active {
+      background: var(--control-active);
+      border-color: var(--line-strong);
+      color: var(--text);
+    }
+
+    .status {
+      min-height: 38px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status.show { display: flex; }
+
+    .spinner {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.16);
+      border-top-color: rgba(255,255,255,.76);
+      animation: spin .85s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+      min-height: 180px;
+    }
+
+    .card {
+      min-width: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-align: left;
+    }
+
+    .thumb {
+      position: relative;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      background: rgba(20, 24, 28, .5);
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumb.fallback {
+      display: grid;
+      place-items: center;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .thumb.fallback span {
+      color: rgba(255,255,255,.28);
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.1;
+      word-break: break-word;
+    }
+
+    .badge {
+      position: absolute;
+      left: 6px;
+      bottom: 6px;
+      max-width: calc(100% - 12px);
+      padding: 3px 6px;
+      border-radius: 6px;
+      background: rgba(0,0,0,.52);
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: 11px;
+      font-weight: 820;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-body {
+      min-height: 50px;
+      padding: 7px;
+      background: var(--panel);
+    }
+
+    .title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 12px;
+      font-weight: 760;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+
+    .meta {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      min-height: 120px;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px dashed rgba(255, 255, 255, .22);
+      background: var(--panel-soft);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .more {
+      width: 100%;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .more.show { display: inline-flex; }
+
+    .sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: none;
+      background: transparent;
+      padding: max(12px, env(safe-area-inset-top)) 12px calc(18px + env(safe-area-inset-bottom));
+      overflow: auto;
+    }
+
+    .sheet.active {
+      display: block;
+    }
+
+    .detail {
+      min-height: calc(var(--fm-web-height) - 30px);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
+    }
+
+    .detail-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .detail-head .brand {
+      min-height: 42px;
+    }
+
+    .detail-card {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 14px;
+      align-content: start;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.08), transparent 42%),
+        linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.18));
+      pointer-events: none;
+    }
+
+    .detail-card > * {
+      position: relative;
+    }
+
+    .poster {
+      width: 112px;
+      aspect-ratio: 2 / 3;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(0,0,0,.2);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 14px 34px rgba(0,0,0,.26);
+    }
+
+    .poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.22;
+      font-weight: 880;
+      word-break: break-word;
+    }
+
+    .detail-summary {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .detail-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 9px;
+    }
+
+    .detail-tag {
+      min-height: 26px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 720;
+    }
+
+    .detail-extra {
+      grid-column: 1 / -1;
+      display: grid;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .detail-section {
+      padding: 11px;
+      border-radius: var(--radius);
+      background: rgba(18, 24, 30, .24);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .detail-section-title {
+      margin-bottom: 7px;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 820;
+    }
+
+    .detail-section-text {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    .detail-section-text p {
+      margin: 0;
+    }
+
+    .detail-section-text p + p {
+      margin-top: 7px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    .actions .btn.primary {
+      min-width: 112px;
+      background: rgba(245, 249, 252, .2);
+      border-color: var(--line-strong);
+    }
+
+    .toast {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: calc(14px + env(safe-area-inset-bottom));
+      z-index: 80;
+      display: none;
+      min-height: 42px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 13px;
+      box-shadow: 0 14px 34px rgba(0,0,0,.3);
+    }
+
+    .toast.show { display: flex; }
+
+    .focusable:focus,
+    button:focus,
+    input:focus {
+      outline: none;
+      border-color: var(--focus-line);
+      box-shadow: 0 0 0 1px var(--focus-line-soft), 0 10px 24px rgba(0,0,0,.24), 0 0 18px var(--focus-glow);
+    }
+
+    .card:focus {
+      transform: translateY(-1px);
+    }
+
+    @media (min-width: 560px) {
+      .app, .sheet {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+      .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+      .detail-card {
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: 18px;
+        padding: 16px;
+      }
+      .poster {
+        width: 170px;
+      }
+      .detail-title {
+        font-size: 24px;
+      }
+      .detail-extra {
+        grid-column: 2;
+      }
+    }
+  </style>
+    </head>
+    <body>
+        <main class="app" id="app">
+            <header class="topbar">
+                <form class="search" id="searchForm" autocomplete="off"><input class="field focusable" id="searchInput" type="search" placeholder="番号 / 演员 / 关键词" readonly> <button class="icon-btn focusable" type="submit" aria-label="搜索" title="搜索">
+                        <svg class="icon" viewbox="0 0 24 24">
+                            <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" />
+                        </svg> </button>
+                </form>
+            </header>
+            <nav class="chips" id="chips" aria-label="分类"></nav>
+            <div class="status" id="status">
+                <span class="spinner"></span><span id="statusText">加载中</span>
+            </div>
+            <section class="grid" id="grid" aria-live="polite"></section> <button class="btn more focusable" id="moreBtn" type="button">加载更多</button>
+        </main>
+        <section class="sheet" id="detailSheet" aria-hidden="true">
+            <div class="detail">
+                <div class="detail-head"><button class="icon-btn focusable" id="closeDetailBtn" type="button" aria-label="返回" title="返回">
+                        <svg class="icon" viewbox="0 0 24 24">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg> </button>
+                    <div class="brand">
+                        <div>
+                            <h1>详情</h1>
+                            <div class="sub" id="detailSub">
+                              MISSAV
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="detailBody"></div>
+            </div>
+        </section>
+        <div class="toast" id="toast"></div>
+        <script>
+    (function () {
+      "use strict";
+
+var HOST = "https://corsproxy.io/?url=https://missav.app";
+      var CATS = [
+        ["new", "最新"],
+        ["20", "国产"],
+        ["21", "有码"],
+        ["22", "无码"],
+        ["28", "字幕"],
+        ["23", "欧美"],
+        ["24", "动漫"],
+        ["25", "伦理"]
+      ];
+      var CACHE_RULE = "missav_webhome";
+      var SNAPSHOT_KEY = "missav_state_v2";
+      var state = {
+        cat: "new",
+        key: "",
+        page: 1,
+        items: [],
+        busy: false,
+        hasMore: false,
+        detail: null,
+        focusKey: "",
+        scrollY: 0,
+        sdkReady: false
+      };
+      var nativeSdkWait = null;
+      var toastTimer = 0;
+
+      function $(id) { return document.getElementById(id); }
+
+      function escapeHtml(value) {
+        return String(value == null ? "" : value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function escapeAttr(value) {
+        return escapeHtml(value).replace(/`/g, "&#96;");
+      }
+
+      function absoluteUrl(url) {
+        var text = String(url || "").trim();
+        if (!text) return "";
+        if (/^\/\//.test(text)) return "https:" + text;
+        if (/^https?:\/\//i.test(text)) return text;
+        if (text.charAt(0) === "/") return HOST + text;
+        return HOST + "/" + text.replace(/^\.?\//, "");
+      }
+
+      function waitForNativeSdk(timeout) {
+        if (window.fm || !window.fongmiBridge) return Promise.resolve(!!window.fm);
+        if (nativeSdkWait) return nativeSdkWait;
+        nativeSdkWait = new Promise(function (resolve) {
+          var done = false;
+          function finish() {
+            if (done) return;
+            done = true;
+            window.removeEventListener("fmsdk", finish);
+            nativeSdkWait = null;
+            resolve(!!window.fm);
+          }
+          window.addEventListener("fmsdk", finish);
+          setTimeout(finish, timeout == null ? 1800 : timeout);
+        });
+        return nativeSdkWait;
+      }
+
+      function sdk() {
+        if (window.fm) return window.fm;
+        return {
+          req: browserRequest,
+          play: function (url) {
+            window.open(url, "_blank", "noopener,noreferrer");
+            return Promise.resolve({});
+          },
+          search: function (keyword) {
+            toast("原生搜索：" + keyword);
+            return Promise.resolve({});
+          },
+          cache: {
+            get: function (key) { return Promise.resolve(localStorage.getItem("fm_" + key) || ""); },
+            set: function (key, value) { localStorage.setItem("fm_" + key, value); return Promise.resolve({}); },
+            del: function (key) { localStorage.removeItem("fm_" + key); return Promise.resolve({}); }
+          },
+          back: function () { history.back(); return Promise.resolve({}); }
+        };
+      }
+
+      function browserRequest(url, options) {
+        options = options || {};
+        return fetch(url, {
+          method: options.method || "GET",
+          headers: options.headers || {},
+          body: options.body || undefined,
+          credentials: options.credentials === "include" ? "include" : "same-origin"
+        }).then(function (resp) {
+          return resp.text().then(function (text) {
+            return { ok: resp.ok, status: resp.status, url: resp.url, headers: {}, cookies: [], body: text };
+          });
+        }).catch(function (error) {
+          return { ok: false, status: 500, url: url, headers: {}, cookies: [], body: "", error: String(error && error.message || error) };
+        });
+      }
+
+      function requestText(url) {
+        return waitForNativeSdk(1800).then(function () {
+          return sdk().req(url, {
+            headers: {
+              "Referer": HOST + "/",
+              "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            },
+            timeout: 30,
+            credentials: "include"
+          });
+        }).then(function (resp) {
+          if (!resp || !resp.ok || !resp.body) throw new Error(resp && resp.error || ("HTTP " + (resp && resp.status || 500)));
+          return String(resp.body);
+        });
+      }
+
+      function setStatus(text, loading) {
+        $("statusText").textContent = text || "";
+        $("status").classList.toggle("show", !!text);
+        $("status").querySelector(".spinner").style.display = loading ? "" : "none";
+      }
+
+      function toast(text) {
+        clearTimeout(toastTimer);
+        $("toast").textContent = text;
+        $("toast").classList.add("show");
+        toastTimer = setTimeout(function () { $("toast").classList.remove("show"); }, 2400);
+      }
+
+      function listUrl() {
+        if (state.key) return HOST + "/vodsearch/" + encodeURIComponent(state.key) + "-------------/page/" + state.page + "/";
+        if (state.cat === "new") return HOST + "/label/new/page/" + state.page + "/";
+        return HOST + "/vodtype/" + state.cat + "-" + state.page + "/";
+      }
+
+      function updateSubtitle() {
+        document.title = state.key ? ("MISSAV - " + state.key) : "MISSAV";
+      }
+
+      function renderChips() {
+        $("chips").innerHTML = CATS.map(function (item) {
+          return '<button class="chip focusable' + (item[0] === state.cat && !state.key ? " active" : "") + '" type="button" data-cat="' + escapeAttr(item[0]) + '">' + escapeHtml(item[1]) + '</button>';
+        }).join("");
+      }
+
+      function renderList(options) {
+        options = options || {};
+        updateSubtitle();
+        if (!state.items.length && !state.busy) {
+          $("grid").innerHTML = '<div class="empty">没有找到内容</div>';
+        } else {
+          $("grid").innerHTML = state.items.map(renderCard).join("");
+        }
+        $("moreBtn").classList.toggle("show", !!state.hasMore && !state.busy);
+        if (options.focus) restoreListFocus();
+      }
+
+      function renderCard(item) {
+        var poster = item.pic ? '<img src="' + escapeAttr(item.pic) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'fallback\');this.remove();">' : "";
+        var fallback = poster ? "" : '<span>' + escapeHtml(item.sn || item.id) + '</span>';
+        return '<button class="card focusable" type="button" data-id="' + escapeAttr(item.id) + '" data-key="vod-' + escapeAttr(item.id) + '">' +
+          '<div class="thumb' + (poster ? "" : " fallback") + '" style="background:' + posterGradient(item.id) + '">' + poster + fallback + '<div class="badge">' + escapeHtml(item.sn || ("#" + item.id)) + '</div></div>' +
+          '<div class="card-body"><div class="title">' + escapeHtml(item.title || item.sn || item.id) + '</div><div class="meta">' + escapeHtml(item.remark || "MISSAV") + '</div></div>' +
+          '</button>';
+      }
+
+      function posterGradient(id) {
+        var hue = Math.abs(parseInt(id, 10) || 0) % 360;
+        return "linear-gradient(135deg,hsl(" + hue + ",36%,18%),hsl(" + ((hue + 58) % 360) + ",32%,12%))";
+      }
+
+      function parseList(html) {
+        var doc = new DOMParser().parseFromString(html, "text/html");
+        var nodes = Array.prototype.slice.call(doc.querySelectorAll('a[href*="/vodplay/"]'));
+        var seen = {};
+        var items = [];
+        nodes.forEach(function (a) {
+          var href = a.getAttribute("href") || "";
+          var m = href.match(/\/vodplay\/(\d+)-/);
+          if (!m || seen[m[1]]) return;
+          seen[m[1]] = true;
+          var block = closestBlock(a);
+          var img = block && block.querySelector("img");
+          var title = cleanText(a.textContent || a.getAttribute("title") || "");
+          if (!title && img) title = cleanText(img.getAttribute("alt") || img.getAttribute("title") || "");
+          var pic = img ? absoluteUrl(img.getAttribute("data-src") || img.getAttribute("data-original") || img.getAttribute("src") || "") : "";
+          var sn = (title.match(/[A-Z]{2,12}-?\d{2,6}/i) || [])[0] || "#" + m[1];
+          items.push({ id: m[1], title: title || sn, sn: sn.toUpperCase(), pic: pic, remark: "" });
+        });
+        return items;
+      }
+
+      function closestBlock(el) {
+        var cur = el;
+        for (var i = 0; cur && i < 5; i++) {
+          if (cur.querySelector && cur.querySelector("img")) return cur;
+          cur = cur.parentElement;
+        }
+        return el.parentElement;
+      }
+
+      function cleanText(text) {
+        return String(text || "").replace(/\s+/g, " ").trim();
+      }
+
+      function formatParagraphs(text) {
+        return uniqueDescriptionParts(text).map(function (part) {
+          part = cleanText(part);
+          if (part.charAt(part.length - 1) !== "。" && /[\u4e00-\u9fa5]/.test(part)) part += "。";
+          return "<p>" + escapeHtml(part) + "</p>";
+        }).join("");
+      }
+
+      function uniqueDescriptionParts(text) {
+        var seen = {};
+        return String(text || "").split(/(?:\n+|。(?=\S)|[；;](?=\S))/).map(function (part) {
+          return cleanText(part).replace(/^简介[:：]\s*/i, "");
+        }).filter(function (part) {
+          if (!part || part.length < 2) return false;
+          var key = part.replace(/[，。,.、\s]/g, "").toLowerCase();
+          if (!key || seen[key]) return false;
+          seen[key] = true;
+          return true;
+        });
+      }
+
+      function dedupeDescription(text, excludes) {
+        var banned = {};
+        (excludes || []).forEach(function (value) {
+          var key = cleanText(value).replace(/[，。,.、\s]/g, "").toLowerCase();
+          if (key) banned[key] = true;
+        });
+        return uniqueDescriptionParts(text).filter(function (part) {
+          var key = part.replace(/[，。,.、\s]/g, "").toLowerCase();
+          if (banned[key]) return false;
+          for (var ban in banned) {
+            if (ban && key.indexOf(ban) >= 0 && key.length <= ban.length + 12) return false;
+          }
+          return true;
+        }).join("。");
+      }
+
+      function loadList(reset) {
+        if (state.busy) return Promise.resolve();
+        if (reset) {
+          state.page = 1;
+          state.items = [];
+          state.hasMore = false;
+          window.scrollTo(0, 0);
+        }
+        state.busy = true;
+        setStatus("加载中", true);
+        renderList();
+        return requestText(listUrl()).then(function (html) {
+          var next = parseList(html);
+          if (reset) state.items = [];
+          var known = {};
+          state.items.forEach(function (item) { known[item.id] = true; });
+          next.forEach(function (item) {
+            if (!known[item.id]) state.items.push(item);
+          });
+          state.hasMore = next.length >= 12;
+          setStatus("", false);
+        }).catch(function (error) {
+          setStatus("", false);
+          if (reset && !state.items.length) $("grid").innerHTML = '<div class="empty">加载失败：' + escapeHtml(error.message || error) + '</div>';
+          toast("加载失败：" + (error.message || error));
+        }).then(function () {
+          state.busy = false;
+          renderList({ focus: true });
+          saveSnapshot();
+        });
+      }
+
+      function loadMore() {
+        if (state.busy || !state.hasMore) return;
+        state.page += 1;
+        loadList(false);
+      }
+
+      function switchCat(cat) {
+        state.cat = cat;
+        state.key = "";
+        $("searchInput").value = "";
+        renderChips();
+        history.replaceState({ route: "home" }, "", "#home");
+        loadList(true);
+      }
+
+      function doSearch(keyword) {
+        keyword = String(keyword || "").trim();
+        if (!keyword) return;
+        state.key = keyword;
+        state.cat = "new";
+        renderChips();
+        history.replaceState({ route: "home" }, "", "#search=" + encodeURIComponent(keyword));
+        loadList(true);
+      }
+
+      function openDetail(id, options) {
+        options = options || {};
+        var existing = state.items.find(function (item) { return item.id === String(id); }) || { id: String(id), title: "MISSAV", sn: "#" + id, pic: "" };
+        if (options.forceSheet) {
+          state.detail = { loading: true, item: existing };
+          renderDetail();
+          showDetail(options.skipHistory);
+        } else {
+          setStatus("读取播放信息", true);
+        }
+        requestText(HOST + "/vodplay/" + encodeURIComponent(id) + "-1-1/").then(function (html) {
+          var detail = parseDetail(html, existing);
+          state.detail = detail;
+          setStatus("", false);
+          saveSnapshot();
+          if (!options.forceSheet && shouldPlayDirect(detail)) {
+            return playResolvedDetail(detail);
+          }
+          renderDetail();
+          showDetail(options.skipHistory);
+          return null;
+        }).catch(function (error) {
+          setStatus("", false);
+          state.detail = { error: error.message || String(error), item: existing };
+          renderDetail();
+          showDetail(options.skipHistory);
+        });
+      }
+
+      function parseDetail(html, item) {
+        var doc = new DOMParser().parseFromString(html, "text/html");
+        var cfg = parsePlayerConfig(html);
+        var title = cfg && cfg.vod_data && cfg.vod_data.vod_name || cleanText((doc.querySelector("h1") || {}).textContent) || item.title;
+        var cls = cfg && cfg.vod_data && cfg.vod_data.vod_class || "";
+        var url = cfg && cfg.url || "";
+        var pic = item.pic || "";
+        var img = doc.querySelector('meta[property="og:image"], meta[name="twitter:image"]');
+        if (img && img.getAttribute("content")) pic = absoluteUrl(img.getAttribute("content"));
+        var desc = metaContent(doc, 'meta[name="description"], meta[property="og:description"]');
+        if (desc && title) desc = cleanText(desc.replace(title, ""));
+        var info = collectDetailInfo(doc, title);
+        return { item: item, title: title, cls: cls, url: url, pic: pic, desc: desc, info: info, raw: cfg };
+      }
+
+      function metaContent(doc, selector) {
+        var el = doc.querySelector(selector);
+        return cleanText(el && el.getAttribute("content") || "");
+      }
+
+      function collectDetailInfo(doc, title) {
+        var values = [];
+        var selectors = [
+          ".module-info-item",
+          ".video-info",
+          ".detail-info",
+          ".vod-info",
+          ".text-nord4",
+          ".text-secondary"
+        ];
+        selectors.forEach(function (selector) {
+          Array.prototype.slice.call(doc.querySelectorAll(selector)).forEach(function (el) {
+            var text = cleanText(el.textContent);
+            if (!text || text.length < 2 || text === title) return;
+            if (values.indexOf(text) < 0 && values.length < 6) values.push(text);
+          });
+        });
+        return values;
+      }
+
+      function shouldPlayDirect(detail) {
+        if (!detail || !detail.url) return false;
+        var desc = cleanText(detail.desc || "");
+        var info = Array.isArray(detail.info) ? detail.info.filter(function (text) { return cleanText(text).length > 0; }) : [];
+        var hasUsefulDesc = desc.length >= 24 && desc !== detail.title;
+        var hasUsefulInfo = info.some(function (text) {
+          return text.length >= 8 && text !== detail.title && text !== detail.cls;
+        });
+        return !hasUsefulDesc && !hasUsefulInfo;
+      }
+
+      function parsePlayerConfig(html) {
+        var idx = html.indexOf("var player_aaaa");
+        if (idx < 0) idx = html.indexOf("player_aaaa");
+        if (idx < 0) return null;
+        var start = html.indexOf("{", idx);
+        if (start < 0) return null;
+        var depth = 0;
+        var inString = false;
+        var quote = "";
+        var escaped = false;
+        for (var i = start; i < Math.min(html.length, start + 5000); i++) {
+          var ch = html.charAt(i);
+          if (inString) {
+            if (escaped) escaped = false;
+            else if (ch === "\\") escaped = true;
+            else if (ch === quote) inString = false;
+            continue;
+          }
+          if (ch === '"' || ch === "'") {
+            inString = true;
+            quote = ch;
+          } else if (ch === "{") {
+            depth += 1;
+          } else if (ch === "}") {
+            depth -= 1;
+            if (depth === 0) {
+              var text = html.slice(start, i + 1);
+              try { return JSON.parse(text); } catch (e) { return null; }
+            }
+          }
+        }
+        return null;
+      }
+
+      function showDetail(skipHistory) {
+        document.body.classList.add("detail-active");
+        $("detailSheet").classList.add("active");
+        $("detailSheet").setAttribute("aria-hidden", "false");
+        if (!skipHistory && location.hash !== "#detail") history.pushState({ route: "detail", id: state.detail && state.detail.item && state.detail.item.id }, "", "#detail");
+        setTimeout(function () { focusRemoteTarget($("closeDetailBtn")); }, 40);
+      }
+
+      function closeDetail(fromPop) {
+        document.body.classList.remove("detail-active");
+        $("detailSheet").classList.remove("active");
+        $("detailSheet").setAttribute("aria-hidden", "true");
+        state.detail = null;
+        if (!fromPop && location.hash === "#detail") history.back();
+        requestAnimationFrame(restoreListFocus);
+      }
+
+      function renderDetail() {
+        var detail = state.detail || {};
+        var item = detail.item || {};
+        $("detailSub").textContent = item.sn || "MISSAV";
+        if (detail.loading) {
+          $("detailBody").innerHTML = '<div class="empty"><span class="spinner"></span>&nbsp;加载详情</div>';
+          return;
+        }
+        if (detail.error) {
+          $("detailBody").innerHTML = '<div class="empty">详情加载失败：' + escapeHtml(detail.error) + '</div>';
+          return;
+        }
+        var title = detail.title || item.title || "MISSAV";
+        var poster = detail.pic || item.pic || "";
+        var posterHtml = poster ? '<img src="' + escapeAttr(poster) + '" alt="" referrerpolicy="no-referrer" onerror="this.remove();">' : "";
+        var playButton = detail.url ? '<button class="btn primary focusable" id="playBtn" type="button"><svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>播放</button>' : "";
+        var tags = [detail.cls, item.sn].filter(function (text, index, arr) {
+          text = cleanText(text);
+          return text && arr.indexOf(text) === index;
+        }).map(function (text) { return '<span class="detail-tag">' + escapeHtml(text) + '</span>'; }).join("");
+        var descText = dedupeDescription(detail.desc, [title, detail.cls, item.sn]);
+        var desc = descText ? '<section class="detail-section"><div class="detail-section-title">简介</div><div class="detail-section-text">' + formatParagraphs(descText) + '</div></section>' : "";
+        var extra = desc ? '<div class="detail-extra">' + desc + '</div>' : "";
+        $("detailBody").innerHTML =
+          '<article class="detail-card">' +
+          '<div class="poster" style="background:' + posterGradient(item.id) + '">' + posterHtml + '</div>' +
+          '<div class="detail-summary"><h2 class="detail-title">' + escapeHtml(title) + '</h2>' +
+          '<div class="detail-tags">' + tags + '</div>' +
+          '<div class="actions">' + playButton + '</div>' +
+          '</div>' + extra + '</article>';
+      }
+
+      function playDetail() {
+        var detail = state.detail || {};
+        playResolvedDetail(detail);
+      }
+
+      function playResolvedDetail(detail) {
+        if (!detail.url) {
+          toast("没有播放地址");
+          return Promise.resolve();
+        }
+        var title = detail.title || detail.item && detail.item.title || "MISSAV";
+        toast("正在进入播放");
+        return waitForNativeSdk(1500).then(function () {
+          return sdk().play(detail.url, title);
+        }).then(function () {
+          saveSnapshot();
+        }).catch(function (error) {
+          toast("播放失败：" + (error.message || error));
+        });
+      }
+
+      function saveSnapshot() {
+        state.scrollY = window.scrollY || 0;
+        var active = document.activeElement;
+        if (active && active.dataset && active.dataset.key) state.focusKey = active.dataset.key;
+        var data = {
+          time: Date.now(),
+          cat: state.cat,
+          key: state.key,
+          page: state.page,
+          items: state.items,
+          hasMore: state.hasMore,
+          scrollY: state.scrollY,
+          focusKey: state.focusKey
+        };
+        try {
+          sdk().cache.set(SNAPSHOT_KEY, JSON.stringify(data), CACHE_RULE).catch(function () {});
+        } catch (e) {
+          try { localStorage.setItem("fm_" + SNAPSHOT_KEY, JSON.stringify(data)); } catch (ignore) {}
+        }
+      }
+
+      function restoreSnapshot() {
+        return waitForNativeSdk(1200).then(function () {
+          return sdk().cache.get(SNAPSHOT_KEY, CACHE_RULE);
+        }).catch(function () {
+          try { return localStorage.getItem("fm_" + SNAPSHOT_KEY) || ""; } catch (e) { return ""; }
+        }).then(function (text) {
+          var data = {};
+          try { data = JSON.parse(text || "{}"); } catch (e) { data = {}; }
+          if (!data || Date.now() - Number(data.time || 0) > 2 * 60 * 60 * 1000) return false;
+          state.cat = data.cat || "new";
+          state.key = data.key || "";
+          state.page = Number(data.page || 1);
+          state.items = Array.isArray(data.items) ? data.items : [];
+          state.hasMore = !!data.hasMore;
+          state.scrollY = Number(data.scrollY || 0);
+          state.focusKey = data.focusKey || "";
+          $("searchInput").value = state.key;
+          renderChips();
+          renderList();
+          setTimeout(function () {
+            window.scrollTo(0, state.scrollY || 0);
+            restoreListFocus();
+          }, 50);
+          return state.items.length > 0;
+        });
+      }
+
+      function focusRemoteTarget(target) {
+        if (!target) return;
+        try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); }
+        var rect = target.getBoundingClientRect();
+        var topLimit = 12;
+        var bottomLimit = window.innerHeight - 18;
+        if (rect.top < topLimit || rect.bottom > bottomLimit) target.scrollIntoView({ block: "nearest", inline: "nearest" });
+      }
+
+      function isVisibleFocusable(el) {
+        if (!el || !el.matches || !el.matches(".focusable,button,input")) return false;
+        if (el.disabled || el.getAttribute("tabindex") === "-1") return false;
+        if (el.closest("[aria-hidden='true']")) return false;
+        var rect = el.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && getComputedStyle(el).visibility !== "hidden";
+      }
+
+      function focusScopeRoot() {
+        if ($("detailSheet").classList.contains("active")) return $("detailSheet");
+        return document;
+      }
+
+      function focusables() {
+        return Array.prototype.slice.call(focusScopeRoot().querySelectorAll(".focusable,button,input")).filter(isVisibleFocusable);
+      }
+
+      function restoreListFocus() {
+        var target = state.focusKey ? document.querySelector('[data-key="' + cssEscape(state.focusKey) + '"]') : null;
+        if (!target) target = $("grid").querySelector(".card") || $("chips").querySelector(".chip.active") || $("chips").querySelector(".chip");
+        focusRemoteTarget(target);
+      }
+
+      function cssEscape(value) {
+        if (window.CSS && CSS.escape) return CSS.escape(value);
+        return String(value).replace(/"/g, '\\"');
+      }
+
+      function moveFocus(key) {
+        var current = document.activeElement;
+        if (!isVisibleFocusable(current)) {
+          focusRemoteTarget(focusables()[0]);
+          return;
+        }
+        var items = focusables();
+        var curRect = current.getBoundingClientRect();
+        var cx = curRect.left + curRect.width / 2;
+        var cy = curRect.top + curRect.height / 2;
+        var best = null;
+        var bestScore = Infinity;
+        items.forEach(function (el) {
+          if (el === current) return;
+          var r = el.getBoundingClientRect();
+          var x = r.left + r.width / 2;
+          var y = r.top + r.height / 2;
+          var dx = x - cx;
+          var dy = y - cy;
+          if (key === "ArrowLeft" && dx >= -4) return;
+          if (key === "ArrowRight" && dx <= 4) return;
+          if (key === "ArrowUp" && dy >= -4) return;
+          if (key === "ArrowDown" && dy <= 4) return;
+          var primary = key === "ArrowLeft" || key === "ArrowRight" ? Math.abs(dx) : Math.abs(dy);
+          var secondary = key === "ArrowLeft" || key === "ArrowRight" ? Math.abs(dy) : Math.abs(dx);
+          var score = primary * 4 + secondary;
+          if (score < bestScore) {
+            bestScore = score;
+            best = el;
+          }
+        });
+        if (best) focusRemoteTarget(best);
+      }
+
+      function bindEvents() {
+        $("chips").addEventListener("click", function (event) {
+          var btn = event.target.closest("[data-cat]");
+          if (btn) switchCat(btn.dataset.cat);
+        });
+        $("grid").addEventListener("click", function (event) {
+          var card = event.target.closest("[data-id]");
+          if (!card) return;
+          state.focusKey = card.dataset.key || "";
+          saveSnapshot();
+          openDetail(card.dataset.id);
+        });
+        $("moreBtn").addEventListener("click", loadMore);
+        $("searchForm").addEventListener("submit", function (event) {
+          event.preventDefault();
+          doSearch($("searchInput").value);
+          $("searchInput").blur();
+          $("searchInput").setAttribute("readonly", "readonly");
+        });
+        $("searchInput").addEventListener("click", function () { $("searchInput").removeAttribute("readonly"); });
+        $("searchInput").addEventListener("keydown", function (event) {
+          if (event.key === "Enter") $("searchForm").dispatchEvent(new Event("submit", { cancelable: true }));
+          if (event.key === "Escape" || event.key === "Backspace" && !$("searchInput").value) {
+            $("searchInput").setAttribute("readonly", "readonly");
+            $("searchInput").blur();
+            restoreListFocus();
+          }
+        });
+        $("closeDetailBtn").addEventListener("click", function () { closeDetail(false); });
+        $("detailBody").addEventListener("click", function (event) {
+          if (event.target.closest("#playBtn")) playDetail();
+        });
+        document.addEventListener("focusin", function (event) {
+          var el = event.target;
+          if (el && el.dataset && el.dataset.key) state.focusKey = el.dataset.key;
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.defaultPrevented) return;
+          if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].indexOf(event.key) >= 0) {
+            event.preventDefault();
+            moveFocus(event.key);
+          } else if (event.key === "Enter") {
+            var active = document.activeElement;
+            if (active && isVisibleFocusable(active) && active.tagName !== "INPUT") {
+              event.preventDefault();
+              active.click();
+            } else if (active === $("searchInput") && $("searchInput").hasAttribute("readonly")) {
+              event.preventDefault();
+              $("searchInput").removeAttribute("readonly");
+            }
+          } else if (event.key === "Escape" || event.key === "Backspace") {
+            if ($("detailSheet").classList.contains("active")) {
+              event.preventDefault();
+              closeDetail(false);
+            }
+          }
+        });
+        window.addEventListener("popstate", function () {
+          if (location.hash !== "#detail" && $("detailSheet").classList.contains("active")) closeDetail(true);
+        });
+        window.addEventListener("beforeunload", saveSnapshot);
+        window.addEventListener("fmresume", function () {
+          restoreListFocus();
+        });
+        window.addEventListener("fmsdk", function () {
+          document.documentElement.classList.add("fm-native");
+          state.sdkReady = true;
+        });
+      }
+
+      function init() {
+        renderChips();
+        bindEvents();
+        waitForNativeSdk(1800).then(function (ready) {
+          state.sdkReady = ready;
+          if (window.fongmiBridge || window.fm || window.fongmi) document.documentElement.classList.add("fm-native");
+          return restoreSnapshot();
+        }).then(function (restored) {
+          if (!restored) return loadList(true);
+          if (!state.items.length) return loadList(true);
+          return null;
+        }).then(function () {
+          if (location.hash === "#detail" && state.focusKey) {
+            var id = state.focusKey.replace(/^vod-/, "");
+            if (id) openDetail(id, { skipHistory: true });
+          }
+          setTimeout(restoreListFocus, 120);
+        }).catch(function (error) {
+          $("grid").innerHTML = '<div class="empty">初始化失败：' + escapeHtml(error.message || error) + '</div>';
+        });
+      }
+
+      init();
+    })();
+  </script>
+    </body>
+</html>

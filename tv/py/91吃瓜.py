@@ -11,11 +11,11 @@ import time
 sys.path.append('..')
 
 # 全局配置
-xurl = "https://barely.vmwzzqom.cc/"
-backup_urls = ["https://hlj.fun", "https://911bl16.com"]
+xurl = "https://911bl.com/"
+backup_urls = ["https://hlj.fun", "https://911bl.com"]
 headerx = {
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
-    "Referer": "https://911blw.com",
+    "Referer": "https://911bl.com",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
 }

@@ -5,7 +5,7 @@
 //免翻https://zh.stripchat.global/
 "规则名": "zh.stripchat.com-XYQHiker",
 "规则作者": "飞鱼",
-"请求头参数": "电脑",
+"请求头参数": "User-Agent$Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5410.0 Safari/537.36",
 "网页编码格式": "UTF-8",
 "图片是否需要代理": "0",
 //0关闭首页数据，1开启首页数据
@@ -27,6 +27,7 @@
 //go.rmhfrtnd.com
 //https://go.xliirdr.com
 //https://go.stripchat.review
+//https://go.mavrtracktor.com/
 "分类链接": "https://go.xliirdr.com/api/models?tag={cateId}&forceClient=1&stripcashR=0&limit=200&usePreroll&webp=1&type=popular&timezone=Asia/Shanghai",
 "分类名称": "女主播&情侣&男主播&推荐&免费性爱&群交直播&女同&VR&变性人&新主播",
 "分类名称替换词": "girls/chinese&couples/chinese&men/popular&girls/recommended&girls/popular&couples/group-sex&couples/lesbians&girls/vr&trans/popular&girls/new",
@@ -34,9 +35,9 @@
 "分类列表数组规则": "models",
 "分类片单是否Jsoup写法": "1",
 "分类片单标题": "username",
-"分类片单链接": "username",
+"分类片单链接": "stream.urls.480p",
 "分类片单图片": "snapshotUrl",
-"分类片单副标题": "id+'https://edge-hls.doppiocdn.net/hls/'+id+'/master/'+id+'_480p.m3u8'",
+"分类片单副标题": "stream.url",
 
 "分类片单链接加前缀": "https://zh.stripchat.global/",
 "分类片单链接加后缀": "",
@@ -55,7 +56,7 @@
 "链接是否直接播放": "1",
 "直接播放链接加前缀": "",
 "直接播放链接加后缀": "",
-"直接播放直链视频请求头": "",
+"直接播放直链视频请求头": "User-Agent$ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5410.0 Safari/537.36",
  "详情是否Jsoup写法":"0",
     "类型详情": "<p>類型：&&</p>",
     "年代详情": "<p>更新：&&</p>",

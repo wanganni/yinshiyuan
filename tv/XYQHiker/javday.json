@@ -41,7 +41,7 @@
     "分类片单是否Jsoup写法":"1",
     "分类片单标题": ".title&&Text",
     "分类片单链接": "a&&href",
-    "分类片单图片": ".videoBox-cover&&style",
+    "分类片单图片": ".videoBox-cover&&style!background-image: url(&quot;!&quot;);",
     "分类片单副标题":"'👀'+.views&&Text+'❤️'+.likes&&Text",
     "分类片单链接加前缀":"https://javday.tv",
     "分类片单链接加后缀": "",

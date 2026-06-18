@@ -8,7 +8,7 @@ var rule = {
     class_name: '国产&JAHD①&JAHD②&麻豆', //静态分类名称拼接
     class_url: 'av-jiali&javhd&jav-hub&asiam', //静态分类标识拼接
     limit: 999,
-    headers: { 'User-Agent': PC_UA, 'Referer': '' },
+    headers: { 'User-Agent': 'PC_UA', 'Referer': 'https://cn.pornhub.com'},
     double: true,
     一级: $js.toString(() => {
         let d = [];

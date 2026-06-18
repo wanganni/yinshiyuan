@@ -47,10 +47,11 @@ class Spider(BaseSpider):
 
     def get_working_host(self):
         dynamic_urls = [
-            'https://www.mrds66.com/',
-            'https://mrdsa2.com/',
-            'https://mrdsa1.com/',
+            'https://ago.nwiiswpr.cc/',
+            'https://appear.nwiiswpr.cc/',
+            'https://bike.nwiiswpr.cc/',
             'https://mrdsk.com/',
+            'https://mrds.com/'
         ]
         for url in dynamic_urls:
             try:
@@ -66,7 +67,7 @@ class Spider(BaseSpider):
                     return response.url.rstrip('/')
             except Exception:
                 continue
-        return 'https://www.mrds66.com'
+        return 'https://besides.blaasomh.com'
 
     def homeContent(self, filter):
         try:
