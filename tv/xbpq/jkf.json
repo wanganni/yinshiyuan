@@ -1,0 +1,77 @@
+{
+    "作者": "飞鱼",
+    "站名": "捷克论坛",
+    "发布页": "",
+    "主页url": "",
+    "首页": "",
+    "数组二次截取": "",
+    
+    //以下类型--是标记--
+    "数组": "j:content.articles",
+    "标题": "j:title",
+    "图片": "https://jkforum.net/attachment/+j:gridImageId",
+    "图片代理":"1",
+    "副标题": "",
+    "链接": "https://jkforum.net/p/thread-+j:id+-1-1.html",
+    "简介": "inlineFree\">&&</span>",
+    //"线路二次截取": "mediaDefinitions\":[&&]",
+   // "线路数组": "crossorigin=\"anonymous\">&&</script>",
+    "线路标题": "飞鱼高清",
+    //"列表二次截取": "flashvars_.*?=&&;.*?</script>[包含:mediaDefinitions]",
+  "播放二次截取": "crossorigin=\"anonymous\">&&</script>",
+   // "播放数组": "j:mediaDefinitions",
+   // "播放标题": "j:quality",
+    //"播放列表": "",
+    //"播放链接": "j:videoUrl",
+    /////
+    "播放数组": "",
+    "播放标题": "setVideoTitle(\'&&\');",
+    "播放列表": "{&&}",
+    "播放链接": "setVideoHLS(\'&&\');",
+    "直接播放":"1",
+    "超时":"120",
+    //"跳转播放链接": "<source*src=\"&&\"",
+    "搜索模式": "1",
+    "搜索url": "https://jkforum.net/?k={wd}&p={pg}",
+    "搜索模式": "1",//1为截取模式，0为json模式，自动情况下，先截取模式，无数据时再尝试json模式
+"搜索后缀":"",//json模式时用于补充域名与id之间那部分内容，最好填写这个，能提高效率。写了这个自动使用搜索模式0
+
+"搜索二次截取": "",
+"搜索数组": "p:div[class=\"mozaique cust-nb-cols\"] .thumb-block",
+"搜索图片": "p:img->src",
+"搜索标题": "p:.title->text",
+"搜索链接": "p:a->href",
+"搜索链接前缀": "",
+"搜索链接后缀": "",
+    "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Origin$https://jkforum.net/#Referer$https://jkforum.net/",
+    "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Origin$https://jkforum.net/#Referer$https://jkforum.net/",
+   // "图片请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Origin$https://jkforum.net/#Referer$https://jkforum.net/",
+    "二级目录": "",
+    //二级目录是指定那些分类使用目录模式
+    "二级ID": "",
+    //二级id分类二级//在得到的链接中截取，如果不填二级ID，将直接使用链接，在特殊分类中加上此分类的二级，如xx二级${cateId}，就是直接将一级链接交给二级使用。
+    "特殊分类链接": "",
+    //特殊分类链接是指定分类使用此链接作为分类url
+    //"排序": "空||空||空||空||空||空||空||空||最多视频$total_videos#排行$avg_top#字母顺序$title#热度$avg_popular||最多视频$total_videos#排行$avg_top#字母顺序$title#热度$avg_popular",
+    "分类url": "https://jkforum.net/api/jkf-forum/v1/Article/{cateId}?tab=0&sortingType=1&isQueryPin=true&Offset={catePg}&Limit=40",
+    "分类": "亚洲$1091#欧美$1087#动漫$1400",
+    "起始页": "0",//默认1，一般不填
+"页码倍率":"40",
+  
+      "筛选":{
+"video":[
+  {"key":"by",
+  "name":"排序",
+  "value":[
+  {"v":"o=cm","n":"最新"},
+  {"v":"","n":"最新精选"},
+  {"v":"o=mv","n":"最多观看"},
+  {"v":"o=ht","n":"热门"},
+  {"v":"o=tr","n":"高分"},
+  {"v":"o=lg","n":"最长影片"}
+]}
+]
+}
+
+
+}

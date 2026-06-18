@@ -1,0 +1,117 @@
+{
+//https://go.stripchatgirls.com
+//https://go.mnaspm.com
+//go.superchat.shop
+//go.rmhfrtnd.com
+//https://go.xliirdr.com
+//https://go.stripchat.review
+//https://go.mavrtracktor.com/
+//https://go.xxxvjmp.com/api/models?landing=WidgetV4Universal&tag=girls%2Fchinese&quality=120p&sortBy=paidUsers&stripcashR=0&forceClient=1&modelPromotion=0&acclan=0&abTest=widgetv4universal_universalAA07052026&abTestVariant=widgetv4universal_universalAA07052026_A_14&seenAbTest=1&seenDomain=1&seenLanding=1&limit=1
+//免翻官方备用https://zh.stripchat.global
+//免翻镜像https://zh.stripol.com
+//免翻镜像https://zh.virtualtaboo.live
+    "作者": "飞鱼",
+    "站名": "StripChat",
+    "发布页": "https://zh.stripchat.global/",
+    "主页url": "https://zh.stripol.com",
+    "首页": "",
+    "分类url": "{{主页url}}/api/front/models?improveTs=false&removeShows=false&limit=60&offset={catePg}&primaryTag={cateId}&sortBy=stripRanking&rcmGrp=A&rbCnGr=true&prxCnGr=false&nic=false&filterGroupTags=[[\"{class}\"]]&sortBy=stripRanking&parentTag={class}",
+    "二次截取": "",
+    "数组": "j:models||分类1二级--ageCategories:&&,preModeration",
+    "标题": "j:username||分类1二级--\'&&\'",
+    "图片": "https://img.doppiocdn.com/thumbs/+j:snapshotTimestamp+/+j:id",
+    "图片代理aes": "",
+    "副标题": "j:groupShowType[替换:ticket>>🎫在购票表演中#perMinute>>🎫在购票表演中邀请您加入团体表演]+j:gender[替换:females>>多女#maleFemale>>男女#males>>多男#femaleTranny>>女性变性人#maleTranny>>男性变性人#female>>♀️女性#group>>群体#male>>♂️男性#tranny>>变性人#trannies>>多个变性人]+...👀观众:+j:viewersCount",
+    //"链接": "j:stream.urls.480p[替换:480p>>auto]",
+    "链接":"https://edge-hls.growcdnssedge.com/hls/+j:id+/master/+j:id+_auto.m3u8?playlistType=lowLatency||分类1二级--{{主页url}}/api/front/models?improveTs=false&removeShows=false&limit=60&offset={catePg}&primaryTag=girls&sortBy=stripRanking&rcmGrp=A&rbCnGr=true&prxCnGr=false&nic=false&filterGroupTags=[[\"+,&&:\'+\"]]&sortBy=stripRanking&parentTag=+,&&:\'",
+    
+   "起始页": "0",//默认1，一般不填
+"页码倍率":"60",
+    "直接播放":"",
+    "简介": "zh.stripchat.global/{{标题}}",
+    //"链接加工":"{{链接}}",
+    //"详情页加工":"{{链接}}",
+    "搜索模式": "1",
+    "搜索url": "",
+    "过滤词": "",
+    "嗅探词": "",
+    "详情页加工": "",
+    "线路二次截取": "",
+    "线路标题": "",
+    "播放二次截取": "",
+    "播放数组": "",
+    "播放标题": "",
+    "播放列表": "",
+    "播放链接": "",
+    //"跳转播放链接": "\"videolist\"*\"&&,+/+\"playurl\"*\"&&\"",
+    "超时": "220",
+    "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Cookie$c-#Origin${{主页url}}#Referer${{主页url}}",
+    "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Origin${{主页url}}#Referer${{主页url}}",
+    "二级目录": "分类1|folder-0-0-H",
+    "二级ID": "",
+    "特殊分类链接": "推荐${{主页url}}/api/front/models?improveTs=false&removeShows=false&limit=60&offset={catePg}&primaryTag=girls&sortBy=stripRanking&rcmGrp=A&rbCnGr=true&prxCnGr=false&nic=false&filterGroupTags=[[\"{cateId}\"]]#情侣${{主页url}}/api/front/models?removeShows=false&recInFeatured=false&limit=60&offset=0&primaryTag={cateId}&filterGroupTags=%5B%5B%22{class}%22%5D%5D&sortBy=stripRanking&parentTag={class}&nic=true&byw=false&rcmGrp=A&rbCnGr=true&iem=true&decMb=false&ctryTop=true&mlfv=false&rectf=false#最受欢迎${{主页url}}/api/front/models?removeShows=false&recInFeatured=false&limit=60&offset={catePg}&primaryTag=girls&sortBy={cateId}#女主播${{主页url}}/api/front/models?improveTs=false&removeShows=false&limit=60&offset={catePg}&primaryTag={cateId}&sortBy=stripRanking&rcmGrp=A&rbCnGr=true&prxCnGr=false&nic=false&filterGroupTags=[[\"{class|tagLanguageChinese}\"]]&sortBy=stripRanking&parentTag={class|tagLanguageChinese}#分类1$https://assets.chapturist.com/assets/{cateId}.4a25458bdb5317.js",
+    //"类型": "",
+  
+    //"类型值":"*", 
+    //"分类url": "https://av.com/json/category/ctg_{cateId}_page_{catePg}.json?times={时间秒戳};;cm0cF",
+    "分类": "女主播&情侣&男主播&推荐&免费性爱&群交直播&女同&变性人&新主播&最受欢迎&分类1",
+    "分类值":"girls&couples&men&recommended&girls/popular&couples/group-sex&couples/lesbians&trans/popular&girls/new&viewersRating&translations_zh",
+    "筛选":{
+"girls":[
+  {"key":"class",
+  "name":"女主播",
+  "value":[
+  
+{'n': '新主播', 'v': 'autoTagNew'},
+{'n': '推荐', 'v': 'recommended'},
+{'n': '少女18+', 'v': 'ageTeen'},
+{'n': 'VR', 'v': 'autoTagVr'},
+{'n': '亚洲人', 'v': 'ethnicityAsian'},
+{'n': '🇨🇳中国', 'v': 'tagLanguageChinese'}, {'n': '🇯🇵日本', 'v': 'tagLanguageJapanese'}, {'n': '🇰🇷韩国', 'v': 'tagLanguageKorean'}, {'n': '🇻🇳越南', 'v': 'tagLanguageVietnamese'},{"v":"tagLanguageUkrainian","n":"🇺🇦乌克兰"},
+{"v":"tagLanguageRussianSpeaking","n":"🇷🇺俄罗斯"},
+{"v":"tagLanguageUSModels","n":"🇺🇸美国"},
+{"v":"tagLanguageColombian","n":"🇨🇴哥伦比亚"},
+{"v":"tagLanguageGermanSpeaking","n":"🇩🇪德国"},
+{"v":"tagLanguageFrench","n":"🇫🇷法国"},
+{"v":"tagLanguageUKModels","n":"🇬🇧英国"},
+{"v":"tagLanguageCanadian","n":"🇨🇦加拿大"},
+{"v":"tagLanguageMexican","n":"🇲🇽墨西哥"},
+{"v":"ethnicityIndian","n":"🇮🇳印度"},
+{"v":"tagLanguageVenezuelan","n":"🇻🇪委内瑞拉"},
+{"v":"tagLanguageRomanian","n":"🇷🇴罗马尼亚"},
+{"v":"tagLanguageAfrican","n":"🌍非洲"},
+{"v":"tagLanguageSpanishSpeaking","n":"🇪🇸西班牙"},
+{"v":"ethnicityMiddleEastern","n":"🇸🇦🇦🇪阿拉伯"},
+{"v":"tagLanguageKenyan","n":"🇰🇪肯尼亚"},
+{"v":"tagLanguageSouthAfrican","n":"🇿🇦南非"},
+{"v":"tagLanguageBrazilian","n":"🇧🇷巴西"},
+{"v":"tagLanguageThai","n":"🇹🇭泰国"},
+{"v":"tagLanguageItalian","n":"🇮🇹意大利"},
+{'n': '亚洲', 'v': 'ethnicityAsian'}, {'n': '白人', 'v': 'ethnicityWhite'}, {'n': '拉丁', 'v': 'ethnicityLatino'}, {'n': '混血', 'v': 'ethnicityMultiracial'}, {'n': '印度', 'v': 'ethnicityIndian'}, {'n': '阿拉伯', 'v': 'ethnicityMiddleEastern'}, {'n': '黑人', 'v': 'ethnicityEbony'},{'n': '✨新主播', 'v': 'autoTagNew'},{'n': 'VR直播', 'v': 'autoTagVr'},{'n': '18+', 'v': 'ageTeen'},{'n': '鲜嫩青年22+', 'v': 'ageYoung'},{'n': '学生', 'v': 'subcultureStudent'},{'n': '口交', 'v': 'doBlowjob'},{'n': '深喉', 'v': 'doDeepThroat'},{'n': '恋足', 'v': 'doFootFetish'},{'n': '互动玩具', 'v': 'autoTagInteractiveToy'},{'n': '自慰', 'v': 'doMasturbation'},{'n': '肛交', 'v': 'doAnal'},{'n': '潮吹', 'v': 'doSquirt'},{'n': '狗式', 'v': 'doDoggyStyle'},{'n': 'Cosplay', 'v': 'doCosplay'},{'n': 'RolePlay', 'v': 'doRolePlay'}
+]}
+],
+"couples":[
+  {"key":"class",
+  "name":"情侣",
+  "value":[
+{"v":"tagLanguageChinese","n":"中国情侣"},
+{"v":"tagLanguageUkrainian","n":"乌克兰情侣"},
+{"v":"autoTagNew","n":"最新情侣"},
+{"v":"","n":"全部情侣"}]}
+],
+"men/popular":[
+{"key":"cateId",
+  "name":"男主播",
+  "value":[
+  {"v":"men/popular","n":"最受欢迎"},
+  {"v":"men/gay-couples","n":"男同伴侣"},
+  {"v":"men/gays","n":"男同聊天"},
+  {"v":"men/straight","n":"直男"},
+  {"v":"men","n":"全部男主播"}
+]}
+]
+
+
+}
+
+}
