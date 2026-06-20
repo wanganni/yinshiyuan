@@ -12,7 +12,7 @@
     "图片": "p:img->src||p:img->data-path",
     "副标题": "p:.duration->text||类型--p:.videoCount->text[替换:,>>#Videos>>视频]||明星--排名+p:.rank_number->text+●+p:.videos->text+●+p:.views->text||频道--p:.rank->text+●+p:.info->text[包含:订阅]||片单--p:.views->text+●+p:.favourites->text+●+p:.contentWrapper->text",
     "链接": "p:a->href||类型--p:a->href+&page={catePg}||明星--p:a->href+/videos?page={catePg}||频道--p:a->href+/videos?page={catePg}",
-    "图片代理":"1",
+    "图片代理":"",
     "简介": "inlineFree\">&&</span>",
     //"线路二次截取": "mediaDefinitions\":[&&]",
     "线路数组": "flashvars_.*?=&&;.*?</script>",
