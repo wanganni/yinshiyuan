@@ -20,8 +20,11 @@
     "图片代理aes": "",
     "副标题": "j:gender[替换:females>>多女#maleFemale>>男女#males>>多男#femaleTranny>>女性变性人#maleTranny>>男性变性人#female>>♀️女性#group>>群体#male>>♂️男性#tranny>>变性人#trannies>>多个变性人]+...👀观众:+j:viewersCount",
     //"链接": "j:stream.urls.480p[替换:480p>>auto]",
-    "链接":"https://edge-hls.growcdnssedge.com/hls/+j:id+/master/+j:id+_auto.m3u8?playlistType=lowLatency",
-    "直接播放":"",
+    //播放链接1https://edge-hls.sacdnssedge.com
+   //播放链接 2https://edge-hls.growcdnssedge.com
+   //播放链接3https://edge-hls.sacfedge.com
+    "链接":"https://edge-hls.sacfedge.com/hls/+j:id+/master/+j:id+_auto.m3u8",
+    "直接播放":"1",
     
    "起始页": "0",//默认1，一般不填
 "页码倍率":"60",

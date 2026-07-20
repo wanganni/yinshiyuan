@@ -32,7 +32,7 @@
     "播放链接": "video_alt_url: '&&/'||video_url: '&&/'",
     
   //  "嗅探词": "tk.*?p.mp4",
-    "过滤词": "growcdnssedge.com",
+    "过滤词": "growcdnssedge.com#data",
    
     //"跳转播放链接": "<source*src=\"&&\"",
     "搜索模式": "1",

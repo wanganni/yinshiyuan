@@ -1,0 +1,85 @@
+{
+    "作者": "飞鱼",
+    "站名": "禁片天堂",
+    "发布页": "https://jptt.tv",
+    //"发布页-a": "",
+    //"原始网址-a":"{{发布页}}",
+   // "域名-a":"{{原始网址-a}}[工具:重定向]",
+    //"域名-b":"{{域名-a}}[替换:\/#ok>>]",
+    "主页url": "{{发布页}}",
+    "首页": "{{主页url}}",
+    "分类url": "{{主页url}}/{cateId}?idx={catePg}&sort={by}",
+    "分类二次截取": "",
+"分类数组": "",
+"分类标题": "",
+"分类ID": "",
+   "二次截取": "",
+    "数组": "<div class=\"col oneVideo\">&&</div></div></div></div>||p:.row .col||私藏连播二级--p:.row .div_v_list_item",
+    "标题": "p:h5->text||p:h3->text",
+    "图片": "p:img->src||分类,发行商--https://pic.616pic.com/ys_b_img/00/16/04/tSv1MBgqFi.jpg",
+    "图片代理aes": "",
+    "图片代理":"",
+    "副标题": "p:p->text||发行商,女优,分类--p:p->text||私藏连播--p:.vdo_lst_mask->text",
+    //"链接": "j:stream.urls.480p[替换:480p>>auto]",
+    "链接":"p:a->href||发行商--p:a->href+&idx={catePg}&sort={by}||女优--p:a->href+&idx={catePg}&sort={by}||分类--p:a->href+&idx={catePg}&sort={by}||私藏连播--p:a->href+&idx={catePg}&sort={by}||私藏连播二级--p:->data-href+&idx={catePg}&sort={by}",
+    
+  // "起始页": "0",//默认1，一般不填
+//"页码倍率":"60",
+    "直接播放":"0",
+    "影片类型":"p:div[style=\"margin-bottom: 16px;\"]->text",
+"影片年代":"p:div[class=\"video-meta\"] span->text",
+"影片地区":"",
+"影片状态":"",
+"导演": "",
+    "主演": "p:div[class=\"video-meta\"] a->text",
+    "简介": "p:p->text",
+    //"链接加工":"{{链接}}",
+    //"详情页加工":"{{链接}}",
+    "搜索模式": "1",
+    "搜索url": "{{主页url}}/search?kw={wd}&idx={pg}&sort=2",
+    "过滤词": "",
+    "嗅探词": "",
+    "详情页加工": "",
+    //"线路二次截取": "<div id=\"videojs-widget\">&&</div>",
+    "线路标题": "[飞鱼]请和对象一起观片一起学习",
+    "播放二次截取": "<video&&</video",
+    "播放数组": "",
+    "播放标题": "[高清]",
+    "播放列表": "<source&&>",
+    "播放链接": "src=\"&&\"",
+    //"跳转播放链接": "\"videolist\"*\"&&,+/+\"playurl\"*\"&&\"",
+    "超时": "220",
+    "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Origin${{主页url}}#Referer${{主页url}}",
+    "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Cookie$空#Origin${{主页url}}#Referer${{主页url}}",
+    
+     
+    "二级目录": "发行商,女优,分类,私藏连播|folder-0-0-H",
+    "二级ID": "",
+    "特殊分类链接": "日本AV${{主页url}}/{cateId}?idx={catePg}&sort={by|2}#发行商,女优,分类${{主页url}}/{cateId}?idx={catePg}&sort={by1}#私藏连播${{主页url}}/{cateId}?idx={catePg}",
+    //"类型": "",
+  
+    //"类型值":"*", 
+    //"分类url": "https://av.com/json/category/ctg_{cateId}_page_{catePg}.json?times={时间秒戳};;cm0cF",
+    "分类": "首页&日本AV&女优&分类&发行商&私藏连播",
+    "分类值":"&list&actor_list&tag&factory&video_list",
+    "筛选":{
+
+"list":[
+  {"key":"by",
+  "name":"影片",
+  "value":[
+{"v":"2","n":"最新发行"},
+{"v":"1","n":"最近更新"},
+
+{"v":"3","n":"今日人气🔥"},
+{"v":"4","n":"本周人气"},
+{"v":"5","n":"本月人气"},
+{"v":"6","n":"总人气"}
+
+]}
+]
+
+
+}
+
+}

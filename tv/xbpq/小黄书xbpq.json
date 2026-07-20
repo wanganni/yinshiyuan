@@ -1,88 +1,72 @@
 {
-//小橙书https://av1024.me
-   
-    "规则名": "小黄书-XYQHiker",
-    "规则作者": "飞鱼",
-    "请求头参数":"手机",
-    "网页编码格式":"UTF-8",
-    "图片是否需要代理":"0",
-    "是否开启获取首页数据":"1",
-	 //首页推荐数据获取链接
-    "首页推荐链接": "https://xchina.co",
-    //首页推荐列表数组截取。
-    "首页列表数组规则": ".stui-vodlist",
-    //首页推荐片单列表数组定位。
-    "首页片单列表数组规则": "li",
-    //首页推荐片单信息jsoup与正则截取写法切换，只作用于html网页，1为jsoup写法(默认)，0为正则截取写法
-    "首页片单是否Jsoup写法":"1",
-    //下面这六个首页数据如果不填将调用分类那截取的配置（片单写法需一致且取值也得一致）。
-    //首页片单标题
-    "首页片单标题": "a&&title",
-    //首页推荐片单链接
-    "首页片单链接": "a&&href",
-    //首页推荐片单图片，支持自定义图片链接
-    "首页片单图片": "a&&data-original",
-    //首页推荐片单副标题
-    "首页片单副标题":".pic-text&&Text",
-    //首页推荐片单链接补前缀  
-    "首页片单链接加前缀": "https://xchina.co",
-    //首页推荐片单链接补后缀
-    "首页片单链接加后缀": "",
-    "分类起始页码": "1",
-    //"分类链接": "https://www.l0l.tv/index.php/vod/show/id/{cateId}/page/{catePg}.html",
-	"分类链接": "https://xchina.co/videos/{cateId}/{by}{catePg}.html",
-    "分类名称": "中文AV&日本AV&模特私拍&业余拍摄&其他影片&情色电影",
-    "分类名称替换词": "series-63824a975d8ae&series-6206216719462&series-6030196781d85&series-617d3e7acdcc8&series-60192e83c9e05&series-61c4d9b653b6d",
-    //"筛选数据":{},
-    "分类截取模式": "1",
-    "分类列表数组规则": ".video-list&&.video",
-    "分类片单是否Jsoup写法":"1",
-    "分类片单标题": "a&&title",
-    "分类片单链接": "a&&href",
-    "分类片单图片": ".img&&style",
-    "分类片单副标题":"'⏱️'+</i>&&</div>",
-    "分类片单链接加前缀": "https://xchina.co",
-    "分类片单链接加后缀": "",
-    "搜索请求头参数":"User-Agent$手机",
-    "搜索链接": "https://xchina.co/index.php/ajax/suggest?mid=1&wd={wd}",
-    "POST请求数据":"0",
-    "搜索截取模式": "0",
-    "搜索列表数组规则": "list",
-    "搜索片单是否Jsoup写法":"1",
-    "搜索片单图片": "pic",
-    "搜索片单标题": "name",
-    "搜索片单链接": "id",
-    "搜索片单副标题":"",
-    "搜索片单链接加前缀": "https://xchina.co/index.php/vod/detail/id/",
-    "搜索片单链接加后缀": ".html",
-       //--------
-         "链接是否直接播放": "1",
-"直接播放链接加前缀": "",
-"直接播放链接加后缀": "",
-"直接播放直链视频请求头": "",
-//-------
-    "详情是否Jsoup写法":"0",
-    "类型详情": ".text-muted&&a&&Text",
-    "年代详情": "",
-    "地区详情": "",
-    "演员详情": "导演：</span>&&</p>",
-    "简介详情": "概要：</span>&&</p>",
-    "线路列表数组规则": ".stui-pannel__head&&h3",
-    "线路标题": ".title&&Text",
-    "播放列表数组规则": ".stui-content__playlist",
-    "选集列表数组规则": "li",
-    "选集标题链接是否Jsoup写法":"1",
-    "选集标题": "a&&Text",
-    "选集链接": "a&&href",
-    "是否反转选集序列": "0",
-    "选集链接加前缀": "https://www.51222.cc",
-    "选集链接加后缀": "",
-    "分析MacPlayer":"0",
-    "是否开启手动嗅探":"1",
-    "手动嗅探视频链接关键词":"m3u8.php#.m3u8",
-    "手动嗅探视频链接过滤词":".html#=http#.mp4",
-	
-	"筛选数据":{
+    "作者": "飞鱼",
+    "站名": "小黄书",
+    //"发布页": "https://xchina.co/",
+    //"发布页-b": "https://xiaohuangshu.me/",
+    //"域名-c":"{{发布页-b}}[工具:源码#jsoup截取:a->href〔不含:https://xchina.co〕]",
+   // "域名-a":"https://{{原始网址-a}}",
+    //"域名-b":"{{域名-a}}[替换:\/#ok>>]",
+    "主页url": "https://xchina001.online",
+    "首页": "{{主页url}}",
+    "分类url": "{{主页url}}/videos/{cateId}/{by}{catePg}.html",
+    "分类二次截取": "",
+"分类数组": "",
+"分类标题": "",
+"分类ID": "",
+   "二次截取": "",
+    "数组": "p:.video-list .video||成人影片分类--p:.category-container a",
+    "标题": "p:a->title||成人影片分类--p:a->text",
+    "图片": "background-image:url('&&'||成人影片分类--p:img->src",
+    "图片代理aes": "",
+    "图片代理":"",
+    "副标题": "fa-clock\"></i>&&</div>||成人影片分类--p:span->text+视频",
+    //"链接": "j:stream.urls.480p[替换:480p>>auto]",
+    "链接":"p:a->href||成人影片分类--p:a->href[替换:.html>>/{catePg}.html]",
+   // "链接加工":"[工具:源码#<iframe width*src=\"截取\"]",
+   "跳转播放数组":"",
+"跳转播放链接":"",
+"跳转播放链接加工":"",
+    //"浏览器":"{{链接}}",
+  // "起始页": "0",//默认1，一般不填
+//"页码倍率":"60",
+    "直接播放":"0",
+    "影片类型":"",
+"影片年代":"",
+"影片地区":"",
+"影片状态":"",
+"导演": "",
+    "主演": "",
+    "简介": "{{链接}}",
+    //"链接加工":"{{链接}}",
+    //"详情页加工":"{{链接}}",
+    "搜索模式": "1",
+    "搜索url": "{{主页url}}/index.php/ajax/suggest?mid=1&wd={wd}",
+    "过滤词": "",
+    "嗅探词": ".m3u8",
+    "详情页加工": "",
+    "线路二次截取": "",
+    "线路标题": "飞鱼",
+    "播放二次截取": "",
+    "播放数组": "new VideoPlayer(&&);",
+    "播放标题": "高清",
+    "播放列表": "{&&}",
+    "播放链接": "src: \'&&\'",
+    //"跳转播放链接": "\"videolist\"*\"&&,+/+\"playurl\"*\"&&\"",
+    "超时": "220",
+    "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36",
+    "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Origin${{主页url}}#Referer${{主页url}}",
+    
+     "图片请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Origin${{主页url}}",
+    "二级目录": "成人影片分类|folder-0-0-H",
+    "二级ID": "",
+    "特殊分类链接": "成人影片分类${{主页url}}/{cateId}.html",
+    //"类型": "",
+  
+    //"类型值":"*", 
+    //"分类url": "https://av.com/json/category/ctg_{cateId}_page_{catePg}.json?times={时间秒戳};;cm0cF",
+    "分类": "中文AV&日本AV&模特私拍&业余拍摄&其他影片&情色电影&成人影片分类",
+    "分类值":"series-63824a975d8ae&series-6206216719462&series-6030196781d85&series-617d3e7acdcc8&series-60192e83c9e05&series-61c4d9b653b6d&categories",
+ "筛选":{
 "series-63824a975d8ae":[
   {"key":"cateId","name":"分类","value":[
 {"v":"series-63824a975d8ae","n":"中文AV"}, {"v":"series-5f904550b8fcc","n":"麻豆传媒"}, {"v":"series-5fe8403919165","n":"蜜桃传媒"}, {"v":"series-60153c49058ce","n":"天美传媒"}, {"v":"series-5fe840718d665","n":"果冻传媒"}, {"v":"series-61014080dbfde","n":"糖心Vlog"}, {"v":"series-60126bcfb97fa","n":"精东影业"}, {"v":"series-6054e93356ded","n":"星空传媒"}, {"v":"series-63490362dac45","n":"性视界"}, {"v":"series-6072997559b46","n":"杏吧原版"}, {"v":"series-64e9cce89da21","n":"IBiZa"}, {"v":"series-6230974ada989","n":"扣扣传媒"}, {"v":"series-6360ca9706ecb","n":"萝莉社"}, {"v":"series-63d134c7a0a15","n":"爱豆传媒"}, {"v":"series-61bf6e439fed6","n":"OnlyFans"}, {"v":"series-633ef3ef07d33","n":"SA国际传媒"}, {"v":"series-63986aec205d8","n":"其他中文AV"}, {"v":"series-6193d27975579","n":"葫芦影业"}, {"v":"series-637750ae0ee71","n":"乌托邦"}, {"v":"series-63732f5c3d36b","n":"ED"}, {"v":"series-60589daa8ff97","n":"乐播传媒"}, {"v":"series-639c8d983b7d5","n":"91茄子"}, {"v":"series-6405b6842705b","n":"爱神传媒"}, {"v":"series-6248705dab604","n":"抖阴"}, {"v":"series-64458e7da05e6","n":"哔哩传媒"}, {"v":"series-648e1071386ef","n":"西瓜影视"}, {"v":"series-64be8551bd0f1","n":"思春社"}, {"v":"series-64eda52c1c3fb","n":"YOYO"}, {"v":"series-6560dc053c99f","n":"映秀传媒"}, {"v":"series-65bcaa9688514","n":"大象传媒"}, {"v":"series-65e5f74e4605c","n":"香蕉视频"}
@@ -158,4 +142,5 @@
   {"n":"时间最长","v":"sort-length/"}
   ]}]
   }
+
 }

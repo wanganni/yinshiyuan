@@ -1,0 +1,81 @@
+{
+    "作者": "飞鱼",
+    "站名": "小鸭看看",
+    "发布页": "https://xiaoyakankan.com",
+    //"发布页-a": "https://www.goto2.cc/block/default/switch",
+    //"原始网址-a":"{{发布页}}",
+   // "域名-a":"{{原始网址-a}}[工具:重定向]",
+    //"域名-b":"{{域名-a}}[替换:\/#ok>>]",
+    "主页url": "https://xiaoyakankan.com/cat/15.html",
+    "首页": "https://xiaoyakankan.com/cat/15.html",
+    "分类url": "https://xiaoyakankan.com/cat/{cateId}-{catePg}.html",
+    "分类二次截取": "p:.m4-meta",
+"分类数组": "p:a",
+"分类标题": "p:a->text",
+"分类ID": "href=\"/cat/&&.html\"",
+   "二次截取": "",
+    "数组": "p:.m4-list .item",
+    "标题": "p:img->alt",
+    "图片": "p:img->data-src",
+    "图片代理aes": "",
+    "图片代理":"",
+    "副标题": "p:.tag1->text",
+    //"链接": "j:stream.urls.480p[替换:480p>>auto]",
+    "链接":"p:a->href",
+    
+  // "起始页": "0",//默认1，一般不填
+//"页码倍率":"60",
+    "直接播放":"0",
+    "影片类型":"p:div[style=\"margin-bottom: 16px;\"]->text",
+"影片年代":"p:div[class=\"video-meta\"] span->text",
+"影片地区":"",
+"影片状态":"",
+"导演": "",
+    "主演": "p:div[class=\"video-meta\"] a->text",
+    "简介": "{{标题}}",
+    //"链接加工":"{{链接}}",
+    //"详情页加工":"{{链接}}",
+    "搜索模式": "1",
+    "搜索url": "{{主页url}}/q/{wd}?category_id=&page={pg}",
+    "过滤词": "",
+    "嗅探词": "",
+    "详情页加工": "",
+    "线路二次截取": "",
+    "线路数组":"{&&}",
+    "线路标题": "飞鱼",
+    "播放二次截取": "var pp=&&</script>",
+    "播放数组": "",
+    "播放标题": "\"&&\"",
+    "播放列表": "[&&]]",
+    "播放链接": "[\"&&\"]],",
+    //"跳转播放链接": "\"videolist\"*\"&&,+/+\"playurl\"*\"&&\"",
+    "超时": "220",
+    "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Origin${{主页url}}#Referer${{主页url}}",
+    "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Cookie$空#Origin${{主页url}}#Referer${{主页url}}",
+    
+     
+    "二级目录": "博主|folder-0-0-H",
+    "二级ID": "",
+    "特殊分类链接": "博主${{主页url}}/{cateId}/",
+    //"类型": "",
+  
+    //"类型值":"*", 
+    //"分类url": "https://av.com/json/category/ctg_{cateId}_page_{catePg}.json?times={时间秒戳};;cm0cF",
+    "分类": "",
+    "分类值":"",
+    "筛选":{
+
+"videos":[
+  {"key":"by",
+  "name":"影片",
+  "value":[
+{"v":"newest","n":"最新"},
+{"v":"promoted","n":"推荐"},
+{"v":"hottest","n":"热门🔥"},
+{"v":"mostlike","n":"最多点赞👍"}]}
+]
+
+
+}
+
+}

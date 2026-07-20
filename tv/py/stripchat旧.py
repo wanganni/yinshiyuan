@@ -92,7 +92,7 @@ class Spider(Spider):
                 "vod_id": str(vod['username']).strip(),
                 "vod_name": f"{self.country_code_to_flag(str(vod['country']).strip())}{str(vod['username']).strip()}",
                 "vod_pic": f"https://img.doppiocdn.net/thumbs/{vod['snapshotTimestamp']}/{vod['id']}",
-                "vod_remarks": "" if vod.get('status') == "public" else "🎫"
+                "vod_remarks": "" if vod.get('status') == "public" else "🎫在购票中表演"
             }
             for vod in rsp.get('models', [])
         ]

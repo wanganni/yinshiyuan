@@ -2,16 +2,16 @@
     "作者": "飞鱼",
     "站名": "xvideos",
     "发布页": "",
-    "主页url": "https://www.xvideos.com/",
+    "主页url": "https://www.xvideos.com",
     "首页": "",
     "数组二次截取": "",
     
     //以下类型--是标记--
-    "数组": "p:div[class=\"mozaique cust-nb-cols\"] .thumb-block||频道--p:div[class=\"mozaique cust-nb-cols\"] .thumb-block",
-    "标题": "p:.title->text||频道--p:.profile-name->text",
+    "数组": "p:.mozaique .thumb-block||频道--p:div[class=\"mozaique cust-nb-cols\"] .thumb-block||标签--p:div[id=\"page\"] li",
+    "标题": "p:.title->text||频道--p:.profile-name->text||标签--p:a->text",
     "图片": "p:img->data-src||频道--src=\"&&\"",
-    "副标题": "p:.video-hd-mark->text+☞+p:.duration->text",
-    "链接": "p:a->href||频道--p:a->href",
+    "副标题": "p:.video-hd-mark->text+☞+p:.duration->text||频道--p:a->href||标签--p:span->text",
+    "链接": "p:a->href||频道--p:a->href||标签--p:a->href+/{catePg}",
     "简介": "inlineFree\">&&</span>",
     //"线路二次截取": "mediaDefinitions\":[&&]",
    // "线路数组": "crossorigin=\"anonymous\">&&</script>",
@@ -23,10 +23,10 @@
     //"播放列表": "",
     //"播放链接": "j:videoUrl",
     /////
-    "播放数组": "",
-    "播放标题": "setVideoTitle(\'&&\');",
-    "播放列表": "{&&}",
-    "播放链接": "setVideoHLS(\'&&\');",
+    "播放数组": "html5player.setVideoHLS&&;",
+    "播放标题": "高清",
+    "播放列表": "(&&)",
+    "播放链接": "\'&&\'",
     "直接播放":"0",
     "超时":"120",
     //"跳转播放链接": "<source*src=\"&&\"",
@@ -45,15 +45,15 @@
     "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Origin$https://www.xvideos.com/#Referer$https://www.xvideos.com/",
     "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Cookie$c-#Origin$https://www.xvideos.com/#Referer$https://www.xvideos.com/",
     "图片请求头": "User-Agent$Mozilla/5.0 (Linux; Android 16; PJV110 Build/BP2A.250605.015) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/138.0.7204.179 Mobile Safari/537.36#Cookie$c-#Origin$https://cn.pornhub.com/#Referer$https://www.xvideos.com/",
-    "二级目录": "频道,片单|folder-0-0-H",
+    "二级目录": "频道,片单,标签|folder-0-0-H",
     //二级目录是指定那些分类使用目录模式
     "二级ID": "明星二级$https://cn.pornhub.com/model/&&/videos",
     //二级id分类二级//在得到的链接中截取，如果不填二级ID，将直接使用链接，在特殊分类中加上此分类的二级，如xx二级${cateId}，就是直接将一级链接交给二级使用。
-    "特殊分类链接": "频道二级$https://www.xvideos.com/{cateId}/{catePg}#片单$https://cn.pornhub.com/{cateId}?page={catePg}",
+    "特殊分类链接": "频道$https://www.xvideos.com/{cateId}/{catePg}#片单$https://cn.pornhub.com/{cateId}?page={catePg}#标签$https://www.xvideos.com/{cateId}",
     //特殊分类链接是指定分类使用此链接作为分类url
     //"排序": "空||空||空||空||空||空||空||空||最多视频$total_videos#排行$avg_top#字母顺序$title#热度$avg_popular||最多视频$total_videos#排行$avg_top#字母顺序$title#热度$avg_popular",
     "分类url": "https://www.xvideos.com/{cateId}/{catePg}",
-    "分类": "最新$new#频道$channels-index",
+    "分类": "最新$new#频道$channels-index#标签$tags",
   
       "筛选":{
 "video":[

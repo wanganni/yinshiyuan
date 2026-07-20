@@ -1,0 +1,81 @@
+{
+    "作者": "飞鱼",
+    "站名": "hubff",
+    "发布页": "https://hubff.com/",
+    //"发布页-a": "https://www.goto2.cc/block/default/switch",
+    //"原始网址-a":"{{发布页}}",
+   // "域名-a":"{{原始网址-a}}[工具:重定向]",
+    //"域名-b":"{{域名-a}}[替换:\/#ok>>]",
+    "主页url": "{{发布页}}",
+    "首页": "{{主页url}}",
+    "分类url": "{cateId}&page={catePg}",
+    "分类二次截取": "p:.dropdown-content",
+"分类数组": "p:a",
+"分类标题": "p:a->text",
+"分类ID": "p:a->href",
+   "二次截取": "",
+    "数组": "p:.list_box ul[不含:廣告投放]",
+    "标题": "p:.title->text",
+    "图片": "p:img->img",
+    "图片代理aes": "",
+    "图片代理":"",
+    "副标题": "空",
+    //"链接": "j:stream.urls.480p[替换:480p>>auto]",
+    "链接":"p:a->href",
+    "链接加工":"[工具:源码#<iframe src=\"截取\"]",
+    
+  // "起始页": "0",//默认1，一般不填
+//"页码倍率":"60",
+    "直接播放":"0",
+    "影片类型":"",
+"影片年代":"",
+"影片地区":"",
+"影片状态":"",
+"导演": "",
+    "主演": "",
+    "简介": "{{链接}}",
+    //"链接加工":"{{链接}}",
+    //"详情页加工":"{{链接}}",
+    "搜索模式": "1",
+    "搜索url": "{{主页url}}tag.php?tags={wd}&page={pg}",
+    "过滤词": "",
+    "嗅探词": "",
+    "详情页加工": "",
+    "线路二次截取": "",
+    "线路标题": "飞鱼",
+    "播放二次截取": "",
+    "播放数组": "Aliplayer(&&});",
+    "播放标题": "高清",
+    "播放列表": "{&&}",
+    "播放链接": "source: \"&&\"",
+    //"跳转播放链接": "\"videolist\"*\"&&,+/+\"playurl\"*\"&&\"",
+    "超时": "220",
+    "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Origin${{主页url}}#Referer${{主页url}}",
+    "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36",
+    
+     
+    "二级目录": "博主|folder-0-0-H",
+    "二级ID": "",
+    "特殊分类链接": "首頁${{主页url}}{cateId}/",
+    //"类型": "",
+  
+    //"类型值":"*", 
+    //"分类url": "https://av.com/json/category/ctg_{cateId}_page_{catePg}.json?times={时间秒戳};;cm0cF",
+    "分类": "",
+    "分类值":"",
+    "筛选":{
+
+"videos":[
+  {"key":"by",
+  "name":"影片",
+  "value":[
+{"v":"newest","n":"最新"},
+{"v":"promoted","n":"推荐"},
+{"v":"hottest","n":"热门🔥"},
+{"v":"mostlike","n":"最多点赞👍"}]}
+]
+
+
+}
+
+}

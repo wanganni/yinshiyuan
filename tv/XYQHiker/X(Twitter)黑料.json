@@ -18,7 +18,7 @@
 "首页片单链接加前缀": "",
 "首页片单链接加后缀": "",
 "分类起始页码": "1",
-"分类链接": "https://truvaze.com/api/media?range={cateId}&isAnimeOnly={class}&page={catePg}&per_page=50&category=&ids=&sort={by}",
+"分类链接": "https://pektino.com/api/media?range={cateId}&isAnimeOnly={class}&page={catePg}&per_page=50&category=&ids=&sort={by}",
 "分类名称": "每日&每周&每月&所有时间",
 "分类名称替换词": "&weekly&monthly&all",
 
