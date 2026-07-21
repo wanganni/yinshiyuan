@@ -228,11 +228,11 @@ class Spider(Spider):
         try:
             rsp = self.fetch(url)
             root = etree.HTML(rsp.text)
-            videos = root.xpath('//div[contains(@class,"oneVideo")]')
+            videos = root.xpath('//div[contains(@class,"col oneVideo")]')
             vodList = []
             for video in videos:
                 try:
-                    name_elements = video.xpath('.//h3/text()')
+                    name_elements = video.xpath('.//h5/text()')
                     if not name_elements:
                         continue
                     name = name_elements[0].strip()

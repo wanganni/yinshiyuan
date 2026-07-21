@@ -11,8 +11,9 @@
     "数组": "p:div[class*=\"video-grid\"] a||博主--p:div[class*=\"artist-card-grid\"] a",
     "标题": "p:.title->text||博主--p:.name->text",
     "图片": "p:img->src",
+    //"浏览器":"{{图片}}",
     "图片代理aes": "",
-    "图片代理":"1",
+    "图片代理":"",
     "副标题": "p:.duration->text||博主--stat\">&&部作品+部作品,+粉丝+全网粉丝&&万+万",
     //"链接": "j:stream.urls.480p[替换:480p>>auto]",
     "链接":"p:a->href",
@@ -45,7 +46,7 @@
     "超时": "220",
     "请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Cookie$c-#Origin${{主页url}}#Referer${{主页url}}",
     "播放请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Origin${{主页url}}#Referer${{主页url}}",
-    
+       "图片请求头": "User-Agent$Mozilla/5.0 (Linux; Android 15; 2407FRK8EC Build/AP3A.240617.008; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/128.0.6613.127 Mobile Safari/537.36#Referer${{主页url}}",
      
     "二级目录": "博主|folder-0-0-H",
     "二级ID": "",

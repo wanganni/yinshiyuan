@@ -248,7 +248,7 @@ class Spider(Spider):
 
     def _search_via_duckduckgo(self, keyword, page=1):
         try:
-            query = f"site:0601.9p47p.com OR site:9p47p.com OR site:9p9.xyz {keyword}"
+            query = f"site:0708.fs708.com OR site:9p47p.com OR site:91porn.com {keyword}"
             url = f"https://duckduckgo.com/html/?q={urllib.parse.quote(query)}&s={(page-1)*30}"
             time.sleep(random.uniform(0.5, 1.5))
             resp = requests.get(url, headers=self.headers, timeout=10)

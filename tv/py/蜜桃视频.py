@@ -24,11 +24,11 @@ import concurrent.futures
 TIMEOUT = 10
 SITES_REMOTE_URL = ""
 SITES = [
-    {'name': 'nht966', 'host': 'https://www.nht966hht.vip:9527'},
+    {'name': 'nht966', 'host': 'https://www.nhtv523phht.vip:9527'},
     {'name': 'httre666', 'host': 'https://www.newhttestre666.cc'},
 ]
 BACKUP_SITES = [
-    {'name': 'backup1', 'host': 'https://www.mitao555.com'},
+    {'name': 'backup1', 'host': 'https://www.nhtv523phht.vip:9527'},
     {'name': 'backup2', 'host': 'https://www.mitao666.cc'},
 ]
 SIGN_KEY  = 'opum3_Loily$SV^6H'

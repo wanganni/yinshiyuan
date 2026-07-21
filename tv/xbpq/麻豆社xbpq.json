@@ -18,6 +18,8 @@
     "副标题": "p:*[itemprop*=datePublished]->text[替换:•>>]",
     "链接": "p:a->href",
     "链接加工":"[工具:源码#<iframe height=\"720\" width=\"1280\" src=\"截取\"]",
+       "搜索url": "https://madou.club/?s={wd}",
+    "搜索模式": "1",
     "简介": "",
     "线路数组": "",
     "线路标题": "飞鱼",

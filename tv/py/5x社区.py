@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#永久地址https://5xsq.com
 import sys
 import requests
 import re
@@ -8,7 +9,7 @@ from base.spider import Spider
 class Spider(Spider):
 
     def init(self, extend=""):
-        self.host = "https://hwj1ens1kgh5qus.rtuiio990.88cyooi.top"
+        self.host = "https://e0h323eg9ajenow.cdnsw1e.66bbuy.xyz"
         self.header = {
             'User-Agent': 'Mozilla/5.0 (Linux; Android 15; RMX3770 Build/AP3A.240617.008) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.58 Mobile Safari/537.36'
         }

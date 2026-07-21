@@ -65,7 +65,7 @@ class Spider(Spider):
     def destroy(self):
         pass
 
-    host = 'https://javxx.com'
+    host = 'https://123av.com'
     contr = 'cn'
     conh = f'{host}/{contr}'
 

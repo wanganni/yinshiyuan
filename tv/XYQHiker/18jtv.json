@@ -1,5 +1,6 @@
 {
 //最新地址发布页https://18fby.com/?18j
+//发布页https://18fby.life/18j/
 //永久地址18j.tv
 "规则名": "18jtv-XYQHiker",
 "规则作者": "飞鱼",
@@ -7,7 +8,7 @@
 "网页编码格式": "UTF-8",
 "图片是否需要代理": "0",
 "是否开启获取首页数据": "1",
-"首页推荐链接": "https://18mf.life/label/hot/by/time/nid/1/page/1/sid/1/",
+"首页推荐链接": "https://18qa.life/cn/label/hot/by/time/nid/1/page/1/sid/1/",
 "首页列表数组规则": ".main&&.main_list",
 "首页片单列表数组规则": "li",
 "首页片单是否Jsoup写法": "1",
@@ -25,7 +26,7 @@
 //{lang}语言
 //{catePg}翻页序列号
 //{year}日期
-"分类链接": "https://18mf.life/show/{cateId}/by/{by}/nid/1/page/{catePg}/sid/1/",
+"分类链接": "https://18qa.life/cn/show/{cateId}/by/{by}/nid/1/page/{catePg}/sid/1/",
 "分类名称": "国产&日韩&欧美&伦理&动漫&",
 "分类名称替换词": "1&2&3&4&16&",
 "分类截取模式": "1",
@@ -35,10 +36,10 @@
 "分类片单链接": "a&&href",
 "分类片单图片": ".vodlist_img&&img&&data-original",
 "分类片单副标题": "'📆'+span&&Text",
-"分类片单链接加前缀": "https://18mf.life",
+"分类片单链接加前缀": "https://18qa.life/cn",
 "分类片单链接加后缀": "",
 "搜索请求头参数": "User-Agent$手机",
-"搜索链接": "https://18mf.life/index.php/ajax/suggest?mid=1&wd={wd}",
+"搜索链接": "https://18qa.life/cn/index.php/ajax/suggest?mid=1&wd={wd}",
 "POST请求数据": "",
 "搜索截取模式": "0",
 "搜索列表数组规则": "list",
@@ -47,7 +48,7 @@
 "搜索片单标题": "name",
 "搜索片单链接": "id",
 "搜索片单副标题": "",
-"搜索片单链接加前缀": "https://18mf.life/v/",
+"搜索片单链接加前缀": "https://18qa.life/cn/v/",
 "搜索片单链接加后缀": "/",
 "链接是否直接播放": "1",
 "直接播放链接加前缀": "",

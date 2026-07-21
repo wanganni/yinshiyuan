@@ -16,7 +16,7 @@
 "首页片单链接加前缀": "",
 "首页片单链接加后缀": "",
 "分类起始页码": "1",
-"分类链接": "https://krx18.com/{cateId}/page/{catePg}/",
+"分类链接": "https://krx18.com/page/{pg}/?s={wd}",
 "分类名称": "全部&英文字幕&韩国&澳大利亚&比利时&加拿大&中国&丹麦&法国&德国&印度尼西亚&印度&意大利&日本&荷兰&菲律宾&波兰&俄罗斯&新加坡&西班牙&瑞士&台湾&泰国&英国&美国",
 "分类名称替换词": "movies&genre/eng-sub&genre/korea&genre/australia&genre/belgium&genre/canada&genre/china&genre/denmark&genre/france&genre/germany&genre/indonesia&genre/india&genre/italy&genre/japan&genre/netherlands&genre/philippines&genre/poland&genre/russia&genre/singapore&genre/spain&genre/switzerland&genre/taiwan&genre/thailand&genre/uk&genre/usa",
 "分类截取模式": "1",

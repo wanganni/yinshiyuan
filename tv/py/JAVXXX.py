@@ -24,7 +24,7 @@ class Spider(Spider):
         pass
 
     # ================= 关键配置 =================
-    host = "https://javxx.com"
+    host = "https://123av.com"
     lang = "tw"
     base = f"{host}/{lang}"
 
